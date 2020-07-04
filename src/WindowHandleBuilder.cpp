@@ -1,6 +1,6 @@
-#include "WindowBuilder.h"
+#include "WindowHandleBuilder.h"
 
-WindowBuilder::WindowBuilder(HINSTANCE hInstance, LPCWSTR className)
+WindowHandleBuilder::WindowHandleBuilder(HINSTANCE hInstance, LPCWSTR className)
 {
 	this->hInstance = hInstance;
 	this->className = className;
@@ -8,19 +8,19 @@ WindowBuilder::WindowBuilder(HINSTANCE hInstance, LPCWSTR className)
     title = L"";
 }
 
-WindowBuilder& WindowBuilder::WithParam(LPVOID lpParam)
+WindowHandleBuilder& WindowHandleBuilder::WithParam(LPVOID lpParam)
 {
     this->lpParam = lpParam;
     return *this;
 }
 
-WindowBuilder& WindowBuilder::WithTitle(LPCWSTR title)
+WindowHandleBuilder& WindowHandleBuilder::WithTitle(LPCWSTR title)
 {
     this->title = title;
     return *this;
 }
 
-HWND WindowBuilder::Build()
+HWND WindowHandleBuilder::Build()
 {
     return CreateWindowEx(
         0,                       // Optional window styles.

@@ -4,6 +4,6 @@
 class MessageLoop
 {
 public:
-	void Run();
+	void Run() const;
 };
 

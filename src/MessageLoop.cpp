@@ -1,6 +1,6 @@
 #include "MessageLoop.h"
 
-void MessageLoop::Run()
+void MessageLoop::Run() const
 {
     MSG msg = { };
     while (GetMessage(&msg, NULL, 0, 0))

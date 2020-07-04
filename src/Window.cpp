@@ -1,16 +1,18 @@
 #include "Window.h"
+#include "PaintDeviceContext.h"
+#include "StockObjects.h"
 
 Window::Window(WindowClass & wc, LPCWSTR title)
 {
     hwnd = wc.CreateBuilder(this).WithTitle(title).Build();
 }
 
-bool Window::IsCreated()
+bool Window::IsCreated() const
 {
     return hwnd != NULL;
 }
 
-bool Window::Show(int nCmdShow)
+bool Window::Show(int nCmdShow) const
 {
     return ::ShowWindow(hwnd, nCmdShow);
 }
@@ -23,14 +25,13 @@ LRESULT Window::Process(UINT uMsg, WPARAM wParam, LPARAM lParam)
             PostQuitMessage(0);
             return 0;
         case WM_PAINT:
-            {
-                PAINTSTRUCT ps;
-                HDC hdc = BeginPaint(hwnd, &ps);
-                FillRect(hdc, &ps.rcPaint, (HBRUSH)(COLOR_WINDOW + 1));
-                EndPaint(hwnd, &ps);
-            }
+            OnPaint(PaintDeviceContext(hwnd));
             return 0;
     }
 
     return DefWindowProc(hwnd, uMsg, wParam, lParam);
+}
+
+void Window::OnPaint(const PaintDeviceContext& dc)
+{
 }
