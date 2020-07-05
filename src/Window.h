@@ -1,18 +1,19 @@
 #pragma once
 #include <windows.h>
-#include "MessageTarget.h"
-#include "WindowClass.h"
-#include "PaintDeviceContext.h"
 
-class Window : MessageTarget
+class Window
 {
 public:
-	Window(WindowClass & wc, LPCWSTR title);
-	bool IsCreated() const;
-	bool Show(int nCmdShow) const;
+	Window(HWND hwnd);
+	HWND GetHandle() const;
+	HINSTANCE GetInstanceHandle() const;
+	void Enable(bool enable);
+	bool IsEnabled();
+	void SetClassCursor(HCURSOR hcursor);
+	void Destroy();
 
-	virtual LRESULT Process(UINT uMsg, WPARAM wParam, LPARAM lParam) override;
-	virtual void OnPaint(const PaintDeviceContext& dc);
+protected:
+	void SetHandle(HWND hwnd);
 
 private:
 	HWND hwnd;

@@ -152,10 +152,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Brush.h" />
+    <ClInclude Include="ButtonWindow.h" />
+    <ClInclude Include="ControlWindow.h" />
+    <ClInclude Include="Cursor.h" />
+    <ClInclude Include="CustomWindow.h" />
     <ClInclude Include="DeviceContext.h" />
     <ClInclude Include="MessageLoop.h" />
     <ClInclude Include="MessageTarget.h" />
     <ClInclude Include="PaintDeviceContext.h" />
+    <ClInclude Include="PredefinedCursors.h" />
     <ClInclude Include="SolidBrush.h" />
     <ClInclude Include="StockObjects.h" />
     <ClInclude Include="Window.h" />
@@ -165,10 +170,15 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Brush.cpp" />
+    <ClCompile Include="ButtonWindow.cpp" />
+    <ClCompile Include="ControlWindow.cpp" />
+    <ClCompile Include="Cursor.cpp" />
+    <ClCompile Include="CustomWindow.cpp" />
     <ClCompile Include="DeviceContext.cpp" />
     <ClCompile Include="MessageLoop.cpp" />
     <ClCompile Include="MessageTarget.cpp" />
     <ClCompile Include="PaintDeviceContext.cpp" />
+    <ClCompile Include="PredefinedCursors.cpp" />
     <ClCompile Include="SolidBrush.cpp" />
     <ClCompile Include="StockObjects.cpp" />
     <ClCompile Include="Window.cpp" />

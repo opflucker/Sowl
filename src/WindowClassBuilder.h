@@ -10,7 +10,7 @@ public:
 	WindowClassBuilder& WithIcon(HICON handle);
 	WindowClassBuilder& WithMenu(LPCWSTR name);
 	WindowClassBuilder& WithStyle(UINT style);
-	WindowClass&& Build();
+	WindowClass Build() const;
 
 private:
 	HINSTANCE hInstance;

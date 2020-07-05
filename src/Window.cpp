@@ -1,37 +1,41 @@
 #include "Window.h"
-#include "PaintDeviceContext.h"
-#include "StockObjects.h"
 
-Window::Window(WindowClass & wc, LPCWSTR title)
+Window::Window(HWND hwnd)
 {
-    hwnd = wc.CreateBuilder(this).WithTitle(title).Build();
+    this->hwnd = hwnd;
 }
 
-bool Window::IsCreated() const
+HWND Window::GetHandle() const
 {
-    return hwnd != NULL;
+    return hwnd;
 }
 
-bool Window::Show(int nCmdShow) const
+HINSTANCE Window::GetInstanceHandle() const
 {
-    return ::ShowWindow(hwnd, nCmdShow);
+    return (HINSTANCE)GetWindowLongPtr(hwnd, GWLP_HINSTANCE);
 }
 
-LRESULT Window::Process(UINT uMsg, WPARAM wParam, LPARAM lParam)
+void Window::SetHandle(HWND hwnd)
 {
-    switch (uMsg)
-    {
-        case WM_DESTROY:
-            PostQuitMessage(0);
-            return 0;
-        case WM_PAINT:
-            OnPaint(PaintDeviceContext(hwnd));
-            return 0;
-    }
-
-    return DefWindowProc(hwnd, uMsg, wParam, lParam);
+    this->hwnd = hwnd;
 }
 
-void Window::OnPaint(const PaintDeviceContext& dc)
+void Window::Enable(bool enable)
 {
+    EnableWindow(hwnd, enable);
+}
+
+bool Window::IsEnabled()
+{
+    return IsWindowEnabled(hwnd);
+}
+
+void Window::SetClassCursor(HCURSOR hcursor)
+{
+    SetClassLong(hwnd, GCL_HCURSOR, (LONG)hcursor);
+}
+
+void Window::Destroy()
+{
+    DestroyWindow(hwnd);
 }

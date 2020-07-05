@@ -1,4 +1,5 @@
 #include "WindowClass.h"
+#include "MessageTarget.h"
 #include <wtypes.h>
 
 WindowClass::WindowClass(HINSTANCE hInstance, LPCWSTR className, HBRUSH hbrush, HCURSOR hcursor, HICON hicon, LPCWSTR menuName, UINT style)
@@ -18,9 +19,16 @@ WindowClass::WindowClass(HINSTANCE hInstance, LPCWSTR className, HBRUSH hbrush, 
     wcAtom = RegisterClass(&wc);
 }
 
-WindowHandleBuilder WindowClass::CreateBuilder(MessageTarget* pMessageTarget) const
+WindowClass::WindowClass(WindowClass&& other) noexcept
 {
-    return WindowHandleBuilder(wc.hInstance, wc.lpszClassName).WithParam(pMessageTarget);
+    wc = other.wc;
+    wcAtom = other.wcAtom;
+    other.wcAtom = NULL;
+}
+
+WindowHandleBuilder WindowClass::CreateHandleBuilder() const
+{
+    return WindowHandleBuilder(wc.hInstance, wc.lpszClassName);
 }
 
 LRESULT CALLBACK WindowClass::WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
