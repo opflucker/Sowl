@@ -41,7 +41,7 @@ WindowClassBuilder& WindowClassBuilder::WithStyle(UINT style)
     return *this;
 }
 
-WindowClass&& WindowClassBuilder::Build()
+WindowClass WindowClassBuilder::Build() const
 {
     return WindowClass(hInstance, className, hbrush, hcursor, hicon, menuName, style);
 }

@@ -5,13 +5,25 @@ class WindowHandleBuilder
 {
 public:
 	WindowHandleBuilder(HINSTANCE hInstance, LPCWSTR className);
-	WindowHandleBuilder& WithParam(LPVOID lpParam);
 	WindowHandleBuilder& WithTitle(LPCWSTR title);
+	WindowHandleBuilder& WithStyle(DWORD style);
+	WindowHandleBuilder& WithAddStyle(DWORD style);
+	WindowHandleBuilder& WithRect(int x, int y, int width, int height);
+	WindowHandleBuilder& WithParent(HWND hParentWindow);
+	WindowHandleBuilder& WithMenu(HMENU hMenu);
+	WindowHandleBuilder& WithParam(LPVOID lpParam);
 	HWND Build();
 
 private:
-	HINSTANCE hInstance;
 	LPCWSTR className;
-	LPVOID lpParam;
 	LPCWSTR title;
+	DWORD style;
+	int x;
+	int y;
+	int width;
+	int height;
+	HWND hParentWindow;
+	HMENU hMenu;
+	HINSTANCE hInstance;
+	LPVOID lpParam;
 };

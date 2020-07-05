@@ -1,7 +1,6 @@
 #pragma once
 #include <windows.h>
 #include "WindowHandleBuilder.h"
-#include "MessageTarget.h"
 
 class WindowClass
 {
@@ -12,11 +11,13 @@ public:
 		HICON hicon = NULL,
 		LPCWSTR menuName = NULL,
 		UINT style = 0);
-	WindowHandleBuilder CreateBuilder(MessageTarget * pMessageTarget) const;
+
+	WindowClass(WindowClass&& other) noexcept;
+
+	WindowHandleBuilder CreateHandleBuilder() const;
 
 private:
 	static LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 	WNDCLASS wc;
 	ATOM wcAtom;
 };
-
