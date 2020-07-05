@@ -5,6 +5,11 @@ Window::Window(HWND hwnd)
     this->hwnd = hwnd;
 }
 
+Window::~Window()
+{
+    Destroy();
+}
+
 HWND Window::GetHandle() const
 {
     return hwnd;
@@ -37,5 +42,9 @@ void Window::SetClassCursor(HCURSOR hcursor)
 
 void Window::Destroy()
 {
-    DestroyWindow(hwnd);
+    if (IsWindow(hwnd))
+    {
+        DestroyWindow(hwnd);
+        hwnd = NULL;
+    }
 }

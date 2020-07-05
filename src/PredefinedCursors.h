@@ -4,5 +4,6 @@
 class PredefinedCursors
 {
 public:
-	static HCURSOR GetHandle(LPWSTR id);
+	static HCURSOR ArrowHandle();
+	static HCURSOR CrossHandle();
 };

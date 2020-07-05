@@ -5,6 +5,7 @@ class Window
 {
 public:
 	Window(HWND hwnd);
+	~Window();
 	HWND GetHandle() const;
 	HINSTANCE GetInstanceHandle() const;
 	void Enable(bool enable);

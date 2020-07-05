@@ -5,7 +5,7 @@
 class ControlWindow : public Window
 {
 public:
-	static WindowHandleBuilder CreateHandleBuilder(Window parentWindow, LPCWSTR className, WORD id);
+	static WindowHandleBuilder CreateHandleBuilder(const Window& parentWindow, LPCWSTR className, WORD id);
 	ControlWindow(WindowHandleBuilder builder);
 	int GetId() const;
 };

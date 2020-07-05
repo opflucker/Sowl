@@ -157,6 +157,7 @@
     <ClInclude Include="Cursor.h" />
     <ClInclude Include="CustomWindow.h" />
     <ClInclude Include="DeviceContext.h" />
+    <ClInclude Include="DialogWindow.h" />
     <ClInclude Include="MessageLoop.h" />
     <ClInclude Include="MessageTarget.h" />
     <ClInclude Include="PaintDeviceContext.h" />
@@ -175,6 +176,7 @@
     <ClCompile Include="Cursor.cpp" />
     <ClCompile Include="CustomWindow.cpp" />
     <ClCompile Include="DeviceContext.cpp" />
+    <ClCompile Include="DialogWindow.cpp" />
     <ClCompile Include="MessageLoop.cpp" />
     <ClCompile Include="MessageTarget.cpp" />
     <ClCompile Include="PaintDeviceContext.cpp" />

@@ -1,6 +1,11 @@
 #include "PredefinedCursors.h"
 
-HCURSOR PredefinedCursors::GetHandle(LPWSTR id)
+HCURSOR PredefinedCursors::ArrowHandle()
 {
-	return LoadCursor(NULL, id);
+	return LoadCursor(NULL, IDC_ARROW);
+}
+
+HCURSOR PredefinedCursors::CrossHandle()
+{
+	return LoadCursor(NULL, IDC_CROSS);
 }

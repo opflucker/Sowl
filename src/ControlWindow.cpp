@@ -1,6 +1,6 @@
 #include "ControlWindow.h"
 
-WindowHandleBuilder ControlWindow::CreateHandleBuilder(Window parentWindow, LPCWSTR className, WORD id)
+WindowHandleBuilder ControlWindow::CreateHandleBuilder(const Window& parentWindow, LPCWSTR className, WORD id)
 {
     return WindowHandleBuilder(parentWindow.GetInstanceHandle(), className)
         .WithParent(parentWindow.GetHandle())
