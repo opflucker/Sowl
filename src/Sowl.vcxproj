@@ -151,17 +151,29 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Brush.h" />
+    <ClInclude Include="DeviceContext.h" />
     <ClInclude Include="MessageLoop.h" />
     <ClInclude Include="MessageTarget.h" />
+    <ClInclude Include="PaintDeviceContext.h" />
+    <ClInclude Include="SolidBrush.h" />
+    <ClInclude Include="StockObjects.h" />
     <ClInclude Include="Window.h" />
-    <ClInclude Include="WindowBuilder.h" />
+    <ClInclude Include="WindowClassBuilder.h" />
+    <ClInclude Include="WindowHandleBuilder.h" />
     <ClInclude Include="WindowClass.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Brush.cpp" />
+    <ClCompile Include="DeviceContext.cpp" />
     <ClCompile Include="MessageLoop.cpp" />
     <ClCompile Include="MessageTarget.cpp" />
+    <ClCompile Include="PaintDeviceContext.cpp" />
+    <ClCompile Include="SolidBrush.cpp" />
+    <ClCompile Include="StockObjects.cpp" />
     <ClCompile Include="Window.cpp" />
-    <ClCompile Include="WindowBuilder.cpp" />
+    <ClCompile Include="WindowClassBuilder.cpp" />
+    <ClCompile Include="WindowHandleBuilder.cpp" />
     <ClCompile Include="WindowClass.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
