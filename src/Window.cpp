@@ -1,8 +1,17 @@
 #include "Window.h"
 
-Window::Window(HWND hwnd)
+Window::Window(HWND hwnd, bool ensureDestroy)
 {
     this->hwnd = hwnd;
+    this->ensureDestroy = ensureDestroy;
+}
+
+Window::~Window()
+{
+    if (ensureDestroy)
+    {
+        Destroy();
+    }
 }
 
 HWND Window::GetHandle() const
@@ -37,5 +46,9 @@ void Window::SetClassCursor(HCURSOR hcursor)
 
 void Window::Destroy()
 {
-    DestroyWindow(hwnd);
+    if (IsWindow(hwnd))
+    {
+        DestroyWindow(hwnd);
+        hwnd = NULL;
+    }
 }

@@ -11,6 +11,36 @@
 #include "SolidBrush.h"
 #include "PredefinedCursors.h"
 #include "MessageLoop.h"
+#include "DialogWindow.h"
+#include "resource.h"
+
+class MyDialog : public DialogWindow
+{
+public:
+    MyDialog(const Window& parentWindow)
+        : DialogWindow(parentWindow, IDD_DIALOG1)
+    {
+    }
+
+    virtual BOOL OnInitDialog(HWND hFocusWindow) override
+    {
+        okButton.Attach(*this, IDOK);
+        return TRUE;
+    }
+
+    virtual BOOL OnCommand(int notificationCode, int senderId, HWND controlHandle)
+    {
+        if (senderId == okButton.GetId())
+        {
+            okButton.Enable(false);
+            return true;
+        }
+        return false;
+    }
+
+private:
+    ButtonWindow okButton;
+};
 
 class MyWindow : public CustomWindow
 {
@@ -33,13 +63,14 @@ public:
     {
         if (senderId == helloButton.GetId())
         {
-            MessageBox(GetHandle(), L"Hello", L"Information", MB_OK | MB_ICONEXCLAMATION);
+            MyDialog dlg(*this);
+            dlg.ShowModal();
             return true;
         }
         if (senderId == toggleButton.GetId())
         {
             helloButton.Enable(!helloButton.IsEnabled());
-            helloButton.SetClassCursor(PredefinedCursors::GetHandle(IDC_CROSS));
+            helloButton.SetClassCursor(PredefinedCursors::CrossHandle());
             return true;
         }
         if (senderId == closeButton.GetId())
@@ -60,7 +91,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE, PWSTR pCmdLine, int nCmdShow
 {
     WindowClass wc = WindowClassBuilder(hInstance, L"My Window Class")
         .WithBackgroundBrush(StockObjects::LightGrayBrushHandle())
-        .WithCursor(PredefinedCursors::GetHandle(IDC_ARROW))
+        .WithCursor(PredefinedCursors::ArrowHandle())
         .Build();
 
     MyWindow window(wc);

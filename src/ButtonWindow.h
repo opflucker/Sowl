@@ -4,6 +4,7 @@
 class ButtonWindow : public ControlWindow
 {
 public:
-	static WindowHandleBuilder CreateHandleBuilder(Window parentWindow, WORD id);
+	static WindowHandleBuilder CreateHandleBuilder(const Window& parentWindow, WORD id);
 	ButtonWindow(WindowHandleBuilder builder);
+	ButtonWindow();
 };
