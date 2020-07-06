@@ -4,7 +4,7 @@
 class Window
 {
 public:
-	Window(HWND hwnd);
+	Window(HWND hwnd, bool ensureDestroy);
 	~Window();
 	HWND GetHandle() const;
 	HINSTANCE GetInstanceHandle() const;
@@ -18,4 +18,5 @@ protected:
 
 private:
 	HWND hwnd;
+	bool ensureDestroy;
 };

@@ -1,13 +1,17 @@
 #include "Window.h"
 
-Window::Window(HWND hwnd)
+Window::Window(HWND hwnd, bool ensureDestroy)
 {
     this->hwnd = hwnd;
+    this->ensureDestroy = ensureDestroy;
 }
 
 Window::~Window()
 {
-    Destroy();
+    if (ensureDestroy)
+    {
+        Destroy();
+    }
 }
 
 HWND Window::GetHandle() const

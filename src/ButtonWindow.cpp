@@ -10,3 +10,8 @@ ButtonWindow::ButtonWindow(WindowHandleBuilder builder)
     : ControlWindow(builder)
 {
 }
+
+ButtonWindow::ButtonWindow()
+    : ControlWindow()
+{
+}

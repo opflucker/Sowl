@@ -1,7 +1,7 @@
 #include "DialogWindow.h"
 
 DialogWindow::DialogWindow(const Window& parentWindow, int resourceId)
-    : Window(NULL)
+    : Window(NULL, false)
 {
     hInstance = parentWindow.GetInstanceHandle();
     templateName = MAKEINTRESOURCE(resourceId);

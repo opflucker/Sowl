@@ -14,6 +14,34 @@
 #include "DialogWindow.h"
 #include "resource.h"
 
+class MyDialog : public DialogWindow
+{
+public:
+    MyDialog(const Window& parentWindow)
+        : DialogWindow(parentWindow, IDD_DIALOG1)
+    {
+    }
+
+    virtual BOOL OnInitDialog(HWND hFocusWindow) override
+    {
+        okButton.Attach(*this, IDOK);
+        return TRUE;
+    }
+
+    virtual BOOL OnCommand(int notificationCode, int senderId, HWND controlHandle)
+    {
+        if (senderId == okButton.GetId())
+        {
+            okButton.Enable(false);
+            return true;
+        }
+        return false;
+    }
+
+private:
+    ButtonWindow okButton;
+};
+
 class MyWindow : public CustomWindow
 {
 public:
@@ -35,7 +63,7 @@ public:
     {
         if (senderId == helloButton.GetId())
         {
-            DialogWindow dlg(*this, IDD_DIALOG1);
+            MyDialog dlg(*this);
             dlg.ShowModal();
             return true;
         }

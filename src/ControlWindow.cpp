@@ -9,9 +9,19 @@ WindowHandleBuilder ControlWindow::CreateHandleBuilder(const Window& parentWindo
 }
 
 ControlWindow::ControlWindow(WindowHandleBuilder builder)
-	: Window(builder.Build())
+    : Window(builder.Build(), true)
 {
     // TODO: Assert "id" is in [8, 0xDFFF]
+}
+
+ControlWindow::ControlWindow()
+    : Window(NULL, false)
+{
+}
+
+void ControlWindow::Attach(const Window& parentWindow, WORD id)
+{
+    SetHandle(GetDlgItem(parentWindow.GetHandle(), id));
 }
 
 int ControlWindow::GetId() const

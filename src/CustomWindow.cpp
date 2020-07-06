@@ -1,7 +1,7 @@
 #include "CustomWindow.h"
 
 CustomWindow::CustomWindow(WindowHandleBuilder builder)
-    : Window(NULL)
+    : Window(NULL, true)
 {
     // Can not be done when calling base class constructor because "this" is invalid there
     SetHandle(builder.WithParam(this).Build());
