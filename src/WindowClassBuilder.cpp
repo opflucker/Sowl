@@ -1,47 +1,50 @@
 #include "WindowClassBuilder.h"
 
-WindowClassBuilder::WindowClassBuilder(HINSTANCE hInstance, LPCWSTR className)
+WindowClassBuilder::WindowClassBuilder(HINSTANCE hInstance, LPCWSTR className, WNDPROC wndProc)
 {
-    this->hInstance = hInstance;
-    this->className = className;
-    hbrush = NULL;
-    hcursor = NULL;
-    hicon = NULL;
-    menuName = NULL;
-    style = 0;
+    wc.cbClsExtra = 0;
+    wc.cbWndExtra = 0;
+    wc.hbrBackground = NULL;
+    wc.hCursor = NULL;
+    wc.hIcon = NULL;
+    wc.lpszClassName = className;
+    wc.lpszMenuName = NULL;
+    wc.style = 0;
+    wc.hInstance = hInstance;
+    wc.lpfnWndProc = wndProc;
 }
 
 WindowClassBuilder& WindowClassBuilder::WithBackgroundBrush(HBRUSH handle)
 {
-    hbrush = handle;
+    wc.hbrBackground = handle;
     return *this;
 }
 
 WindowClassBuilder& WindowClassBuilder::WithCursor(HCURSOR handle)
 {
-    hcursor = handle;
+    wc.hCursor = handle;
     return *this;
 }
 
 WindowClassBuilder& WindowClassBuilder::WithIcon(HICON handle)
 {
-    hicon = handle;
+    wc.hCursor = handle;
     return *this;
 }
 
 WindowClassBuilder& WindowClassBuilder::WithMenu(LPCWSTR name)
 {
-    menuName = name;
+    wc.lpszMenuName = name;
     return *this;
 }
 
 WindowClassBuilder& WindowClassBuilder::WithStyle(UINT style)
 {
-    this->style = style;
+    wc.style = style;
     return *this;
 }
 
-WindowClass WindowClassBuilder::Build() const
+const WNDCLASS& WindowClassBuilder::Result() const
 {
-    return WindowClass(hInstance, className, hbrush, hcursor, hicon, menuName, style);
+    return wc;
 }
