@@ -13,58 +13,88 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Graphics">
+      <UniqueIdentifier>{ecb1f19a-efc3-404a-b83b-f540c748878f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Windows">
+      <UniqueIdentifier>{b30b5351-c2af-460c-b273-0a6e8954c8a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Windows\Customs">
+      <UniqueIdentifier>{1d58acf4-da18-4479-84bf-5b35972e1da7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Windows\Controls">
+      <UniqueIdentifier>{627acd89-4792-4b77-996b-8e736bf29a6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Windows\Dialogs">
+      <UniqueIdentifier>{d166254a-5b67-4614-8508-c62c96baa279}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Graphics">
+      <UniqueIdentifier>{fb6c113a-56ef-4f47-bc63-92ee0c5da65e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Windows">
+      <UniqueIdentifier>{1f891540-0794-4bb0-a621-21a929cf494c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Windows\Customs">
+      <UniqueIdentifier>{fbff14c2-fdc6-464f-8f09-77a12b24577b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Windows\Controls">
+      <UniqueIdentifier>{b775076b-6dca-48cf-98ee-7ca2ce9d5d44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Windows\Dialogs">
+      <UniqueIdentifier>{98238a02-57be-4fc9-95e4-12760442d824}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="MessageLoop.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Window.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="DeviceContext.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="PaintDeviceContext.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="StockObjects.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="WindowHandleBuilder.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Brush.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SolidBrush.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ButtonWindow.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Cursor.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ControlWindow.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CustomWindow.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="PredefinedCursors.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="DialogWindow.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CustomMessageProcessor.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="WindowClassRegistered.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Windows</Filter>
     </ClInclude>
     <ClInclude Include="WindowClassBuilder.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="WindowClassRegistered.h">
+      <Filter>Header Files\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="WindowHandleBuilder.h">
+      <Filter>Header Files\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="MessageLoop.h">
+      <Filter>Header Files\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="Brush.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Cursor.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="SolidBrush.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="StockObjects.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="PredefinedCursors.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="DeviceContext.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="PaintDeviceContext.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="ButtonWindow.h">
+      <Filter>Header Files\Windows\Controls</Filter>
+    </ClInclude>
+    <ClInclude Include="ControlWindow.h">
+      <Filter>Header Files\Windows\Controls</Filter>
+    </ClInclude>
+    <ClInclude Include="DialogWindow.h">
+      <Filter>Header Files\Windows\Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="CustomMessageProcessor.h">
+      <Filter>Header Files\Windows\Customs</Filter>
+    </ClInclude>
+    <ClInclude Include="CustomWindow.h">
+      <Filter>Header Files\Windows\Customs</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -74,43 +104,7 @@
     <ClCompile Include="Window.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DeviceContext.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="PaintDeviceContext.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="StockObjects.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="WindowHandleBuilder.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Brush.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="SolidBrush.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ButtonWindow.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Cursor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ControlWindow.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CustomWindow.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="PredefinedCursors.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="DialogWindow.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CustomMessageProcessor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="WindowClassRegistered.cpp">
@@ -118,6 +112,42 @@
     </ClCompile>
     <ClCompile Include="WindowClassBuilder.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Brush.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Cursor.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="DeviceContext.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="PaintDeviceContext.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="PredefinedCursors.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="SolidBrush.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="StockObjects.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="CustomMessageProcessor.cpp">
+      <Filter>Source Files\Windows\Customs</Filter>
+    </ClCompile>
+    <ClCompile Include="CustomWindow.cpp">
+      <Filter>Source Files\Windows\Customs</Filter>
+    </ClCompile>
+    <ClCompile Include="ButtonWindow.cpp">
+      <Filter>Source Files\Windows\Controls</Filter>
+    </ClCompile>
+    <ClCompile Include="ControlWindow.cpp">
+      <Filter>Source Files\Windows\Controls</Filter>
+    </ClCompile>
+    <ClCompile Include="DialogWindow.cpp">
+      <Filter>Source Files\Windows\Dialogs</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
