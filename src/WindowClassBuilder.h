@@ -1,23 +1,17 @@
 #pragma once
-#include "WindowClass.h"
+#include <Windows.h>
 
 class WindowClassBuilder
 {
 public:
-	WindowClassBuilder(HINSTANCE hInstance, LPCWSTR className);
+	WindowClassBuilder(HINSTANCE hInstance, LPCWSTR className, WNDPROC wndProc);
 	WindowClassBuilder& WithBackgroundBrush(HBRUSH handle);
 	WindowClassBuilder& WithCursor(HCURSOR handle);
 	WindowClassBuilder& WithIcon(HICON handle);
 	WindowClassBuilder& WithMenu(LPCWSTR name);
 	WindowClassBuilder& WithStyle(UINT style);
-	WindowClass Build() const;
+	const WNDCLASS& Result() const;
 
 private:
-	HINSTANCE hInstance;
-	LPCWSTR className;
-	HBRUSH hbrush;
-	HCURSOR hcursor;
-	HICON hicon;
-	LPCWSTR menuName;
-	UINT style;
+	WNDCLASS wc;
 };

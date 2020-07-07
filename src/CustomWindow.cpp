@@ -1,5 +1,10 @@
 #include "CustomWindow.h"
 
+WindowClassBuilder CustomWindow::CreateClassBuilder(HINSTANCE hInstance, LPCWSTR className)
+{
+    return WindowClassBuilder(hInstance, className, CustomMessageProcessor::WindowProc);
+}
+
 CustomWindow::CustomWindow(WindowHandleBuilder builder)
     : Window(NULL, true)
 {

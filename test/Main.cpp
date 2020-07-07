@@ -3,8 +3,9 @@
 #endif 
 
 #include <windows.h>
+#include <typeinfo>
 #include "WindowClassBuilder.h"
-#include "WindowClass.h"
+#include "WindowClassRegistered.h"
 #include "CustomWindow.h"
 #include "ButtonWindow.h"
 #include "StockObjects.h"
@@ -44,9 +45,19 @@ private:
 
 class MyWindow : public CustomWindow
 {
+private:
+    static WindowClassRegistered RegisterClass(HINSTANCE hInstance)
+    {
+        return WindowClassRegistered(
+            CreateClassBuilder(hInstance, L"MyWindow")
+                .WithBackgroundBrush(StockObjects::LightGrayBrushHandle())
+                .WithCursor(PredefinedCursors::ArrowHandle())
+                .Result());
+    }
+
 public:
-    MyWindow(const WindowClass& wc)
-        : CustomWindow(wc.CreateHandleBuilder().WithTitle(L"Hello World!!!"))
+    MyWindow(HINSTANCE hInstance)
+        : CustomWindow(RegisterClass(hInstance).CreateHandleBuilder().WithTitle(L"Hello World!!!"))
         , helloButton(ButtonWindow::CreateHandleBuilder(*this, 101).WithTitle(L"Hello").WithRect(10, 10, 100, 30))
         , toggleButton(ButtonWindow::CreateHandleBuilder(*this, 102).WithTitle(L"Toggle Hello").WithRect(10, 50, 100, 30))
         , closeButton(ButtonWindow::CreateHandleBuilder(*this, 103).WithTitle(L"Close").WithRect(10, 90, 100, 30))
@@ -89,12 +100,7 @@ private:
 
 int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE, PWSTR pCmdLine, int nCmdShow)
 {
-    WindowClass wc = WindowClassBuilder(hInstance, L"My Window Class")
-        .WithBackgroundBrush(StockObjects::LightGrayBrushHandle())
-        .WithCursor(PredefinedCursors::ArrowHandle())
-        .Build();
-
-    MyWindow window(wc);
+    MyWindow window(hInstance);
     if (window.GetHandle() == NULL)
         return 0;
 

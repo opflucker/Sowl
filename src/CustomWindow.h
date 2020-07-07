@@ -1,13 +1,15 @@
 #pragma once
 #include "Window.h"
-#include "WindowClass.h"
+#include "CustomMessageProcessor.h"
 #include "WindowHandleBuilder.h"
-#include "MessageTarget.h"
+#include "WindowClassBuilder.h"
 #include "PaintDeviceContext.h"
 
-class CustomWindow : public Window, public MessageTarget
+class CustomWindow : public Window, public CustomMessageProcessor
 {
 public:
+	static WindowClassBuilder CreateClassBuilder(HINSTANCE hInstance, LPCWSTR className);
+
 	CustomWindow(WindowHandleBuilder builder);
 
 	bool Show(int nCmdShow) const;
