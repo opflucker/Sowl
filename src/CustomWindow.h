@@ -1,8 +1,8 @@
 #pragma once
 #include "Window.h"
 #include "CustomMessageProcessor.h"
-#include "WindowHandleBuilder.h"
 #include "WindowClassBuilder.h"
+#include "WindowHandleBuilder.h"
 #include "PaintDeviceContext.h"
 
 class CustomWindow : public Window, public CustomMessageProcessor
