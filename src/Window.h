@@ -4,7 +4,7 @@
 class Window
 {
 public:
-	Window(HWND hwnd, bool ensureDestroy);
+	Window(HWND hwnd);
 	~Window();
 	HWND GetHandle() const;
 	HINSTANCE GetInstanceHandle() const;
@@ -12,11 +12,11 @@ public:
 	bool IsEnabled();
 	void SetClassCursor(HCURSOR hcursor);
 	void Destroy();
+	bool Show(int nCmdShow) const;
 
 protected:
 	void SetHandle(HWND hwnd);
 
 private:
 	HWND hwnd;
-	bool ensureDestroy;
 };

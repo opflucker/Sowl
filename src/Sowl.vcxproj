@@ -160,6 +160,8 @@
     <ClInclude Include="DialogWindow.h" />
     <ClInclude Include="MessageLoop.h" />
     <ClInclude Include="CustomMessageProcessor.h" />
+    <ClInclude Include="ModalDialogWindow.h" />
+    <ClInclude Include="ModelessDialogWindow.h" />
     <ClInclude Include="PaintDeviceContext.h" />
     <ClInclude Include="PredefinedCursors.h" />
     <ClInclude Include="SolidBrush.h" />
@@ -179,6 +181,8 @@
     <ClCompile Include="DialogWindow.cpp" />
     <ClCompile Include="MessageLoop.cpp" />
     <ClCompile Include="CustomMessageProcessor.cpp" />
+    <ClCompile Include="ModalDialogWindow.cpp" />
+    <ClCompile Include="ModelessDialogWindow.cpp" />
     <ClCompile Include="PaintDeviceContext.cpp" />
     <ClCompile Include="PredefinedCursors.cpp" />
     <ClCompile Include="SolidBrush.cpp" />

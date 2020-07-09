@@ -144,7 +144,7 @@
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="TestCustomWindow.cpp" />
-    <ClCompile Include="TestDialog.cpp" />
+    <ClCompile Include="TestModalessDialog.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\src\Sowl.vcxproj">
@@ -154,7 +154,7 @@
   <ItemGroup>
     <ClInclude Include="resource.h" />
     <ClInclude Include="TestCustomWindow.h" />
-    <ClInclude Include="TestDialog.h" />
+    <ClInclude Include="TestModelessDialog.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Test.rc" />

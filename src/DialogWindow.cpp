@@ -1,16 +1,21 @@
 #include "DialogWindow.h"
 
 DialogWindow::DialogWindow(const Window& parentWindow, int resourceId)
-    : Window(NULL, false)
+    : Window(NULL)
 {
     hInstance = parentWindow.GetInstanceHandle();
     templateName = MAKEINTRESOURCE(resourceId);
     hParentWindow = parentWindow.GetHandle();
 }
 
-int DialogWindow::ShowModal()
+int DialogWindow::CreateAndShowModal()
 {
-    return DialogBoxParam(hInstance, templateName, hParentWindow, DialogProc, (LPARAM)this);
+    return ::DialogBoxParam(hInstance, templateName, hParentWindow, DialogProc, (LPARAM)this);
+}
+
+HWND DialogWindow::CreateAndShowModeless()
+{
+    return CreateDialogParam(hInstance, templateName, hParentWindow, DialogProc, (LPARAM)this);
 }
 
 BOOL DialogWindow::Process(UINT uMsg, WPARAM wParam, LPARAM lParam)
@@ -27,11 +32,6 @@ BOOL DialogWindow::Process(UINT uMsg, WPARAM wParam, LPARAM lParam)
     return FALSE;
 }
 
-BOOL DialogWindow::End(int result)
-{
-    return EndDialog(GetHandle(), result);
-}
-
 BOOL DialogWindow::OnInitDialog(HWND hFocusWindow)
 {
     return TRUE;
@@ -40,11 +40,6 @@ BOOL DialogWindow::OnInitDialog(HWND hFocusWindow)
 BOOL DialogWindow::OnCommand(int notificationCode, int senderId, HWND controlHandle)
 {
     return FALSE;
-}
-
-BOOL DialogWindow::OnClose()
-{
-    return End(IDCANCEL);
 }
 
 BOOL DialogWindow::DialogProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
