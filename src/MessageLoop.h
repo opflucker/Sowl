@@ -1,9 +1,10 @@
 #pragma once
 #include <windows.h>
+#include "Window.h"
 
 class MessageLoop
 {
 public:
-	void Run() const;
+	static void Run();
+	static void Run(const Window& dlgWindow);
 };
-

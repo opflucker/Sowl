@@ -12,7 +12,6 @@ public:
 
 	CustomWindow(WindowHandleBuilder builder);
 
-	bool Show(int nCmdShow) const;
 	virtual LRESULT Process(UINT uMsg, WPARAM wParam, LPARAM lParam) override;
 
 	virtual void OnPaint(const PaintDeviceContext& dc);

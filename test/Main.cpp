@@ -13,6 +13,6 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE, PWSTR pCmdLine, int nCmdShow
         return 0;
 
     window.Show(nCmdShow);
-    MessageLoop().Run();
+    MessageLoop::Run(window.modelessDialog);
     return 0;
 }

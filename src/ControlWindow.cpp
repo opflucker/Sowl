@@ -2,6 +2,7 @@
 
 WindowHandleBuilder ControlWindow::CreateHandleBuilder(const Window& parentWindow, LPCWSTR className, WORD id)
 {
+    // TODO: Check "id" is in [8, 0xDFFF]
     return WindowHandleBuilder(parentWindow.GetInstanceHandle(), className)
         .WithParent(parentWindow.GetHandle())
         .WithMenu((HMENU)id)
@@ -9,13 +10,12 @@ WindowHandleBuilder ControlWindow::CreateHandleBuilder(const Window& parentWindo
 }
 
 ControlWindow::ControlWindow(WindowHandleBuilder builder)
-    : Window(builder.Build(), true)
+    : Window(builder.Build())
 {
-    // TODO: Assert "id" is in [8, 0xDFFF]
 }
 
 ControlWindow::ControlWindow()
-    : Window(NULL, false)
+    : Window(NULL)
 {
 }
 

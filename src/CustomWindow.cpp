@@ -6,15 +6,10 @@ WindowClassBuilder CustomWindow::CreateClassBuilder(HINSTANCE hInstance, LPCWSTR
 }
 
 CustomWindow::CustomWindow(WindowHandleBuilder builder)
-    : Window(NULL, true)
+    : Window(NULL)
 {
     // Can not be done when calling base class constructor because "this" is invalid there
     SetHandle(builder.WithParam(this).Build());
-}
-
-bool CustomWindow::Show(int nCmdShow) const
-{
-    return ::ShowWindow(GetHandle(), nCmdShow);
 }
 
 LRESULT CustomWindow::Process(UINT uMsg, WPARAM wParam, LPARAM lParam)

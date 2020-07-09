@@ -2,6 +2,7 @@
 #include <CustomWindow.h>
 #include <WindowClassRegistered.h>
 #include <ButtonWindow.h>
+#include "TestModelessDialog.h"
 
 class TestCustomWindow : public CustomWindow
 {
@@ -14,7 +15,11 @@ public:
     virtual bool OnCommand(int notificationCode, int senderId, HWND controlHandle);
 
 private:
-    ButtonWindow helloButton;
+    ButtonWindow showModalDialogButton;
+    ButtonWindow showModelessDialogButton;
     ButtonWindow toggleButton;
     ButtonWindow closeButton;
+
+public:
+    TestModelessDialog modelessDialog;
 };

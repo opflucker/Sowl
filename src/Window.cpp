@@ -1,17 +1,13 @@
 #include "Window.h"
 
-Window::Window(HWND hwnd, bool ensureDestroy)
+Window::Window(HWND hwnd)
 {
     this->hwnd = hwnd;
-    this->ensureDestroy = ensureDestroy;
 }
 
 Window::~Window()
 {
-    if (ensureDestroy)
-    {
-        Destroy();
-    }
+    Destroy();
 }
 
 HWND Window::GetHandle() const
@@ -51,4 +47,9 @@ void Window::Destroy()
         DestroyWindow(hwnd);
         hwnd = NULL;
     }
+}
+
+bool Window::Show(int nCmdShow) const
+{
+    return ::ShowWindow(GetHandle(), nCmdShow);
 }

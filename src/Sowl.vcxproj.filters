@@ -96,6 +96,12 @@
     <ClInclude Include="CustomWindow.h">
       <Filter>Header Files\Windows\Customs</Filter>
     </ClInclude>
+    <ClInclude Include="ModalDialogWindow.h">
+      <Filter>Header Files\Windows\Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="ModelessDialogWindow.h">
+      <Filter>Header Files\Windows\Dialogs</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MessageLoop.cpp">
@@ -147,6 +153,12 @@
       <Filter>Source Files\Windows\Controls</Filter>
     </ClCompile>
     <ClCompile Include="DialogWindow.cpp">
+      <Filter>Source Files\Windows\Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="ModalDialogWindow.cpp">
+      <Filter>Source Files\Windows\Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="ModelessDialogWindow.cpp">
       <Filter>Source Files\Windows\Dialogs</Filter>
     </ClCompile>
   </ItemGroup>

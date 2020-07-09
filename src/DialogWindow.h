@@ -5,13 +5,15 @@ class DialogWindow : public Window
 {
 public:
 	DialogWindow(const Window& parentWindow, int resourceId);
-	int ShowModal();
 	virtual BOOL Process(UINT uMsg, WPARAM wParam, LPARAM lParam);
-	BOOL End(int result);
 
 	virtual BOOL OnInitDialog(HWND hFocusWindow);
 	virtual BOOL OnCommand(int notificationCode, int senderId, HWND controlHandle);
-	virtual BOOL OnClose();
+	virtual BOOL OnClose() = 0;
+
+protected:
+	int CreateAndShowModal();
+	HWND CreateAndShowModeless();
 
 private:
 	static BOOL CALLBACK DialogProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
