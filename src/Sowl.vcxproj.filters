@@ -90,9 +90,6 @@
     <ClInclude Include="DialogWindow.h">
       <Filter>Header Files\Windows\Dialogs</Filter>
     </ClInclude>
-    <ClInclude Include="CustomMessageProcessor.h">
-      <Filter>Header Files\Windows\Customs</Filter>
-    </ClInclude>
     <ClInclude Include="CustomWindow.h">
       <Filter>Header Files\Windows\Customs</Filter>
     </ClInclude>
@@ -139,9 +136,6 @@
     </ClCompile>
     <ClCompile Include="StockObjects.cpp">
       <Filter>Source Files\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="CustomMessageProcessor.cpp">
-      <Filter>Source Files\Windows\Customs</Filter>
     </ClCompile>
     <ClCompile Include="CustomWindow.cpp">
       <Filter>Source Files\Windows\Customs</Filter>

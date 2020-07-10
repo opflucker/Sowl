@@ -7,7 +7,7 @@
 class TestCustomWindow : public CustomWindow
 {
 private:
-    static WindowClassRegistered RegisterClass(HINSTANCE hInstance);
+    static const WindowClassRegistered& RegisterClass(HINSTANCE hInstance);
 
 public:
     TestCustomWindow(HINSTANCE hInstance);

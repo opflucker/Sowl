@@ -159,7 +159,6 @@
     <ClInclude Include="DeviceContext.h" />
     <ClInclude Include="DialogWindow.h" />
     <ClInclude Include="MessageLoop.h" />
-    <ClInclude Include="CustomMessageProcessor.h" />
     <ClInclude Include="ModalDialogWindow.h" />
     <ClInclude Include="ModelessDialogWindow.h" />
     <ClInclude Include="PaintDeviceContext.h" />
@@ -180,7 +179,6 @@
     <ClCompile Include="DeviceContext.cpp" />
     <ClCompile Include="DialogWindow.cpp" />
     <ClCompile Include="MessageLoop.cpp" />
-    <ClCompile Include="CustomMessageProcessor.cpp" />
     <ClCompile Include="ModalDialogWindow.cpp" />
     <ClCompile Include="ModelessDialogWindow.cpp" />
     <ClCompile Include="PaintDeviceContext.cpp" />

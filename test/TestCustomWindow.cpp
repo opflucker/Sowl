@@ -5,13 +5,12 @@
 #include <ModalDialogWindow.h>
 #include "resource.h"
 
-WindowClassRegistered TestCustomWindow::RegisterClass(HINSTANCE hInstance)
+const WindowClassRegistered& TestCustomWindow::RegisterClass(HINSTANCE hInstance)
 {
-    return WindowClassRegistered(
-        CreateClassBuilder(hInstance, L"MyWindow")
+    return CreateClassBuilder(hInstance, L"MyWindow")
         .WithBackgroundBrush(StockObjects::LightGrayBrushHandle())
         .WithCursor(PredefinedCursors::ArrowHandle())
-        .Result());
+        .Register();
 }
 
 TestCustomWindow::TestCustomWindow(HINSTANCE hInstance)

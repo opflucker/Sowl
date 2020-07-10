@@ -48,3 +48,12 @@ const WNDCLASS& WindowClassBuilder::Result() const
 {
     return wc;
 }
+
+const WindowClassRegistered& WindowClassBuilder::Register() const
+{
+    WNDCLASS wcFound;
+    if (GetClassInfo(wc.hInstance, wc.lpszClassName, &wcFound) == FALSE)
+        RegisterClass(&wc);
+
+    return WindowClassRegistered(wc.hInstance, wc.lpszClassName);
+}
