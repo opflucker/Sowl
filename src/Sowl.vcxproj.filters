@@ -51,9 +51,6 @@
     <ClInclude Include="WindowClassBuilder.h">
       <Filter>Header Files\Windows</Filter>
     </ClInclude>
-    <ClInclude Include="WindowClassRegistered.h">
-      <Filter>Header Files\Windows</Filter>
-    </ClInclude>
     <ClInclude Include="WindowHandleBuilder.h">
       <Filter>Header Files\Windows</Filter>
     </ClInclude>
@@ -90,9 +87,6 @@
     <ClInclude Include="DialogWindow.h">
       <Filter>Header Files\Windows\Dialogs</Filter>
     </ClInclude>
-    <ClInclude Include="CustomMessageProcessor.h">
-      <Filter>Header Files\Windows\Customs</Filter>
-    </ClInclude>
     <ClInclude Include="CustomWindow.h">
       <Filter>Header Files\Windows\Customs</Filter>
     </ClInclude>
@@ -111,9 +105,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="WindowHandleBuilder.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="WindowClassRegistered.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="WindowClassBuilder.cpp">
@@ -139,9 +130,6 @@
     </ClCompile>
     <ClCompile Include="StockObjects.cpp">
       <Filter>Source Files\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="CustomMessageProcessor.cpp">
-      <Filter>Source Files\Windows\Customs</Filter>
     </ClCompile>
     <ClCompile Include="CustomWindow.cpp">
       <Filter>Source Files\Windows\Customs</Filter>

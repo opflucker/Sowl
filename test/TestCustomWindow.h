@@ -1,13 +1,13 @@
 #pragma once
 #include <CustomWindow.h>
-#include <WindowClassRegistered.h>
+#include <WindowHandleBuilder.h>
 #include <ButtonWindow.h>
 #include "TestModelessDialog.h"
 
 class TestCustomWindow : public CustomWindow
 {
 private:
-    static WindowClassRegistered RegisterClass(HINSTANCE hInstance);
+    static WindowHandleBuilder CreateHandleBuilder(HINSTANCE hInstance);
 
 public:
     TestCustomWindow(HINSTANCE hInstance);

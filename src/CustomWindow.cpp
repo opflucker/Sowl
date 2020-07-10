@@ -1,8 +1,30 @@
 #include "CustomWindow.h"
 
+LRESULT CALLBACK CustomWindow::WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
+{
+    CustomWindow* pWindow;
+
+    if (uMsg == WM_CREATE)
+    {
+        CREATESTRUCT* pCreate = reinterpret_cast<CREATESTRUCT*>(lParam);
+        pWindow = reinterpret_cast<CustomWindow*>(pCreate->lpCreateParams);
+        SetWindowLongPtr(hwnd, GWLP_USERDATA, (LONG_PTR)pWindow);
+    }
+    else
+    {
+        LONG_PTR ptr = GetWindowLongPtr(hwnd, GWLP_USERDATA);
+        pWindow = reinterpret_cast<CustomWindow*>(ptr);
+    }
+
+    if (pWindow != NULL)
+        return pWindow->Process(uMsg, wParam, lParam);
+
+    return DefWindowProc(hwnd, uMsg, wParam, lParam);
+}
+
 WindowClassBuilder CustomWindow::CreateClassBuilder(HINSTANCE hInstance, LPCWSTR className)
 {
-    return WindowClassBuilder(hInstance, className, CustomMessageProcessor::WindowProc);
+    return WindowClassBuilder(hInstance, className, WindowProc);
 }
 
 CustomWindow::CustomWindow(WindowHandleBuilder builder)

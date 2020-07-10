@@ -5,17 +5,17 @@
 #include <ModalDialogWindow.h>
 #include "resource.h"
 
-WindowClassRegistered TestCustomWindow::RegisterClass(HINSTANCE hInstance)
+WindowHandleBuilder TestCustomWindow::CreateHandleBuilder(HINSTANCE hInstance)
 {
-    return WindowClassRegistered(
+    return WindowHandleBuilder(
         CreateClassBuilder(hInstance, L"MyWindow")
-        .WithBackgroundBrush(StockObjects::LightGrayBrushHandle())
-        .WithCursor(PredefinedCursors::ArrowHandle())
-        .Result());
+            .WithBackgroundBrush(StockObjects::LightGrayBrushHandle())
+            .WithCursor(PredefinedCursors::ArrowHandle())
+            .Register());
 }
 
 TestCustomWindow::TestCustomWindow(HINSTANCE hInstance)
-    : CustomWindow(RegisterClass(hInstance).CreateHandleBuilder().WithTitle(L"Hello World!!!"))
+    : CustomWindow(CreateHandleBuilder(hInstance).WithTitle(L"Hello World!!!"))
     , showModalDialogButton(ButtonWindow::CreateHandleBuilder(*this, 101).WithTitle(L"Show Modal").WithRect(10, 10, 100, 30))
     , showModelessDialogButton(ButtonWindow::CreateHandleBuilder(*this, 102).WithTitle(L"Show Modeless").WithRect(10, 50, 100, 30))
     , toggleButton(ButtonWindow::CreateHandleBuilder(*this, 103).WithTitle(L"Toggle Hello").WithRect(10, 90, 100, 30))

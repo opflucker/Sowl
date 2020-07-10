@@ -5,7 +5,7 @@
 class WindowClassRegistered
 {
 public:
-	WindowClassRegistered(const WNDCLASS& wc);
+	WindowClassRegistered(HINSTANCE hInstance, LPCWSTR className);
 	WindowHandleBuilder CreateHandleBuilder() const;
 
 private:

@@ -1,15 +1,10 @@
 #include "WindowClassRegistered.h"
-#include "CustomMessageProcessor.h"
 #include <wtypes.h>
 
-WindowClassRegistered::WindowClassRegistered(const WNDCLASS& wc)
+WindowClassRegistered::WindowClassRegistered(HINSTANCE hInstance, LPCWSTR className)
 {
-    WNDCLASS wcFound;
-    if (GetClassInfo(wc.hInstance, wc.lpszClassName, &wcFound) == FALSE)
-        RegisterClass(&wc);
-    
-    hInstance = wc.hInstance;
-    className = wc.lpszClassName;
+    this->hInstance = hInstance;
+    this->className = className;
 }
 
 WindowHandleBuilder WindowClassRegistered::CreateHandleBuilder() const

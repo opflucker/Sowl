@@ -10,7 +10,8 @@ public:
 	WindowClassBuilder& WithIcon(HICON handle);
 	WindowClassBuilder& WithMenu(LPCWSTR name);
 	WindowClassBuilder& WithStyle(UINT style);
-	const WNDCLASS& Result() const;
+	WNDCLASS Register() const;
+	WNDCLASS Result() const;
 
 private:
 	WNDCLASS wc;

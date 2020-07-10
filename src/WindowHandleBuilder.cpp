@@ -15,6 +15,11 @@ WindowHandleBuilder::WindowHandleBuilder(HINSTANCE hInstance, LPCWSTR className)
     lpParam = NULL;
 }
 
+WindowHandleBuilder::WindowHandleBuilder(const WNDCLASS& wc)
+    : WindowHandleBuilder(wc.hInstance, wc.lpszClassName)
+{
+}
+
 WindowHandleBuilder& WindowHandleBuilder::WithTitle(LPCWSTR title)
 {
     this->title = title;

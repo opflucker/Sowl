@@ -5,6 +5,7 @@ class WindowHandleBuilder
 {
 public:
 	WindowHandleBuilder(HINSTANCE hInstance, LPCWSTR className);
+	WindowHandleBuilder(const WNDCLASS& wc);
 	WindowHandleBuilder& WithTitle(LPCWSTR title);
 	WindowHandleBuilder& WithStyle(DWORD style);
 	WindowHandleBuilder& WithAddStyle(DWORD style);

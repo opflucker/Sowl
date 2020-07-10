@@ -44,7 +44,16 @@ WindowClassBuilder& WindowClassBuilder::WithStyle(UINT style)
     return *this;
 }
 
-const WNDCLASS& WindowClassBuilder::Result() const
+WNDCLASS WindowClassBuilder::Register() const
+{
+    WNDCLASS wcFound;
+    if (GetClassInfo(wc.hInstance, wc.lpszClassName, &wcFound) == FALSE)
+        RegisterClass(&wc);
+
+    return wc;
+}
+
+WNDCLASS WindowClassBuilder::Result() const
 {
     return wc;
 }
