@@ -168,7 +168,6 @@
     <ClInclude Include="Window.h" />
     <ClInclude Include="WindowClassBuilder.h" />
     <ClInclude Include="WindowHandleBuilder.h" />
-    <ClInclude Include="WindowClassRegistered.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Brush.cpp" />
@@ -188,7 +187,6 @@
     <ClCompile Include="Window.cpp" />
     <ClCompile Include="WindowClassBuilder.cpp" />
     <ClCompile Include="WindowHandleBuilder.cpp" />
-    <ClCompile Include="WindowClassRegistered.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
