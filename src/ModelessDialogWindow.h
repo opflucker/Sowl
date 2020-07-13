@@ -4,8 +4,10 @@
 class ModelessDialogWindow : public DialogWindow
 {
 public:
+	ModelessDialogWindow(int resourceId);
 	ModelessDialogWindow(const Window& parentWindow, int resourceId);
-	void ShowModeless();
-	virtual BOOL OnClose() override;
-};
 
+	void SetParent(const Window& parentWindow);
+	void CreateAndShow();
+	virtual bool OnClose() override;
+};

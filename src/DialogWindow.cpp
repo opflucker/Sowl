@@ -1,24 +1,44 @@
 #include "DialogWindow.h"
 
+DialogWindow::DialogWindow(int resourceId)
+    : Window(NULL)
+{
+    templateName = MAKEINTRESOURCE(resourceId);
+    parentHandle = NULL;
+    processHandle = NULL;
+}
+
 DialogWindow::DialogWindow(const Window& parentWindow, int resourceId)
     : Window(NULL)
 {
-    hInstance = parentWindow.GetInstanceHandle();
     templateName = MAKEINTRESOURCE(resourceId);
-    hParentWindow = parentWindow.GetHandle();
+    SetParent(parentWindow);
+}
+
+void DialogWindow::SetParent(const Window& parentWindow)
+{
+    parentHandle = parentWindow.GetHandle();
+    processHandle = parentWindow.GetProcessHandle();
 }
 
 int DialogWindow::CreateAndShowModal()
 {
-    return ::DialogBoxParam(hInstance, templateName, hParentWindow, DialogProc, (LPARAM)this);
+    if (GetHandle() == NULL)
+    {
+        return ::DialogBoxParam(processHandle, templateName, parentHandle, DialogProc, (LPARAM)this);
+    }
+    return 0;
 }
 
-HWND DialogWindow::CreateAndShowModeless()
+void DialogWindow::CreateModeless()
 {
-    return CreateDialogParam(hInstance, templateName, hParentWindow, DialogProc, (LPARAM)this);
+    if (GetHandle() == NULL)
+    {
+        SetHandle(CreateDialogParam(processHandle, templateName, parentHandle, DialogProc, (LPARAM)this));
+    }
 }
 
-BOOL DialogWindow::Process(UINT uMsg, WPARAM wParam, LPARAM lParam)
+bool DialogWindow::Process(UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
     switch (uMsg)
     {
@@ -29,17 +49,17 @@ BOOL DialogWindow::Process(UINT uMsg, WPARAM wParam, LPARAM lParam)
     case WM_CLOSE:
         return OnClose();
     }
-    return FALSE;
+    return false;
 }
 
-BOOL DialogWindow::OnInitDialog(HWND hFocusWindow)
+bool DialogWindow::OnInitDialog(HWND hFocusWindow)
 {
-    return TRUE;
+    return false;
 }
 
-BOOL DialogWindow::OnCommand(int notificationCode, int senderId, HWND controlHandle)
+bool DialogWindow::OnCommand(int notificationCode, int senderId, HWND controlHandle)
 {
-    return FALSE;
+    return false;
 }
 
 BOOL DialogWindow::DialogProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)

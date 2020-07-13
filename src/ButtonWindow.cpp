@@ -1,4 +1,5 @@
 #include "ButtonWindow.h"
+#include <utility>
 
 WindowHandleBuilder ButtonWindow::CreateHandleBuilder(const Window& parentWindow, WORD id)
 {
@@ -6,12 +7,29 @@ WindowHandleBuilder ButtonWindow::CreateHandleBuilder(const Window& parentWindow
         .WithAddStyle(BS_DEFPUSHBUTTON);
 }
 
+ButtonWindow::ButtonWindow(const Window& parentWindow, WORD id)
+    : ControlWindow(parentWindow, id)
+{
+}
+
 ButtonWindow::ButtonWindow(WindowHandleBuilder builder)
     : ControlWindow(builder)
 {
 }
 
-ButtonWindow::ButtonWindow()
-    : ControlWindow()
+ButtonWindow::ButtonWindow(ButtonWindow&& other) noexcept
+    : ControlWindow(std::move(other))
 {
+}
+
+ButtonWindow& ButtonWindow::operator=(ButtonWindow&& other) noexcept
+{
+    ControlWindow::operator=(std::move(other));
+    return *this;
+}
+
+ButtonWindow& ButtonWindow::operator=(WindowHandleBuilder builder) noexcept
+{
+    ControlWindow::operator=(builder);
+    return *this;
 }

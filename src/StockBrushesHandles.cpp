@@ -1,26 +1,26 @@
-#include "StockObjects.h"
+#include "StockBrushesHandles.h"
 
-HBRUSH StockObjects::WhiteBrushHandle()
+HBRUSH StockBrushesHandles::White()
 {
 	return (HBRUSH)GetStockObject(WHITE_BRUSH);
 }
 
-HBRUSH StockObjects::BlackBrushHandle()
+HBRUSH StockBrushesHandles::Black()
 {
 	return (HBRUSH)GetStockObject(BLACK_BRUSH);
 }
 
-HBRUSH StockObjects::GrayBrushHandle()
+HBRUSH StockBrushesHandles::Gray()
 {
 	return (HBRUSH)GetStockObject(GRAY_BRUSH);
 }
 
-HBRUSH StockObjects::DarkGrayBrushHandle()
+HBRUSH StockBrushesHandles::DarkGray()
 {
 	return (HBRUSH)GetStockObject(DKGRAY_BRUSH);
 }
 
-HBRUSH StockObjects::LightGrayBrushHandle()
+HBRUSH StockBrushesHandles::LightGray()
 {
 	return (HBRUSH)GetStockObject(LTGRAY_BRUSH);
 }

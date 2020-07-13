@@ -1,4 +1,5 @@
 #include "PaintDeviceContext.h"
+#include <utility>
 
 PaintDeviceContext::PaintDeviceContext(HWND hwnd)
 	: DeviceContext(BeginPaint(hwnd, &ps))
@@ -8,7 +9,18 @@ PaintDeviceContext::PaintDeviceContext(HWND hwnd)
 
 PaintDeviceContext::~PaintDeviceContext()
 {
-	EndPaint(hwnd, &ps);
+	EndPaint();
+}
+
+void PaintDeviceContext::EndPaint()
+{
+	if (GetHandle() != NULL)
+	{
+		::EndPaint(hwnd, &ps);
+		hwnd = NULL;
+		ps.hdc = NULL;
+		SetHandle(NULL);
+	}
 }
 
 void PaintDeviceContext::FillRect(HBRUSH hbr) const

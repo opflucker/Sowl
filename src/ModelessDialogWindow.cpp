@@ -1,21 +1,31 @@
 #include "ModelessDialogWindow.h"
 
+ModelessDialogWindow::ModelessDialogWindow(int resourceId)
+    : DialogWindow(resourceId)
+{
+}
+
 ModelessDialogWindow::ModelessDialogWindow(const Window& parentWindow, int resourceId)
     : DialogWindow(parentWindow, resourceId)
 {
 }
 
-void ModelessDialogWindow::ShowModeless()
+void ModelessDialogWindow::SetParent(const Window& parentWindow)
 {
     if (GetHandle() == NULL)
     {
-        SetHandle(CreateAndShowModeless());
-        Show(SW_SHOW);
+        DialogWindow::SetParent(parentWindow);
     }
 }
 
-BOOL ModelessDialogWindow::OnClose()
+void ModelessDialogWindow::CreateAndShow()
+{
+    CreateModeless();
+    Show(SW_SHOW);
+}
+
+bool ModelessDialogWindow::OnClose()
 {
     Destroy();
-    return TRUE;
+    return true;
 }

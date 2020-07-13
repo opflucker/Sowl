@@ -162,9 +162,9 @@
     <ClInclude Include="ModalDialogWindow.h" />
     <ClInclude Include="ModelessDialogWindow.h" />
     <ClInclude Include="PaintDeviceContext.h" />
-    <ClInclude Include="PredefinedCursors.h" />
+    <ClInclude Include="PredefinedCursorHandles.h" />
     <ClInclude Include="SolidBrush.h" />
-    <ClInclude Include="StockObjects.h" />
+    <ClInclude Include="StockBrushesHandles.h" />
     <ClInclude Include="Window.h" />
     <ClInclude Include="WindowClassBuilder.h" />
     <ClInclude Include="WindowHandleBuilder.h" />
@@ -181,9 +181,9 @@
     <ClCompile Include="ModalDialogWindow.cpp" />
     <ClCompile Include="ModelessDialogWindow.cpp" />
     <ClCompile Include="PaintDeviceContext.cpp" />
-    <ClCompile Include="PredefinedCursors.cpp" />
+    <ClCompile Include="PredefinedCursorHandles.cpp" />
     <ClCompile Include="SolidBrush.cpp" />
-    <ClCompile Include="StockObjects.cpp" />
+    <ClCompile Include="StockBrushesHandles.cpp" />
     <ClCompile Include="Window.cpp" />
     <ClCompile Include="WindowClassBuilder.cpp" />
     <ClCompile Include="WindowHandleBuilder.cpp" />

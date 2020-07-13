@@ -5,17 +5,17 @@ ModalDialogWindow::ModalDialogWindow(const Window& parentWindow, int resourceId)
 {
 }
 
-int ModalDialogWindow::ShowModal()
+int ModalDialogWindow::CreateAndShow()
 {
     return CreateAndShowModal();
 }
 
-BOOL ModalDialogWindow::End(int result)
+bool ModalDialogWindow::End(int result)
 {
     return EndDialog(GetHandle(), result);
 }
 
-BOOL ModalDialogWindow::OnClose()
+bool ModalDialogWindow::OnClose()
 {
     return End(IDCANCEL);
 }

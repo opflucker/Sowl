@@ -4,20 +4,22 @@
 class DialogWindow : public Window
 {
 public:
+	DialogWindow(int resourceId);
 	DialogWindow(const Window& parentWindow, int resourceId);
-	virtual BOOL Process(UINT uMsg, WPARAM wParam, LPARAM lParam);
 
-	virtual BOOL OnInitDialog(HWND hFocusWindow);
-	virtual BOOL OnCommand(int notificationCode, int senderId, HWND controlHandle);
-	virtual BOOL OnClose() = 0;
+	virtual bool Process(UINT uMsg, WPARAM wParam, LPARAM lParam);
+	virtual bool OnInitDialog(HWND hFocusWindow);
+	virtual bool OnCommand(int notificationCode, int senderId, HWND controlHandle);
+	virtual bool OnClose() = 0;
 
 protected:
+	void SetParent(const Window& parentWindow);
 	int CreateAndShowModal();
-	HWND CreateAndShowModeless();
+	void CreateModeless();
 
 private:
 	static BOOL CALLBACK DialogProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
-	HINSTANCE hInstance;
+	HINSTANCE processHandle;
 	LPCWSTR templateName;
-	HWND hParentWindow;
+	HWND parentHandle;
 };

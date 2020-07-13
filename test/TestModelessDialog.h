@@ -5,9 +5,10 @@
 class TestModelessDialog : public ModelessDialogWindow
 {
 public:
+    TestModelessDialog();
     TestModelessDialog(const Window& parentWindow);
-    virtual BOOL OnInitDialog(HWND hFocusWindow) override;
-    virtual BOOL OnCommand(int notificationCode, int senderId, HWND controlHandle);
+    virtual bool OnInitDialog(HWND hFocusWindow) override;
+    virtual bool OnCommand(int notificationCode, int senderId, HWND controlHandle) override;
 
 private:
     ButtonWindow okButton;

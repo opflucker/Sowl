@@ -43,6 +43,18 @@
     <Filter Include="Source Files\Windows\Dialogs">
       <UniqueIdentifier>{98238a02-57be-4fc9-95e4-12760442d824}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Graphics\Brushes">
+      <UniqueIdentifier>{0e514979-41d7-4d32-b105-e6b751c38304}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Graphics\Cursors">
+      <UniqueIdentifier>{170df8af-8e7b-4f5b-bfa9-149ffa0054e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Graphics\Brushes">
+      <UniqueIdentifier>{28517f96-110d-4084-848d-32d8b12760ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Graphics\Cursors">
+      <UniqueIdentifier>{b70f9c8f-89a0-46a0-8c49-1dd7da55e799}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Window.h">
@@ -56,21 +68,6 @@
     </ClInclude>
     <ClInclude Include="MessageLoop.h">
       <Filter>Header Files\Windows</Filter>
-    </ClInclude>
-    <ClInclude Include="Brush.h">
-      <Filter>Header Files\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Cursor.h">
-      <Filter>Header Files\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="SolidBrush.h">
-      <Filter>Header Files\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="StockObjects.h">
-      <Filter>Header Files\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="PredefinedCursors.h">
-      <Filter>Header Files\Graphics</Filter>
     </ClInclude>
     <ClInclude Include="DeviceContext.h">
       <Filter>Header Files\Graphics</Filter>
@@ -96,6 +93,21 @@
     <ClInclude Include="ModelessDialogWindow.h">
       <Filter>Header Files\Windows\Dialogs</Filter>
     </ClInclude>
+    <ClInclude Include="Brush.h">
+      <Filter>Header Files\Graphics\Brushes</Filter>
+    </ClInclude>
+    <ClInclude Include="SolidBrush.h">
+      <Filter>Header Files\Graphics\Brushes</Filter>
+    </ClInclude>
+    <ClInclude Include="Cursor.h">
+      <Filter>Header Files\Graphics\Cursors</Filter>
+    </ClInclude>
+    <ClInclude Include="StockBrushesHandles.h">
+      <Filter>Header Files\Graphics\Brushes</Filter>
+    </ClInclude>
+    <ClInclude Include="PredefinedCursorHandles.h">
+      <Filter>Header Files\Graphics\Cursors</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MessageLoop.cpp">
@@ -110,25 +122,10 @@
     <ClCompile Include="WindowClassBuilder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Brush.cpp">
-      <Filter>Source Files\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="Cursor.cpp">
-      <Filter>Source Files\Graphics</Filter>
-    </ClCompile>
     <ClCompile Include="DeviceContext.cpp">
       <Filter>Source Files\Graphics</Filter>
     </ClCompile>
     <ClCompile Include="PaintDeviceContext.cpp">
-      <Filter>Source Files\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="PredefinedCursors.cpp">
-      <Filter>Source Files\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="SolidBrush.cpp">
-      <Filter>Source Files\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="StockObjects.cpp">
       <Filter>Source Files\Graphics</Filter>
     </ClCompile>
     <ClCompile Include="CustomWindow.cpp">
@@ -148,6 +145,21 @@
     </ClCompile>
     <ClCompile Include="ModelessDialogWindow.cpp">
       <Filter>Source Files\Windows\Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="Brush.cpp">
+      <Filter>Source Files\Graphics\Brushes</Filter>
+    </ClCompile>
+    <ClCompile Include="SolidBrush.cpp">
+      <Filter>Source Files\Graphics\Brushes</Filter>
+    </ClCompile>
+    <ClCompile Include="Cursor.cpp">
+      <Filter>Source Files\Graphics\Cursors</Filter>
+    </ClCompile>
+    <ClCompile Include="StockBrushesHandles.cpp">
+      <Filter>Source Files\Graphics\Brushes</Filter>
+    </ClCompile>
+    <ClCompile Include="PredefinedCursorHandles.cpp">
+      <Filter>Source Files\Graphics\Cursors</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
