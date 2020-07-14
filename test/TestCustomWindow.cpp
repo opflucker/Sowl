@@ -5,23 +5,31 @@
 #include <ModalDialogWindow.h>
 #include "resource.h"
 
-WindowHandleBuilder TestCustomWindow::CreateHandleBuilder(HINSTANCE hInstance)
+enum ControlIds
+{
+    SHOW_MODAL_ID = 101,
+    SHOW_MODELESS_ID,
+    TOGGLE_ID,
+    CLOSE_ID
+};
+
+WindowHandleBuilder TestCustomWindow::CreateHandleBuilder(HINSTANCE processHandle)
 {
     return WindowHandleBuilder(
-        CreateClassBuilder(hInstance, L"MyWindow")
+        CreateClassBuilder(processHandle, L"MyWindow")
             .WithBackgroundBrush(StockBrushesHandles::LightGray())
             .WithCursor(PredefinedCursorHandles::Arrow())
             .Register());
 }
 
-TestCustomWindow::TestCustomWindow(HINSTANCE hInstance)
-    : CustomWindow(CreateHandleBuilder(hInstance).WithTitle(L"Hello World!!!"))
+TestCustomWindow::TestCustomWindow(HINSTANCE processHandle)
+    : CustomWindow(CreateHandleBuilder(processHandle).WithTitle(L"Hello World!!!"))
 {
     modelessDialog.SetParent(*this);
-    showModalDialogButton = ButtonWindow::CreateHandleBuilder(*this, 101).WithTitle(L"Show Modal").WithRect(10, 10, 100, 30);
-    showModelessDialogButton = ButtonWindow::CreateHandleBuilder(*this, 102).WithTitle(L"Show Modeless").WithRect(10, 50, 100, 30);
-    toggleButton = ButtonWindow::CreateHandleBuilder(*this, 103).WithTitle(L"Toggle Hello").WithRect(10, 90, 100, 30);
-    closeButton = ButtonWindow::CreateHandleBuilder(*this, 104).WithTitle(L"Close").WithRect(10, 130, 100, 30);
+    showModalDialogButton = ButtonWindow::CreateHandleBuilder(*this, SHOW_MODAL_ID).WithTitle(L"Show Modal").WithRect(10, 10, 100, 30);
+    showModelessDialogButton = ButtonWindow::CreateHandleBuilder(*this, SHOW_MODELESS_ID).WithTitle(L"Show Modeless").WithRect(10, 50, 100, 30);
+    toggleButton = ButtonWindow::CreateHandleBuilder(*this, TOGGLE_ID).WithTitle(L"Toggle Hello").WithRect(10, 90, 100, 30);
+    closeButton = ButtonWindow::CreateHandleBuilder(*this, CLOSE_ID).WithTitle(L"Close").WithRect(10, 130, 100, 30);
 }
 
 void TestCustomWindow::OnPaint(const PaintDeviceContext& dc)
@@ -32,27 +40,25 @@ void TestCustomWindow::OnPaint(const PaintDeviceContext& dc)
 
 bool TestCustomWindow::OnCommand(int notificationCode, int senderId, HWND controlHandle)
 {
-    if (senderId == showModalDialogButton.GetId())
+    switch (senderId)
     {
-        ModalDialogWindow dlg(*this, IDD_DIALOG1);
-        dlg.CreateAndShow();
+    case SHOW_MODAL_ID:
+        {
+            ModalDialogWindow dlg(*this, IDD_DIALOG1);
+            dlg.CreateAndShow();
+        }
         return true;
-    }
-    if (senderId == showModelessDialogButton.GetId())
-    {
+    case SHOW_MODELESS_ID:
         modelessDialog.CreateAndShow();
         return true;
-    }
-    if (senderId == toggleButton.GetId())
-    {
+    case TOGGLE_ID:
         showModalDialogButton.Enable(!showModalDialogButton.IsEnabled());
         showModalDialogButton.SetClassCursor(PredefinedCursorHandles::Cross());
         return true;
-    }
-    if (senderId == closeButton.GetId())
-    {
+    case CLOSE_ID:
         Destroy();
         return true;
+    default:
+        return false;
     }
-    return false;
 }

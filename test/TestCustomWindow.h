@@ -7,10 +7,10 @@
 class TestCustomWindow : public CustomWindow
 {
 private:
-    static WindowHandleBuilder CreateHandleBuilder(HINSTANCE hInstance);
+    static WindowHandleBuilder CreateHandleBuilder(HINSTANCE processHandle);
 
 public:
-    TestCustomWindow(HINSTANCE hInstance);
+    TestCustomWindow(HINSTANCE processHandle);
     virtual void OnPaint(const PaintDeviceContext& dc) override;
     virtual bool OnCommand(int notificationCode, int senderId, HWND controlHandle);
 
