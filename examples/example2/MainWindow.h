@@ -1,7 +1,7 @@
 #pragma once
-#include <CustomWindow.h>
-#include <WindowHandleBuilder.h>
-#include <ButtonWindow.h>
+#include <Windows\Customs\CustomWindow.h>
+#include <Windows\WindowHandleBuilder.h>
+#include <Windows\Controls\ButtonWindow.h>
 
 class MainWindow : public CustomWindow
 {

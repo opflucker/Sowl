@@ -1,7 +1,7 @@
 #include "MainWindow.h"
-#include <StockBrushesHandles.h>
-#include <PredefinedCursorHandles.h>
-#include <SolidBrush.h>
+#include <Graphics\Brushes\StockBrushesHandles.h>
+#include <Graphics\Brushes\SolidBrush.h>
+#include <Graphics\Cursors\PredefinedCursorHandles.h>
 
 WindowHandleBuilder MainWindow::CreateHandleBuilder(HINSTANCE processHandle)
 {
@@ -26,7 +26,7 @@ void MainWindow::OnPaint(const PaintDeviceContext& dc)
     dc.DrawText(L"Click window area to draw circles", GetClientRect(), DT_TOP | DT_LEFT);
 
     const int circleRadio = 50;
-    for(int i = 0; i < points.size(); i++)
+    for(unsigned int i = 0; i < points.size(); i++)
     {
         auto p = points[i];
         RECT r;

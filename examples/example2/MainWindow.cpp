@@ -1,8 +1,8 @@
 #include "MainWindow.h"
-#include <StockBrushesHandles.h>
-#include <PredefinedCursorHandles.h>
-#include <SolidBrush.h>
-#include <ModalDialogWindow.h>
+#include <Graphics\Brushes\StockBrushesHandles.h>
+#include <Graphics\Brushes\SolidBrush.h>
+#include <Graphics\Cursors\PredefinedCursorHandles.h>
+#include <Windows\Dialogs\ModalDialogWindow.h>
 
 enum ControlIds
 {

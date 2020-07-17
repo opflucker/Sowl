@@ -1,6 +1,6 @@
 #include "MainWindow.h"
 #include "Resources.h"
-#include <MessageLoop.cpp>
+#include <Windows\MessageLoop.cpp>
 
 enum ControlIds
 {

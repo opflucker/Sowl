@@ -1,6 +1,6 @@
 #pragma once
-#include <ModelessDialogWindow.h>
-#include <ButtonWindow.h>
+#include <Windows\Dialogs\ModelessDialogWindow.h>
+#include <Windows\Controls\ButtonWindow.h>
 
 class TestDialog : public ModelessDialogWindow
 {
