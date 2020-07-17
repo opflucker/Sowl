@@ -10,14 +10,6 @@ ModelessDialogWindow::ModelessDialogWindow(const Window& parentWindow, int resou
 {
 }
 
-void ModelessDialogWindow::SetParent(const Window& parentWindow)
-{
-    if (GetHandle() == NULL)
-    {
-        DialogWindow::SetParent(parentWindow);
-    }
-}
-
 void ModelessDialogWindow::CreateAndShow()
 {
     CreateModeless();

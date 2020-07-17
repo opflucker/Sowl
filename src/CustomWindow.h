@@ -15,6 +15,7 @@ public:
 
 	virtual void OnPaint(const PaintDeviceContext& dc);
 	virtual bool OnCommand(int notificationCode, int senderId, HWND controlHandle);
+	virtual bool OnLButtonDown(int mouseKeys, int x, int y);
 
 private:
 	static LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
