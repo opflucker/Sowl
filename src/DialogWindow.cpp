@@ -17,8 +17,11 @@ DialogWindow::DialogWindow(const Window& parentWindow, int resourceId)
 
 void DialogWindow::SetParent(const Window& parentWindow)
 {
-    parentHandle = parentWindow.GetHandle();
-    processHandle = parentWindow.GetProcessHandle();
+    if (GetHandle() == NULL)
+    {
+        parentHandle = parentWindow.GetHandle();
+        processHandle = parentWindow.GetProcessHandle();
+    }
 }
 
 int DialogWindow::CreateAndShowModal()

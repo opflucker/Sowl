@@ -1,5 +1,5 @@
 #include "TestModelessDialog.h"
-#include "resource.h"
+#include "Resources.h"
 
 TestModelessDialog::TestModelessDialog()
     : ModelessDialogWindow(IDD_DIALOG1)

@@ -52,6 +52,28 @@ void Window::SetClassCursor(HCURSOR hcursor)
     SetClassLong(hwnd, GCL_HCURSOR, (LONG)hcursor);
 }
 
+void Window::SetText(LPCWSTR title)
+{
+    ::SetWindowText(hwnd, title);
+}
+
+bool Window::InvalidateRect(bool erase)
+{
+    return ::InvalidateRect(hwnd, NULL, erase);
+}
+
+bool Window::InvalidateRect(const RECT& rect, bool erase)
+{
+    return ::InvalidateRect(hwnd, &rect, erase);
+}
+
+RECT Window::GetClientRect()
+{
+    RECT rect;
+    ::GetClientRect(hwnd, &rect);
+    return rect;
+}
+
 Window& Window::operator=(Window&& other) noexcept
 {
     hwnd = other.SetHandle(NULL);

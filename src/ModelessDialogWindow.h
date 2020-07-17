@@ -7,7 +7,6 @@ public:
 	ModelessDialogWindow(int resourceId);
 	ModelessDialogWindow(const Window& parentWindow, int resourceId);
 
-	void SetParent(const Window& parentWindow);
 	void CreateAndShow();
 	virtual bool OnClose() override;
 };
