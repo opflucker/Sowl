@@ -1,6 +1,6 @@
 #pragma once
-#include <CustomWindow.h>
-#include <WindowHandleBuilder.h>
+#include <Windows\Customs\CustomWindow.h>
+#include <Windows\WindowHandleBuilder.h>
 
 class MainWindow : public CustomWindow
 {

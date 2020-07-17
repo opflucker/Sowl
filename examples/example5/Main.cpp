@@ -3,8 +3,8 @@
 #endif 
 
 #include <windows.h>
+#include <Windows\MessageLoop.h>
 #include "MainWindow.h"
-#include "MessageLoop.h"
 
 int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE, PWSTR pCmdLine, int nCmdShow)
 {

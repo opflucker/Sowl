@@ -1,6 +1,6 @@
 #pragma once
-#include "Window.h"
-#include "WindowHandleBuilder.h"
+#include "..\Window.h"
+#include "..\WindowHandleBuilder.h"
 
 class ControlWindow : public Window
 {
