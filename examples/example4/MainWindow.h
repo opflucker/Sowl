@@ -1,17 +1,15 @@
 #pragma once
 #include <Windows\Customs\CustomWindow.h>
-#include <Windows\WindowHandleBuilder.h>
+#include <Windows\MessageLoop.h>
 #include "TestDialog.h"
 
-class MainWindow : public CustomWindow
+class MainWindow : public CustomWindow, public MessageLoop
 {
-private:
-    static WindowHandleBuilder CreateHandleBuilder(HINSTANCE processHandle);
-    TestDialog modelessDialog;
-
 public:
     MainWindow(HINSTANCE processHandle);
-    void Run();
+    virtual void ProcessMessage(MSG& message) override;
+    virtual bool OnCommand(int notificationCode, int senderId, HWND controlHandle) override;
 
-    virtual bool OnCommand(int notificationCode, int senderId, HWND controlHandle);
+private:
+    TestDialog modelessDialog;
 };

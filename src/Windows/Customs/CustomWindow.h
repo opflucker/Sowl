@@ -1,4 +1,5 @@
 #pragma once
+#include <functional>
 #include "..\Window.h"
 #include "..\WindowClassBuilder.h"
 #include "..\WindowHandleBuilder.h"
@@ -7,9 +8,11 @@
 class CustomWindow : public Window
 {
 public:
-	static WindowClassBuilder CreateClassBuilder(HINSTANCE hInstance, LPCWSTR className);
+	static WindowClassBuilder CreateClassBuilder(HINSTANCE processHandle, LPCWSTR className);
+	static WindowHandleBuilder CreateHandleBuilder(HINSTANCE processHandle, LPCWSTR className);
 
-	CustomWindow(WindowHandleBuilder builder);
+	CustomWindow(WindowHandleBuilder& builder);
+	CustomWindow(HINSTANCE processHandle, LPCWSTR className);
 
 	virtual LRESULT Process(UINT uMsg, WPARAM wParam, LPARAM lParam);
 

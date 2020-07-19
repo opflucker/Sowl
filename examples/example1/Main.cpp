@@ -8,9 +8,7 @@
 
 int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE, PWSTR pCmdLine, int nCmdShow)
 {
-    auto wc = CustomWindow::CreateClassBuilder(hInstance, L"MyClass").Register();
-    auto window = CustomWindow(WindowHandleBuilder(wc).WithTitle(L"Hello World!!!"));
+    auto window = CustomWindow(hInstance, L"CustomWindow");
     window.Show(nCmdShow);
-    MessageLoop::Run();
-    return 0;
+    return MessageLoop().Run();
 }

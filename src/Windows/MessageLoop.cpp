@@ -1,41 +1,45 @@
 #include "MessageLoop.h"
 
-void MessageLoop::Run()
+MessageLoop::MessageLoop()
+{
+    result = 0;
+}
+
+int MessageLoop::Run()
 {
     MSG msg = { };
-    BOOL result;
-    while (result = GetMessage(&msg, NULL, 0, 0))
+    while (GetMessage(msg))
     {
-        if (result == -1)
-        {
-            // Handle the error and possibly exit
-        }
-        else
-        {
-            TranslateMessage(&msg);
-            DispatchMessage(&msg);
-        }
+        ProcessMessage(msg);
+    }
+    return result;
+}
+
+bool MessageLoop::GetMessage(MSG& message)
+{
+    switch (::GetMessage(&message, NULL, 0, 0))
+    {
+    case -1:
+        return HandleErrorAndExit();
+    case 0: // because WM_QUIT
+        return false;
+    default:
+        return true;
     }
 }
 
-void MessageLoop::Run(const Window& dlgWindow)
+bool MessageLoop::HandleErrorAndExit()
 {
-    MSG msg = { };
-    BOOL result;
-    while (result = GetMessage(&msg, NULL, 0, 0))
-    {
-        if (result == -1)
-        {
-            // Handle the error and possibly exit
-        }
-        else
-        {
-            HWND dialogHandle = dlgWindow.GetHandle();
-            if (!IsWindow(dialogHandle) || !IsDialogMessage(dialogHandle, &msg))
-            {
-                TranslateMessage(&msg);
-                DispatchMessage(&msg);
-            }
-        }
-    }
+    return false;
+}
+
+void MessageLoop::ProcessMessage(MSG& message)
+{
+    TranslateMessage(&message);
+    DispatchMessage(&message);
+}
+
+void MessageLoop::SetResult(int result)
+{
+    this->result = result;
 }

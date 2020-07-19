@@ -1,5 +1,6 @@
 #pragma once
 #include <Windows.h>
+#include "WindowHandleBuilder.h"
 
 class WindowClassBuilder
 {
@@ -11,7 +12,7 @@ public:
 	WindowClassBuilder& WithMenu(LPCWSTR name);
 	WindowClassBuilder& WithStyle(UINT style);
 	WNDCLASS Register() const;
-	WNDCLASS Result() const;
+	WindowHandleBuilder RegisterAndCreateHandleBuilder() const;
 
 private:
 	WNDCLASS wc;

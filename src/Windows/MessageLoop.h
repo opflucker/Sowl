@@ -5,6 +5,14 @@
 class MessageLoop
 {
 public:
-	static void Run();
-	static void Run(const Window& dlgWindow);
+	MessageLoop();
+
+	virtual int Run();
+	virtual bool GetMessage(MSG& message);
+	virtual bool HandleErrorAndExit();
+	virtual void ProcessMessage(MSG& message);
+	void SetResult(int result);
+
+protected:
+	int result;
 };

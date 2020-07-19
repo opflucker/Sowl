@@ -7,21 +7,20 @@ enum ControlIds
     SHOW_MODAL_ID = 101
 };
 
-WindowHandleBuilder MainWindow::CreateHandleBuilder(HINSTANCE processHandle)
-{
-    return WindowHandleBuilder(CreateClassBuilder(processHandle, L"MyWindow").Register());
-}
-
 MainWindow::MainWindow(HINSTANCE processHandle)
-    : CustomWindow(CreateHandleBuilder(processHandle).WithTitle(L"Hello World!!!"))
+    : CustomWindow(CreateHandleBuilder(processHandle, L"MainWindow").WithTitle(L"Hello World!!!"))
 {
     modelessDialog.SetParent(*this);
     ButtonWindow::CreateHandleBuilder(*this, SHOW_MODAL_ID).WithTitle(L"Show Modal").WithRect(10, 10, 100, 30).Build();
 }
 
-void MainWindow::Run()
+void MainWindow::ProcessMessage(MSG& message)
 {
-    MessageLoop::Run(modelessDialog);
+    HWND dialogHandle = modelessDialog.GetHandle();
+    if (!IsWindow(dialogHandle) || !IsDialogMessage(dialogHandle, &message))
+    {
+        MessageLoop::ProcessMessage(message);
+    }
 }
 
 bool MainWindow::OnCommand(int notificationCode, int senderId, HWND controlHandle)
