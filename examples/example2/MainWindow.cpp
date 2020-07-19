@@ -10,13 +10,8 @@ enum ControlIds
     CLOSE_ID
 };
 
-WindowHandleBuilder MainWindow::CreateHandleBuilder(HINSTANCE processHandle)
-{
-    return WindowHandleBuilder(CreateClassBuilder(processHandle, L"MyWindow").Register());
-}
-
 MainWindow::MainWindow(HINSTANCE processHandle)
-    : CustomWindow(CreateHandleBuilder(processHandle).WithTitle(L"Hello World!!!"))
+    : CustomWindow(CreateHandleBuilder(processHandle, L"MainWindow").WithTitle(L"Hello World!!!"))
 {
     showMessageButton = ButtonWindow::CreateHandleBuilder(*this, SHOW_MESSAGE_ID).WithTitle(L"Show Message").WithRect(10, 10, 150, 30);
     closeButton = ButtonWindow::CreateHandleBuilder(*this, CLOSE_ID).WithTitle(L"Close").WithRect(10, 50, 150, 30);

@@ -23,16 +23,28 @@ LRESULT CALLBACK CustomWindow::WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, L
     return DefWindowProc(hwnd, uMsg, wParam, lParam);
 }
 
-WindowClassBuilder CustomWindow::CreateClassBuilder(HINSTANCE hInstance, LPCWSTR className)
+WindowClassBuilder CustomWindow::CreateClassBuilder(HINSTANCE processHandle, LPCWSTR className)
 {
-    return WindowClassBuilder(hInstance, className, WindowProc);
+    return WindowClassBuilder(processHandle, className, WindowProc);
 }
 
-CustomWindow::CustomWindow(WindowHandleBuilder builder)
+WindowHandleBuilder CustomWindow::CreateHandleBuilder(HINSTANCE processHandle, LPCWSTR className)
+{
+    return CreateClassBuilder(processHandle, className).RegisterAndCreateHandleBuilder();
+}
+
+CustomWindow::CustomWindow(WindowHandleBuilder& builder)
     : Window(NULL)
 {
     // Can not be done when calling base class constructor because "this" is invalid there
     SetHandle(builder.WithParam(this).Build());
+}
+
+CustomWindow::CustomWindow(HINSTANCE processHandle, LPCWSTR className)
+    : Window(NULL)
+{
+    // Can not be done when calling base class constructor because "this" is invalid there
+    SetHandle(CreateHandleBuilder(processHandle, className).WithParam(this).Build());
 }
 
 LRESULT CustomWindow::Process(UINT uMsg, WPARAM wParam, LPARAM lParam)

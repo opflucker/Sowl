@@ -8,13 +8,8 @@ enum ControlIds
     SHOW_MODAL_2_ID
 };
 
-WindowHandleBuilder MainWindow::CreateHandleBuilder(HINSTANCE processHandle)
-{
-    return WindowHandleBuilder(CreateClassBuilder(processHandle, L"MyWindow").Register());
-}
-
 MainWindow::MainWindow(HINSTANCE processHandle)
-    : CustomWindow(CreateHandleBuilder(processHandle).WithTitle(L"Hello World!!!"))
+    : CustomWindow(CreateHandleBuilder(processHandle, L"MainWindow").WithTitle(L"Hello World!!!"))
 {
     ButtonWindow::CreateHandleBuilder(*this, SHOW_MODAL_1_ID).WithTitle(L"Show Modal 1").WithRect(10, 10, 100, 30).Build();
     ButtonWindow::CreateHandleBuilder(*this, SHOW_MODAL_2_ID).WithTitle(L"Show Modal 2").WithRect(10, 50, 100, 30).Build();

@@ -53,7 +53,8 @@ WNDCLASS WindowClassBuilder::Register() const
     return wc;
 }
 
-WNDCLASS WindowClassBuilder::Result() const
+WindowHandleBuilder WindowClassBuilder::RegisterAndCreateHandleBuilder() const
 {
-    return wc;
+    Register();
+    return WindowHandleBuilder(wc.hInstance, wc.lpszClassName);
 }

@@ -3,17 +3,12 @@
 #include <Graphics\Brushes\SolidBrush.h>
 #include <Graphics\Cursors\PredefinedCursorHandles.h>
 
-WindowHandleBuilder MainWindow::CreateHandleBuilder(HINSTANCE processHandle)
-{
-    return WindowHandleBuilder(
-        CreateClassBuilder(processHandle, L"MyWindow")
-            .WithBackgroundBrush(StockBrushesHandles::LightGray())
-            .WithCursor(PredefinedCursorHandles::Arrow())
-            .Register());
-}
-
 MainWindow::MainWindow(HINSTANCE processHandle)
-    : CustomWindow(CreateHandleBuilder(processHandle).WithTitle(L"Hello World!!!"))
+    : CustomWindow(CreateClassBuilder(processHandle, L"MainWindow")
+        .WithBackgroundBrush(StockBrushesHandles::LightGray())
+        .WithCursor(PredefinedCursorHandles::Arrow())
+        .RegisterAndCreateHandleBuilder()
+        .WithTitle(L"Hello World!!!"))
 {
 }
 
