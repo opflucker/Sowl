@@ -1,7 +1,7 @@
 #include "MainWindow.h"
-#include <Graphics\Brushes\StockBrushesHandles.h>
-#include <Graphics\Brushes\SolidBrush.h>
-#include <Graphics\Cursors\PredefinedCursorHandles.h>
+#include <Sowl/Graphics/Brushes/StockBrushesHandles.h>
+#include <Sowl/Graphics/Brushes/SolidBrush.h>
+#include <Sowl/Graphics/Cursors/PredefinedCursorHandles.h>
 
 MainWindow::MainWindow(HINSTANCE processHandle)
     : CustomWindow(CreateClassBuilder(processHandle, L"MainWindow")

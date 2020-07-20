@@ -1,6 +1,6 @@
 #pragma once
-#include <Windows\Dialogs\ModalDialogWindow.h>
-#include <Windows\Controls\ButtonWindow.h>
+#include <Sowl/Windows/Dialogs/ModalDialogWindow.h>
+#include <Sowl/Windows/Controls/ButtonWindow.h>
 
 class TestDialog : public ModalDialogWindow
 {

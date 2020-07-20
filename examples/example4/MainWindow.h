@@ -1,6 +1,6 @@
 #pragma once
-#include <Windows\Customs\CustomWindow.h>
-#include <Windows\MessageLoop.h>
+#include <Sowl/Windows/Customs/CustomWindow.h>
+#include <Sowl/Windows/MessageLoop.h>
 #include "TestDialog.h"
 
 class MainWindow : public CustomWindow, public MessageLoop

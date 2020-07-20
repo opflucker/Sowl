@@ -24,109 +24,109 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Windows\Dialogs\DialogWindow.h">
+    <ClCompile Include="Sowl\Graphics\DeviceContext.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Sowl\Graphics\PaintDeviceContext.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Sowl\Graphics\Brushes\Brush.cpp">
+      <Filter>Graphics\Brushes</Filter>
+    </ClCompile>
+    <ClCompile Include="Sowl\Graphics\Brushes\SolidBrush.cpp">
+      <Filter>Graphics\Brushes</Filter>
+    </ClCompile>
+    <ClCompile Include="Sowl\Graphics\Brushes\StockBrushesHandles.cpp">
+      <Filter>Graphics\Brushes</Filter>
+    </ClCompile>
+    <ClCompile Include="Sowl\Graphics\Cursors\Cursor.cpp">
+      <Filter>Graphics\Cursors</Filter>
+    </ClCompile>
+    <ClCompile Include="Sowl\Graphics\Cursors\PredefinedCursorHandles.cpp">
+      <Filter>Graphics\Cursors</Filter>
+    </ClCompile>
+    <ClCompile Include="Sowl\Windows\MessageLoop.cpp">
+      <Filter>Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="Sowl\Windows\Window.cpp">
+      <Filter>Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="Sowl\Windows\WindowClassBuilder.cpp">
+      <Filter>Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="Sowl\Windows\WindowHandleBuilder.cpp">
+      <Filter>Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="Sowl\Windows\Dialogs\DialogWindow.cpp">
       <Filter>Windows\Dialogs</Filter>
-    </ClInclude>
-    <ClInclude Include="Windows\Dialogs\ModalDialogWindow.h">
+    </ClCompile>
+    <ClCompile Include="Sowl\Windows\Dialogs\ModalDialogWindow.cpp">
       <Filter>Windows\Dialogs</Filter>
-    </ClInclude>
-    <ClInclude Include="Windows\Dialogs\ModelessDialogWindow.h">
+    </ClCompile>
+    <ClCompile Include="Sowl\Windows\Dialogs\ModelessDialogWindow.cpp">
       <Filter>Windows\Dialogs</Filter>
-    </ClInclude>
-    <ClInclude Include="Windows\Customs\CustomWindow.h">
+    </ClCompile>
+    <ClCompile Include="Sowl\Windows\Customs\CustomWindow.cpp">
       <Filter>Windows\Customs</Filter>
-    </ClInclude>
-    <ClInclude Include="Windows\Controls\ButtonWindow.h">
+    </ClCompile>
+    <ClCompile Include="Sowl\Windows\Controls\ButtonWindow.cpp">
       <Filter>Windows\Controls</Filter>
-    </ClInclude>
-    <ClInclude Include="Windows\Controls\ControlWindow.h">
+    </ClCompile>
+    <ClCompile Include="Sowl\Windows\Controls\ControlWindow.cpp">
       <Filter>Windows\Controls</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphics\DeviceContext.h">
-      <Filter>Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphics\PaintDeviceContext.h">
-      <Filter>Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphics\Cursors\Cursor.h">
-      <Filter>Graphics\Cursors</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphics\Cursors\PredefinedCursorHandles.h">
-      <Filter>Graphics\Cursors</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphics\Brushes\Brush.h">
-      <Filter>Graphics\Brushes</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphics\Brushes\SolidBrush.h">
-      <Filter>Graphics\Brushes</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphics\Brushes\StockBrushesHandles.h">
-      <Filter>Graphics\Brushes</Filter>
-    </ClInclude>
-    <ClInclude Include="Windows\MessageLoop.h">
-      <Filter>Windows</Filter>
-    </ClInclude>
-    <ClInclude Include="Windows\Window.h">
-      <Filter>Windows</Filter>
-    </ClInclude>
-    <ClInclude Include="Windows\WindowClassBuilder.h">
-      <Filter>Windows</Filter>
-    </ClInclude>
-    <ClInclude Include="Windows\WindowHandleBuilder.h">
-      <Filter>Windows</Filter>
-    </ClInclude>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Windows\Dialogs\DialogWindow.cpp">
+    <ClInclude Include="Sowl\Graphics\DeviceContext.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Sowl\Graphics\PaintDeviceContext.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Sowl\Graphics\Brushes\Brush.h">
+      <Filter>Graphics\Brushes</Filter>
+    </ClInclude>
+    <ClInclude Include="Sowl\Graphics\Brushes\SolidBrush.h">
+      <Filter>Graphics\Brushes</Filter>
+    </ClInclude>
+    <ClInclude Include="Sowl\Graphics\Brushes\StockBrushesHandles.h">
+      <Filter>Graphics\Brushes</Filter>
+    </ClInclude>
+    <ClInclude Include="Sowl\Graphics\Cursors\Cursor.h">
+      <Filter>Graphics\Cursors</Filter>
+    </ClInclude>
+    <ClInclude Include="Sowl\Graphics\Cursors\PredefinedCursorHandles.h">
+      <Filter>Graphics\Cursors</Filter>
+    </ClInclude>
+    <ClInclude Include="Sowl\Windows\MessageLoop.h">
+      <Filter>Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="Sowl\Windows\Window.h">
+      <Filter>Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="Sowl\Windows\WindowClassBuilder.h">
+      <Filter>Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="Sowl\Windows\WindowHandleBuilder.h">
+      <Filter>Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="Sowl\Windows\Dialogs\DialogWindow.h">
       <Filter>Windows\Dialogs</Filter>
-    </ClCompile>
-    <ClCompile Include="Windows\Dialogs\ModalDialogWindow.cpp">
+    </ClInclude>
+    <ClInclude Include="Sowl\Windows\Dialogs\ModalDialogWindow.h">
       <Filter>Windows\Dialogs</Filter>
-    </ClCompile>
-    <ClCompile Include="Windows\Dialogs\ModelessDialogWindow.cpp">
+    </ClInclude>
+    <ClInclude Include="Sowl\Windows\Dialogs\ModelessDialogWindow.h">
       <Filter>Windows\Dialogs</Filter>
-    </ClCompile>
-    <ClCompile Include="Windows\Customs\CustomWindow.cpp">
+    </ClInclude>
+    <ClInclude Include="Sowl\Windows\Customs\CustomWindow.h">
       <Filter>Windows\Customs</Filter>
-    </ClCompile>
-    <ClCompile Include="Windows\Controls\ButtonWindow.cpp">
+    </ClInclude>
+    <ClInclude Include="Sowl\Windows\Controls\ButtonWindow.h">
       <Filter>Windows\Controls</Filter>
-    </ClCompile>
-    <ClCompile Include="Windows\Controls\ControlWindow.cpp">
+    </ClInclude>
+    <ClInclude Include="Sowl\Windows\Controls\ControlWindow.h">
       <Filter>Windows\Controls</Filter>
-    </ClCompile>
-    <ClCompile Include="Graphics\DeviceContext.cpp">
-      <Filter>Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="Graphics\PaintDeviceContext.cpp">
-      <Filter>Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="Graphics\Cursors\Cursor.cpp">
-      <Filter>Graphics\Cursors</Filter>
-    </ClCompile>
-    <ClCompile Include="Graphics\Cursors\PredefinedCursorHandles.cpp">
-      <Filter>Graphics\Cursors</Filter>
-    </ClCompile>
-    <ClCompile Include="Graphics\Brushes\Brush.cpp">
-      <Filter>Graphics\Brushes</Filter>
-    </ClCompile>
-    <ClCompile Include="Graphics\Brushes\SolidBrush.cpp">
-      <Filter>Graphics\Brushes</Filter>
-    </ClCompile>
-    <ClCompile Include="Graphics\Brushes\StockBrushesHandles.cpp">
-      <Filter>Graphics\Brushes</Filter>
-    </ClCompile>
-    <ClCompile Include="Windows\MessageLoop.cpp">
-      <Filter>Windows</Filter>
-    </ClCompile>
-    <ClCompile Include="Windows\Window.cpp">
-      <Filter>Windows</Filter>
-    </ClCompile>
-    <ClCompile Include="Windows\WindowClassBuilder.cpp">
-      <Filter>Windows</Filter>
-    </ClCompile>
-    <ClCompile Include="Windows\WindowHandleBuilder.cpp">
-      <Filter>Windows</Filter>
-    </ClCompile>
+    </ClInclude>
   </ItemGroup>
 </Project>

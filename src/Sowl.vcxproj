@@ -18,6 +18,44 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Sowl\Graphics\Brushes\Brush.cpp" />
+    <ClCompile Include="Sowl\Graphics\Brushes\SolidBrush.cpp" />
+    <ClCompile Include="Sowl\Graphics\Brushes\StockBrushesHandles.cpp" />
+    <ClCompile Include="Sowl\Graphics\Cursors\Cursor.cpp" />
+    <ClCompile Include="Sowl\Graphics\Cursors\PredefinedCursorHandles.cpp" />
+    <ClCompile Include="Sowl\Graphics\DeviceContext.cpp" />
+    <ClCompile Include="Sowl\Graphics\PaintDeviceContext.cpp" />
+    <ClCompile Include="Sowl\Windows\Controls\ButtonWindow.cpp" />
+    <ClCompile Include="Sowl\Windows\Controls\ControlWindow.cpp" />
+    <ClCompile Include="Sowl\Windows\Customs\CustomWindow.cpp" />
+    <ClCompile Include="Sowl\Windows\Dialogs\DialogWindow.cpp" />
+    <ClCompile Include="Sowl\Windows\Dialogs\ModalDialogWindow.cpp" />
+    <ClCompile Include="Sowl\Windows\Dialogs\ModelessDialogWindow.cpp" />
+    <ClCompile Include="Sowl\Windows\MessageLoop.cpp" />
+    <ClCompile Include="Sowl\Windows\Window.cpp" />
+    <ClCompile Include="Sowl\Windows\WindowClassBuilder.cpp" />
+    <ClCompile Include="Sowl\Windows\WindowHandleBuilder.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Sowl\Graphics\Brushes\Brush.h" />
+    <ClInclude Include="Sowl\Graphics\Brushes\SolidBrush.h" />
+    <ClInclude Include="Sowl\Graphics\Brushes\StockBrushesHandles.h" />
+    <ClInclude Include="Sowl\Graphics\Cursors\Cursor.h" />
+    <ClInclude Include="Sowl\Graphics\Cursors\PredefinedCursorHandles.h" />
+    <ClInclude Include="Sowl\Graphics\DeviceContext.h" />
+    <ClInclude Include="Sowl\Graphics\PaintDeviceContext.h" />
+    <ClInclude Include="Sowl\Windows\Controls\ButtonWindow.h" />
+    <ClInclude Include="Sowl\Windows\Controls\ControlWindow.h" />
+    <ClInclude Include="Sowl\Windows\Customs\CustomWindow.h" />
+    <ClInclude Include="Sowl\Windows\Dialogs\DialogWindow.h" />
+    <ClInclude Include="Sowl\Windows\Dialogs\ModalDialogWindow.h" />
+    <ClInclude Include="Sowl\Windows\Dialogs\ModelessDialogWindow.h" />
+    <ClInclude Include="Sowl\Windows\MessageLoop.h" />
+    <ClInclude Include="Sowl\Windows\Window.h" />
+    <ClInclude Include="Sowl\Windows\WindowClassBuilder.h" />
+    <ClInclude Include="Sowl\Windows\WindowHandleBuilder.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -152,44 +190,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="Graphics\Brushes\Brush.h" />
-    <ClInclude Include="Graphics\Brushes\SolidBrush.h" />
-    <ClInclude Include="Graphics\Brushes\StockBrushesHandles.h" />
-    <ClInclude Include="Graphics\Cursors\Cursor.h" />
-    <ClInclude Include="Graphics\Cursors\PredefinedCursorHandles.h" />
-    <ClInclude Include="Graphics\DeviceContext.h" />
-    <ClInclude Include="Graphics\PaintDeviceContext.h" />
-    <ClInclude Include="Windows\Controls\ButtonWindow.h" />
-    <ClInclude Include="Windows\Controls\ControlWindow.h" />
-    <ClInclude Include="Windows\Customs\CustomWindow.h" />
-    <ClInclude Include="Windows\Dialogs\DialogWindow.h" />
-    <ClInclude Include="Windows\Dialogs\ModalDialogWindow.h" />
-    <ClInclude Include="Windows\Dialogs\ModelessDialogWindow.h" />
-    <ClInclude Include="Windows\MessageLoop.h" />
-    <ClInclude Include="Windows\Window.h" />
-    <ClInclude Include="Windows\WindowClassBuilder.h" />
-    <ClInclude Include="Windows\WindowHandleBuilder.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Graphics\Brushes\Brush.cpp" />
-    <ClCompile Include="Graphics\Brushes\SolidBrush.cpp" />
-    <ClCompile Include="Graphics\Brushes\StockBrushesHandles.cpp" />
-    <ClCompile Include="Graphics\Cursors\Cursor.cpp" />
-    <ClCompile Include="Graphics\Cursors\PredefinedCursorHandles.cpp" />
-    <ClCompile Include="Graphics\DeviceContext.cpp" />
-    <ClCompile Include="Graphics\PaintDeviceContext.cpp" />
-    <ClCompile Include="Windows\Controls\ButtonWindow.cpp" />
-    <ClCompile Include="Windows\Controls\ControlWindow.cpp" />
-    <ClCompile Include="Windows\Customs\CustomWindow.cpp" />
-    <ClCompile Include="Windows\Dialogs\DialogWindow.cpp" />
-    <ClCompile Include="Windows\Dialogs\ModalDialogWindow.cpp" />
-    <ClCompile Include="Windows\Dialogs\ModelessDialogWindow.cpp" />
-    <ClCompile Include="Windows\MessageLoop.cpp" />
-    <ClCompile Include="Windows\Window.cpp" />
-    <ClCompile Include="Windows\WindowClassBuilder.cpp" />
-    <ClCompile Include="Windows\WindowHandleBuilder.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
