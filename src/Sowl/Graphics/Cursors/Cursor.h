@@ -1,12 +1,15 @@
 #pragma once
 #include <windows.h>
 
-class Cursor
+namespace sowl
 {
-public:
-	Cursor(HCURSOR handle);
-	HCURSOR GetHandle() const;
+	class Cursor
+	{
+	public:
+		Cursor(HCURSOR handle);
+		HCURSOR GetHandle() const;
 
-private:
-	HCURSOR handle;
-};
+	private:
+		HCURSOR handle;
+	};
+}

@@ -1,5 +1,7 @@
 #include "PredefinedCursorHandles.h"
 
+using namespace sowl;
+
 HCURSOR PredefinedCursorHandles::Arrow()
 {
 	return LoadCursor(NULL, IDC_ARROW);

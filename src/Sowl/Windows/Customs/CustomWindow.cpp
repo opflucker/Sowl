@@ -1,6 +1,8 @@
 #include "CustomWindow.h"
 #include <windowsx.h>
 
+using namespace sowl;
+
 LRESULT CALLBACK CustomWindow::WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
     CustomWindow* pWindow;

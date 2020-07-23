@@ -1,6 +1,8 @@
 #include "PaintDeviceContext.h"
 #include <utility>
 
+using namespace sowl;
+
 PaintDeviceContext::PaintDeviceContext(HWND hwnd)
 	: DeviceContext(BeginPaint(hwnd, &ps))
 {

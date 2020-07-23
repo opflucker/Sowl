@@ -1,5 +1,7 @@
 #include "Window.h"
 
+using namespace sowl;
+
 Window::Window(HWND hwnd)
 {
     this->hwnd = hwnd;

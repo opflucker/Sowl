@@ -1,5 +1,7 @@
 #include "ModalDialogWindow.h"
 
+using namespace sowl;
+
 ModalDialogWindow::ModalDialogWindow(const Window& parentWindow, int resourceId)
     : DialogWindow(parentWindow, resourceId)
 {

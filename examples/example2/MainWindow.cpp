@@ -4,6 +4,8 @@
 #include <Sowl/Graphics/Cursors/PredefinedCursorHandles.h>
 #include <Sowl/Windows/Dialogs/ModalDialogWindow.h>
 
+using namespace sowl;
+
 enum ControlIds
 {
     SHOW_MESSAGE_ID,

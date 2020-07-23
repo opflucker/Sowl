@@ -1,5 +1,7 @@
 #include "DeviceContext.h"
 
+using namespace sowl;
+
 DeviceContext::DeviceContext(HDC hdc)
 {
 	this->hdc = hdc;

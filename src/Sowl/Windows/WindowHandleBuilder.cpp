@@ -1,5 +1,7 @@
 #include "WindowHandleBuilder.h"
 
+using namespace sowl;
+
 WindowHandleBuilder::WindowHandleBuilder(HINSTANCE hInstance, LPCWSTR className)
 {
     this->className = className;

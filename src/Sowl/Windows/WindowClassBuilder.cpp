@@ -1,5 +1,7 @@
 #include "WindowClassBuilder.h"
 
+using namespace sowl;
+
 WindowClassBuilder::WindowClassBuilder(HINSTANCE hInstance, LPCWSTR className, WNDPROC wndProc)
 {
     wc.cbClsExtra = 0;

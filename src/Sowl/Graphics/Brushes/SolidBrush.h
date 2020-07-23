@@ -1,10 +1,12 @@
 #pragma once
 #include "Brush.h"
 
-class SolidBrush : public Brush
+namespace sowl
 {
-public:
-	SolidBrush(COLORREF color);
-	~SolidBrush();
-};
-
+	class SolidBrush : public Brush
+	{
+	public:
+		SolidBrush(COLORREF color);
+		~SolidBrush();
+	};
+}

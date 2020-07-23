@@ -1,5 +1,7 @@
 #include "Cursor.h"
 
+using namespace sowl;
+
 Cursor::Cursor(HCURSOR handle)
 {
 	this->handle = handle;

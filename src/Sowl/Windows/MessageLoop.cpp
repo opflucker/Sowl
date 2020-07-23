@@ -1,31 +1,27 @@
 #include "MessageLoop.h"
 
-MessageLoop::MessageLoop()
-{
-    result = 0;
-}
+using namespace sowl;
 
 int MessageLoop::Run()
 {
-    MSG msg = { };
-    while (GetMessage(msg))
+    MSG msg;
+    int getResult;
+    while ((getResult = GetMessage(msg)) != 0)
     {
-        ProcessMessage(msg);
+        if (getResult == -1)
+        {
+            if (HandleErrorAndExit())
+                break;
+        }
+        else
+            ProcessMessage(msg);
     }
-    return result;
+    return msg.wParam; // exit code on WM_QUIT
 }
 
-bool MessageLoop::GetMessage(MSG& message)
+int MessageLoop::GetMessage(MSG& message)
 {
-    switch (::GetMessage(&message, NULL, 0, 0))
-    {
-    case -1:
-        return HandleErrorAndExit();
-    case 0: // because WM_QUIT
-        return false;
-    default:
-        return true;
-    }
+    return ::GetMessage(&message, NULL, 0, 0);
 }
 
 bool MessageLoop::HandleErrorAndExit()
@@ -37,9 +33,4 @@ void MessageLoop::ProcessMessage(MSG& message)
 {
     TranslateMessage(&message);
     DispatchMessage(&message);
-}
-
-void MessageLoop::SetResult(int result)
-{
-    this->result = result;
 }

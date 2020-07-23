@@ -10,5 +10,5 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE, PWSTR pCmdLine, int nCmdShow
 {
     MainWindow window(hInstance);
     window.Show(nCmdShow);
-    return MessageLoop().Run();
+    return sowl::MessageLoop().Run();
 }

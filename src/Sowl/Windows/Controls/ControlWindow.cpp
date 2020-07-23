@@ -1,5 +1,7 @@
 #include "ControlWindow.h"
 
+using namespace sowl;
+
 WindowHandleBuilder ControlWindow::CreateHandleBuilder(const Window& parentWindow, LPCWSTR className, WORD id)
 {
     // TODO: Check "id" is in [8, 0xDFFF]

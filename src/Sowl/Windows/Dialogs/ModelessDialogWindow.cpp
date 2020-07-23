@@ -1,5 +1,7 @@
 #include "ModelessDialogWindow.h"
 
+using namespace sowl;
+
 ModelessDialogWindow::ModelessDialogWindow(int resourceId)
     : DialogWindow(resourceId)
 {

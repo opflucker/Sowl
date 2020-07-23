@@ -1,12 +1,15 @@
 #pragma once
 #include <windows.h>
 
-class Brush
+namespace sowl
 {
-public:
-	Brush(HBRUSH handle);
-	HBRUSH GetHandle() const;
+	class Brush
+	{
+	public:
+		Brush(HBRUSH handle);
+		HBRUSH GetHandle() const;
 
-private:
-	HBRUSH handle;
-};
+	private:
+		HBRUSH handle;
+	};
+}

@@ -1,5 +1,7 @@
 #include "StockBrushesHandles.h"
 
+using namespace sowl;
+
 HBRUSH StockBrushesHandles::White()
 {
 	return (HBRUSH)GetStockObject(WHITE_BRUSH);

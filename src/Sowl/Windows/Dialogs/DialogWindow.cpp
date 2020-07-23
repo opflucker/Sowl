@@ -1,5 +1,7 @@
 #include "DialogWindow.h"
 
+using namespace sowl;
+
 DialogWindow::DialogWindow(int resourceId)
     : Window(NULL)
 {

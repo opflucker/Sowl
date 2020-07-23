@@ -3,6 +3,8 @@
 #include <Sowl/Graphics/Brushes/SolidBrush.h>
 #include <Sowl/Graphics/Cursors/PredefinedCursorHandles.h>
 
+using namespace sowl;
+
 MainWindow::MainWindow(HINSTANCE processHandle)
     : CustomWindow(CreateClassBuilder(processHandle, L"MainWindow")
         .WithBackgroundBrush(StockBrushesHandles::LightGray())

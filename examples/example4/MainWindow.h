@@ -3,7 +3,7 @@
 #include <Sowl/Windows/MessageLoop.h>
 #include "TestDialog.h"
 
-class MainWindow : public CustomWindow, public MessageLoop
+class MainWindow : public sowl::CustomWindow, public sowl::MessageLoop
 {
 public:
     MainWindow(HINSTANCE processHandle);

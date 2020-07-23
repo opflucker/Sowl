@@ -1,6 +1,8 @@
 #include "ButtonWindow.h"
 #include <utility>
 
+using namespace sowl;
+
 WindowHandleBuilder ButtonWindow::CreateHandleBuilder(const Window& parentWindow, WORD id)
 {
     return ControlWindow::CreateHandleBuilder(parentWindow, L"BUTTON", id)

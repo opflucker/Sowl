@@ -1,9 +1,12 @@
 #pragma once
 #include <windows.h>
 
-class PredefinedCursorHandles
+namespace sowl
 {
-public:
-	static HCURSOR Arrow();
-	static HCURSOR Cross();
-};
+	class PredefinedCursorHandles
+	{
+	public:
+		static HCURSOR Arrow();
+		static HCURSOR Cross();
+	};
+}
