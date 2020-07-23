@@ -1,8 +1,8 @@
 #pragma once
-#include <Windows\Customs\CustomWindow.h>
-#include <Windows\WindowHandleBuilder.h>
+#include <Sowl/Windows/Customs/CustomWindow.h>
+#include <Sowl/Windows/WindowHandleBuilder.h>
 
-class MainWindow : public CustomWindow
+class MainWindow : public sowl::CustomWindow
 {
 public:
     MainWindow(HINSTANCE processHandle);

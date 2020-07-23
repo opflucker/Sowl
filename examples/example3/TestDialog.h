@@ -1,8 +1,8 @@
 #pragma once
-#include <Windows\Dialogs\ModalDialogWindow.h>
-#include <Windows\Controls\ButtonWindow.h>
+#include <Sowl/Windows/Dialogs/ModalDialogWindow.h>
+#include <Sowl/Windows/Controls/ButtonWindow.h>
 
-class TestDialog : public ModalDialogWindow
+class TestDialog : public sowl::ModalDialogWindow
 {
 public:
     TestDialog(const Window& parentWindow);
@@ -10,5 +10,5 @@ public:
     virtual bool OnCommand(int notificationCode, int senderId, HWND controlHandle) override;
 
 private:
-    ButtonWindow okButton;
+    sowl::ButtonWindow okButton;
 };

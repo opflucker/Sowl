@@ -1,15 +1,15 @@
 #pragma once
-#include <Windows\Customs\CustomWindow.h>
-#include <Windows\WindowHandleBuilder.h>
-#include <Windows\Controls\ButtonWindow.h>
+#include <Sowl/Windows/Customs/CustomWindow.h>
+#include <Sowl/Windows/WindowHandleBuilder.h>
+#include <Sowl/Windows/Controls/ButtonWindow.h>
 
-class MainWindow : public CustomWindow
+class MainWindow : public sowl::CustomWindow
 {
 public:
     MainWindow(HINSTANCE processHandle);
     virtual bool OnCommand(int notificationCode, int senderId, HWND controlHandle);
 
 private:
-    ButtonWindow showMessageButton;
-    ButtonWindow closeButton;
+    sowl::ButtonWindow showMessageButton;
+    sowl::ButtonWindow closeButton;
 };

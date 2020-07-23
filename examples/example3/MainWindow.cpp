@@ -2,6 +2,8 @@
 #include "TestDialog.h"
 #include "Resources.h"
 
+using namespace sowl;
+
 enum ControlIds
 {
     SHOW_MODAL_1_ID = 101,

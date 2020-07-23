@@ -1,6 +1,8 @@
 #include "TestDialog.h"
 #include "Resources.h"
 
+using namespace sowl;
+
 TestDialog::TestDialog()
     : ModelessDialogWindow(IDD_DIALOG1)
 {

@@ -1,8 +1,8 @@
 #pragma once
-#include <Windows\Dialogs\ModelessDialogWindow.h>
-#include <Windows\Controls\ButtonWindow.h>
+#include <Sowl/Windows/Dialogs/ModelessDialogWindow.h>
+#include <Sowl/Windows/Controls/ButtonWindow.h>
 
-class TestDialog : public ModelessDialogWindow
+class TestDialog : public sowl::ModelessDialogWindow
 {
 public:
     TestDialog();
@@ -10,5 +10,5 @@ public:
     virtual bool OnCommand(int notificationCode, int senderId, HWND controlHandle) override;
 
 private:
-    ButtonWindow okButton;
+    sowl::ButtonWindow okButton;
 };
