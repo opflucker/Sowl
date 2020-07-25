@@ -43,3 +43,7 @@ Even now, with memory managed alternatives (.NET and MPF), working directly with
 		window.Show(nCmdShow);
 		return sowl::MessageLoop().Run();
 	}
+
+# Documentation
+
+See generated documentation [Documentation](./doc/index.html "here").
