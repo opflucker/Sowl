@@ -3,6 +3,7 @@
 
 namespace sowl
 {
+	/// @brief Encapsulates a window handle (HWND).
 	class Window
 	{
 	public:

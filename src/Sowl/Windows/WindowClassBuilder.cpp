@@ -2,7 +2,12 @@
 
 using namespace sowl;
 
-WindowClassBuilder::WindowClassBuilder(HINSTANCE hInstance, LPCWSTR className, WNDPROC wndProc)
+/// @brief Initialize the builder with given parameters and defaults.
+/// @param processHandle Handle of the process where the window class to be registered must belongs to.
+/// @param className A valid window class name.
+/// @param wndProc A pointer to the window procedure.
+/// @return A builder. If parameters are valid, a call to Register() must return a valid registered window class.
+WindowClassBuilder::WindowClassBuilder(HINSTANCE processHandle, LPCWSTR className, WNDPROC wndProc)
 {
     wc.cbClsExtra = 0;
     wc.cbWndExtra = 0;
@@ -12,7 +17,7 @@ WindowClassBuilder::WindowClassBuilder(HINSTANCE hInstance, LPCWSTR className, W
     wc.lpszClassName = className;
     wc.lpszMenuName = NULL;
     wc.style = 0;
-    wc.hInstance = hInstance;
+    wc.hInstance = processHandle;
     wc.lpfnWndProc = wndProc;
 }
 
@@ -46,6 +51,8 @@ WindowClassBuilder& WindowClassBuilder::WithStyle(UINT style)
     return *this;
 }
 
+/// @brief If the class was not registered, register it. Otherwise, retrieve the registered class information.
+/// @return Structure with information about the registered class.
 WNDCLASS WindowClassBuilder::Register() const
 {
     WNDCLASS wcFound;
@@ -55,6 +62,8 @@ WNDCLASS WindowClassBuilder::Register() const
     return wc;
 }
 
+/// @brief Calls to Register(), creates a WindowHandleBuilder using the registered class and returns it. 
+/// @return A WindowHandleBuilder object.
 WindowHandleBuilder WindowClassBuilder::RegisterAndCreateHandleBuilder() const
 {
     Register();

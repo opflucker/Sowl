@@ -3,10 +3,11 @@
 
 namespace sowl
 {
+	/// @brief Builds a call to ::CreateWindowEx.
 	class WindowHandleBuilder
 	{
 	public:
-		WindowHandleBuilder(HINSTANCE hInstance, LPCWSTR className);
+		WindowHandleBuilder(HINSTANCE processHandle, LPCWSTR className);
 		WindowHandleBuilder(const WNDCLASS& wc);
 		WindowHandleBuilder& WithTitle(LPCWSTR title);
 		WindowHandleBuilder& WithStyle(DWORD style);

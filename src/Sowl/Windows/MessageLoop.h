@@ -4,6 +4,7 @@
 
 namespace sowl
 {
+	/// @brief Encapsulates a generic message loop.
 	class MessageLoop
 	{
 	public:
