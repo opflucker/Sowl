@@ -4,10 +4,11 @@
 
 namespace sowl
 {
+	/// @brief Builds a call to ::RegisterClass.
 	class WindowClassBuilder
 	{
 	public:
-		WindowClassBuilder(HINSTANCE hInstance, LPCWSTR className, WNDPROC wndProc);
+		WindowClassBuilder(HINSTANCE processHandle, LPCWSTR className, WNDPROC wndProc);
 		WindowClassBuilder& WithBackgroundBrush(HBRUSH handle);
 		WindowClassBuilder& WithCursor(HCURSOR handle);
 		WindowClassBuilder& WithIcon(HICON handle);

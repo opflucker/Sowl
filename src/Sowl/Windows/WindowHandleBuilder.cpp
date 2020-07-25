@@ -2,7 +2,11 @@
 
 using namespace sowl;
 
-WindowHandleBuilder::WindowHandleBuilder(HINSTANCE hInstance, LPCWSTR className)
+/// @brief Initialize the builder with given parameters and defaults.
+/// @param processHandle Handle of the process where the window to be created must belongs to.
+/// @param className Name of a valid registered window class.
+/// @return A builder. If parameters are valid, a call to Build() must return a valid created window.
+WindowHandleBuilder::WindowHandleBuilder(HINSTANCE processHandle, LPCWSTR className)
 {
     this->className = className;
     title = L"";
@@ -13,10 +17,13 @@ WindowHandleBuilder::WindowHandleBuilder(HINSTANCE hInstance, LPCWSTR className)
     height = CW_USEDEFAULT;
     hParentWindow = NULL;
     hMenu = NULL;
-    this->hInstance = hInstance;
+    this->hInstance = processHandle;
     lpParam = NULL;
 }
 
+/// @brief Initialize the builder with given parameters and defaults.
+/// @param wc Structure with information about a valid registered window class.
+/// @return A builder. If parameters are valid, a call to Build() must return a valid created window.
 WindowHandleBuilder::WindowHandleBuilder(const WNDCLASS& wc)
     : WindowHandleBuilder(wc.hInstance, wc.lpszClassName)
 {

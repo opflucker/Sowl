@@ -9,6 +9,7 @@
 int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE, PWSTR pCmdLine, int nCmdShow)
 {
     sowl::CustomWindow window(hInstance, L"CustomWindow");
+    window.SetText(L"Hello World!!!");
     window.Show(nCmdShow);
     return sowl::MessageLoop().Run();
 }
