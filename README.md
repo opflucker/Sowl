@@ -46,4 +46,4 @@ Even now, with memory managed alternatives (.NET and MPF), working directly with
 
 # Documentation
 
-See generated documentation [here](https://opflucker.github.io/Sowl).
+See generated documentation [here](https://opflucker.github.io/Sowl/doc).
