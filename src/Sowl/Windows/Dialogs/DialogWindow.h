@@ -20,7 +20,7 @@ namespace sowl
 		void CreateModeless();
 
 	private:
-		static BOOL CALLBACK DialogProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
+		static INT_PTR CALLBACK DialogProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 		HINSTANCE processHandle;
 		LPCWSTR templateName;
 		HWND parentHandle;

@@ -66,7 +66,7 @@ bool Window::IsEnabled()
 /// @param hcursor The cursor to be set. 
 void Window::SetClassCursor(HCURSOR hcursor)
 {
-    SetClassLong(hwnd, GCL_HCURSOR, (LONG)hcursor);
+    SetClassLong(hwnd, GCLP_HCURSOR, (LONG)hcursor);
 }
 
 /// @brief Encapsulates a call to ::SetWindowText.

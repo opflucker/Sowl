@@ -30,7 +30,7 @@ int DialogWindow::CreateAndShowModal()
 {
     if (GetHandle() == NULL)
     {
-        return ::DialogBoxParam(processHandle, templateName, parentHandle, DialogProc, (LPARAM)this);
+        return (int)::DialogBoxParam(processHandle, templateName, parentHandle, DialogProc, (LPARAM)this);
     }
     return 0;
 }
@@ -67,7 +67,7 @@ bool DialogWindow::OnCommand(int notificationCode, int senderId, HWND controlHan
     return false;
 }
 
-BOOL DialogWindow::DialogProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
+INT_PTR DialogWindow::DialogProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
     DialogWindow* pDialogWindow;
 
