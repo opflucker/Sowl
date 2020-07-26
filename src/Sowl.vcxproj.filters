@@ -75,6 +75,7 @@
     <ClCompile Include="Sowl\Windows\Controls\ControlWindow.cpp">
       <Filter>Windows\Controls</Filter>
     </ClCompile>
+    <ClCompile Include="Sowl\Utilities.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Sowl\Graphics\DeviceContext.h">
@@ -128,5 +129,6 @@
     <ClInclude Include="Sowl\Windows\Controls\ControlWindow.h">
       <Filter>Windows\Controls</Filter>
     </ClInclude>
+    <ClInclude Include="Sowl\Utilities.h" />
   </ItemGroup>
 </Project>

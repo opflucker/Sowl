@@ -1,10 +1,15 @@
 #include "CustomWindow.h"
+//#include "..\..\Utilities.h"
 #include <windowsx.h>
 
 using namespace sowl;
 
 LRESULT CALLBACK CustomWindow::WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
+    //wchar_t text[200];
+    //wsprintf(text, L"WndProc: msg = %x (%s)\n", uMsg, Utilities::GetWindowMessageText(uMsg));
+    //OutputDebugStringW(text);
+
     CustomWindow* pWindow;
 
     if (uMsg == WM_CREATE)
@@ -53,6 +58,10 @@ LRESULT CustomWindow::Process(UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
     switch (uMsg)
     {
+    case WM_SHOWWINDOW:
+        if (OnShow((bool)wParam, (int)lParam))
+            return 0;
+        break;
     case WM_DESTROY:
         SetHandle(NULL);
         PostQuitMessage(0);
@@ -65,12 +74,17 @@ LRESULT CustomWindow::Process(UINT uMsg, WPARAM wParam, LPARAM lParam)
             return 0;
         break;
     case WM_LBUTTONDOWN:
-        if (OnLButtonDown(wParam, GET_X_LPARAM(lParam), GET_Y_LPARAM(lParam)))
+        if (OnLButtonDown((int)wParam, GET_X_LPARAM(lParam), GET_Y_LPARAM(lParam)))
             return 0;
         break;
     }
 
     return DefWindowProc(GetHandle(), uMsg, wParam, lParam);
+}
+
+bool CustomWindow::OnShow(bool show, int showStatus)
+{
+    return true;
 }
 
 void CustomWindow::OnPaint(const PaintDeviceContext& dc)

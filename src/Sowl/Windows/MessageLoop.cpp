@@ -19,7 +19,7 @@ int MessageLoop::Run()
         else
             ProcessMessage(msg);
     }
-    return msg.wParam; // exit code on WM_QUIT
+    return (int)msg.wParam; // exit code on WM_QUIT
 }
 
 /// @brief Encapsulates a call to ::GetMessage without filters.
