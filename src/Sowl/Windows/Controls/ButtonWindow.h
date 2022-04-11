@@ -15,8 +15,5 @@ namespace sowl
 		// move constructor and move assigment
 		ButtonWindow(ButtonWindow&& other) noexcept;
 		ButtonWindow& operator=(ButtonWindow&& other) noexcept;
-
-		// set-handle with assigment
-		ButtonWindow& operator=(HWND hwnd) noexcept;
 	};
 }

@@ -26,9 +26,3 @@ ButtonWindow& ButtonWindow::operator=(ButtonWindow&& other) noexcept
     ControlWindow::operator=(std::move(other));
     return *this;
 }
-
-ButtonWindow& ButtonWindow::operator=(HWND hwnd) noexcept
-{
-    SetHandle(hwnd);
-    return *this;
-}
