@@ -3,32 +3,20 @@
 using namespace sowl;
 
 DialogWindow::DialogWindow(int resourceId)
-    : Window(NULL)
+    : Window(nullptr), templateName(MAKEINTRESOURCE(resourceId))
 {
-    templateName = MAKEINTRESOURCE(resourceId);
-    parentHandle = NULL;
-    processHandle = NULL;
 }
 
 DialogWindow::DialogWindow(const Window& parentWindow, int resourceId)
-    : Window(NULL)
+    : Window(nullptr), processHandle(parentWindow.GetProcessHandle())
+    , parentHandle(parentWindow.GetHandle())
+    , templateName(MAKEINTRESOURCE(resourceId))
 {
-    templateName = MAKEINTRESOURCE(resourceId);
-    SetParent(parentWindow);
-}
-
-void DialogWindow::SetParent(const Window& parentWindow)
-{
-    if (GetHandle() == NULL)
-    {
-        parentHandle = parentWindow.GetHandle();
-        processHandle = parentWindow.GetProcessHandle();
-    }
 }
 
 int DialogWindow::CreateAndShowModal()
 {
-    if (GetHandle() == NULL)
+    if (GetHandle() == nullptr)
     {
         return (int)::DialogBoxParam(processHandle, templateName, parentHandle, DialogProc, (LPARAM)this);
     }
@@ -37,9 +25,9 @@ int DialogWindow::CreateAndShowModal()
 
 void DialogWindow::CreateModeless()
 {
-    if (GetHandle() == NULL)
+    if (GetHandle() == nullptr)
     {
-        SetHandle(CreateDialogParam(processHandle, templateName, parentHandle, DialogProc, (LPARAM)this));
+        CreateDialogParam(processHandle, templateName, parentHandle, DialogProc, (LPARAM)this);
     }
 }
 
@@ -53,6 +41,8 @@ bool DialogWindow::Process(UINT uMsg, WPARAM wParam, LPARAM lParam)
         return OnCommand(HIWORD(wParam), LOWORD(wParam), (HWND)lParam);
     case WM_CLOSE:
         return OnClose();
+    default:
+        break;
     }
     return false;
 }
@@ -83,7 +73,7 @@ INT_PTR DialogWindow::DialogProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lPa
         pDialogWindow = reinterpret_cast<DialogWindow*>(ptr);
     }
 
-    if (pDialogWindow != NULL)
+    if (pDialogWindow != nullptr)
         return pDialogWindow->Process(uMsg, wParam, lParam);
 
     return FALSE;

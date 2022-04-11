@@ -10,7 +10,6 @@ namespace sowl
 		DialogWindow(const Window& parentWindow, int resourceId);
 		virtual ~DialogWindow() = default;
 
-		void SetParent(const Window& parentWindow);
 		virtual bool Process(UINT uMsg, WPARAM wParam, LPARAM lParam);
 		virtual bool OnInitDialog(HWND hFocusWindow);
 		virtual bool OnCommand(int notificationCode, int senderId, HWND controlHandle);
@@ -22,8 +21,8 @@ namespace sowl
 
 	private:
 		static INT_PTR CALLBACK DialogProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
-		HINSTANCE processHandle;
+		HINSTANCE processHandle = nullptr;
+		HWND parentHandle = nullptr;
 		LPCWSTR templateName;
-		HWND parentHandle;
 	};
 }
