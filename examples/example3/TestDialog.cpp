@@ -1,6 +1,8 @@
 #include "TestDialog.h"
 #include "Resources.h"
 
+using namespace sowl;
+
 TestDialog::TestDialog(const Window& parentWindow)
     : ModalDialogWindow(parentWindow, IDD_DIALOG1)
 {
@@ -8,7 +10,7 @@ TestDialog::TestDialog(const Window& parentWindow)
 
 bool TestDialog::OnInitDialog(HWND hFocusWindow)
 {
-    okButton = GetDialogItem(IDOK);
+    okButton = ButtonWindow(GetDialogItem(IDOK));
     return TRUE;
 }
 
