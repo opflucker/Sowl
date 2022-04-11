@@ -12,6 +12,7 @@ Window::Window(HWND hwnd)
 {
 }
 
+/// @brief Move constructor.
 Window::Window(Window&& other) noexcept
     : hwnd(other.SetHandle(nullptr))
 {
@@ -21,6 +22,33 @@ Window::Window(Window&& other) noexcept
 Window::~Window()
 {
     Destroy();
+}
+
+/// @brief Release the encapsulated HWND if it is valid.
+void Window::Destroy()
+{
+    if (IsWindow(hwnd))
+    {
+        DestroyWindow(hwnd);
+        hwnd = nullptr;
+    }
+}
+
+/// @brief Move assigment.
+Window& Window::operator=(Window&& other) noexcept
+{
+    hwnd = other.SetHandle(nullptr);
+    return *this;
+}
+
+/// @brief Replace the encapsulated HWND by the one passed as parameter.
+/// @param hwnd New handle to encapsulate.
+/// @return The old encapsulated handle.
+HWND Window::SetHandle(HWND newHandle)
+{
+    HWND oldHandle = hwnd;
+    hwnd = newHandle;
+    return oldHandle;
 }
 
 HWND Window::GetHandle() const
@@ -41,16 +69,6 @@ HINSTANCE Window::GetProcessHandle() const
 HWND Window::GetDialogItem(int id) const
 {
     return GetDlgItem(hwnd, id);
-}
-
-/// @brief Replace the encapsulated HWND by the one passed as parameter.
-/// @param hwnd New handle to encapsulate.
-/// @return The old encapsulated handle.
-HWND Window::SetHandle(HWND hwnd)
-{
-    HWND oldHandle = this->hwnd;
-    this->hwnd = hwnd;
-    return oldHandle;
 }
 
 /// @brief Encapsulates a call to ::EnableWindow.
@@ -107,26 +125,10 @@ RECT Window::GetClientRect()
     return rect;
 }
 
-Window& Window::operator=(Window&& other) noexcept
-{
-    hwnd = other.SetHandle(nullptr);
-    return *this;
-}
-
-/// @brief Release the encapsulated HWND if it is valid.
-void Window::Destroy()
-{
-    if (IsWindow(hwnd))
-    {
-        DestroyWindow(hwnd);
-        hwnd = nullptr;
-    }
-}
-
 /// @brief Encapsulates a call to ::ShowWindow.
 /// @param nCmdShow Indicates how the window is to be shown.
 /// @return Indicates if the window was previously visible.
 bool Window::Show(int nCmdShow) const
 {
-    return ::ShowWindow(GetHandle(), nCmdShow);
+    return ::ShowWindow(hwnd, nCmdShow);
 }

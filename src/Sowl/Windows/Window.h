@@ -10,20 +10,19 @@ namespace sowl
 		// create
 		Window();
 		explicit Window(HWND hwnd);
-		HWND SetHandle(HWND hwnd);
+		Window(const Window& other) = delete; // avoid copy constructor
+		Window(Window&& other) noexcept; // move constructor
 
 		// destroy
 		~Window();
 		void Destroy();
 
-		// avoid copy constructor and copy assigment
-		Window(const Window& other) = delete;
-		Window& operator=(const Window& other) = delete;
+		// bind		
+		Window& operator=(const Window& other) = delete; // avoid copy assigment
+		Window& operator=(Window&& other) noexcept; // move assignment
+		HWND SetHandle(HWND newHandle);
 
-		// move constructor and move assignment
-		Window(Window&& other) noexcept;
-		Window& operator=(Window&& other) noexcept;
-
+		// other methods
 		HWND GetHandle() const;
 		HINSTANCE GetProcessHandle() const;
 		HWND GetDialogItem(int id) const;

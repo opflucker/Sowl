@@ -1,4 +1,5 @@
 #include "MessageLoop.h"
+#include "Utilities.h"
 
 using namespace sowl;
 
@@ -27,7 +28,13 @@ int MessageLoop::Run()
 /// @return If the call was successful, returns 1. If it fails, return -1. If loop must ends, returns 0.
 int MessageLoop::GetMessage(MSG& message)
 {
-    return ::GetMessage(&message, nullptr, 0, 0);
+    int result = ::GetMessage(&message, nullptr, 0, 0);
+
+    wchar_t text[200];
+    wsprintf(text, L"WndProc: msg = %x (%s)\n", message.message, Utilities::GetWindowMessageText(message.message));
+    OutputDebugStringW(text);
+
+    return result;
 }
 
 /// @brief Default implementation for handling errors. Do nothing and returns 'false'.

@@ -28,7 +28,6 @@
     <ClCompile Include="Sowl\Graphics\PaintDeviceContext.cpp" />
     <ClCompile Include="Sowl\Windows\Controls\ButtonWindow.cpp" />
     <ClCompile Include="Sowl\Windows\Controls\ControlWindow.cpp" />
-    <ClCompile Include="Sowl\Windows\Customs\WindowMessageProcessor.cpp" />
     <ClCompile Include="Sowl\Windows\Dialogs\DialogWindow.cpp" />
     <ClCompile Include="Sowl\Windows\Dialogs\ModalDialogWindow.cpp" />
     <ClCompile Include="Sowl\Windows\Utilities.cpp" />
@@ -49,7 +48,6 @@
     <ClInclude Include="Sowl\Sowl.h" />
     <ClInclude Include="Sowl\Windows\Controls\ButtonWindow.h" />
     <ClInclude Include="Sowl\Windows\Controls\ControlWindow.h" />
-    <ClInclude Include="Sowl\Windows\Customs\WindowMessageProcessor.h" />
     <ClInclude Include="Sowl\Windows\Dialogs\DialogWindow.h" />
     <ClInclude Include="Sowl\Windows\Dialogs\ModalDialogWindow.h" />
     <ClInclude Include="Sowl\Windows\Utilities.h" />

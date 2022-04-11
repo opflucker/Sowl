@@ -25,8 +25,10 @@ LRESULT CustomWindow::Process(UINT uMsg, WPARAM wParam, LPARAM lParam)
             return 0;
         break;
     case WM_DESTROY:
-        SetHandle(nullptr);
         PostQuitMessage(0);
+        return 0;
+    case WM_NCDESTROY:
+        SetHandle(nullptr);
         return 0;
     case WM_PAINT:
         OnPaint(PaintDeviceContext(GetHandle()));

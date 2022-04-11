@@ -1,6 +1,5 @@
 #include "WindowClassRegisterer.h"
-#include "WindowMessageProcessor.h"
-#include "../Utilities.h"
+#include "CustomWindow.h"
 
 using namespace sowl;
 
@@ -77,22 +76,19 @@ void WindowClassRegisterer::EnsureRegistered(HINSTANCE processHandle, LPCWSTR cl
 
 LRESULT CALLBACK WindowClassRegisterer::WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
-    wchar_t text[200];
-    wsprintf(text, L"WndProc: msg = %x (%s)\n", uMsg, Utilities::GetWindowMessageText(uMsg));
-    OutputDebugStringW(text);
-
-    WindowMessageProcessor* pWindow;
+    CustomWindow* pWindow;
 
     if (uMsg == WM_CREATE)
     {
         auto* pCreate = reinterpret_cast<CREATESTRUCT*>(lParam);
-        pWindow = reinterpret_cast<WindowMessageProcessor*>(pCreate->lpCreateParams);
+        pWindow = reinterpret_cast<CustomWindow*>(pCreate->lpCreateParams);
+        pWindow->SetHandle(hwnd);
         SetWindowLongPtr(hwnd, GWLP_USERDATA, (LONG_PTR)pWindow);
     }
     else
     {
         LONG_PTR ptr = GetWindowLongPtr(hwnd, GWLP_USERDATA);
-        pWindow = reinterpret_cast<WindowMessageProcessor*>(ptr);
+        pWindow = reinterpret_cast<CustomWindow*>(ptr);
     }
 
     if (pWindow != nullptr)
