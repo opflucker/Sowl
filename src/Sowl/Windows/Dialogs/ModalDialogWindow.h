@@ -7,8 +7,10 @@ namespace sowl
 	{
 	public:
 		ModalDialogWindow(const Window& parentWindow, int resourceId);
+		~ModalDialogWindow() override = default;
+
 		int CreateAndShow();
-		bool End(int result);
-		virtual bool OnClose() override;
+		bool End(int result) const;
+		bool OnClose() override;
 	};
 }

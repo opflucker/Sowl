@@ -1,22 +1,15 @@
 #include "MainWindow.h"
-#include <Sowl/Graphics/Brushes/StockBrushesHandles.h>
-#include <Sowl/Graphics/Brushes/SolidBrush.h>
-#include <Sowl/Graphics/Cursors/PredefinedCursorHandles.h>
-#include <Sowl/Windows/Dialogs/ModalDialogWindow.h>
 
 using namespace sowl;
 
-enum ControlIds
-{
-    SHOW_MESSAGE_ID,
-    CLOSE_ID
-};
+const int SHOW_MESSAGE_ID = 100;
+const int CLOSE_ID = 101;
 
 MainWindow::MainWindow(HINSTANCE processHandle)
-    : CustomWindow(CreateHandleBuilder(processHandle, L"MainWindow").WithTitle(L"Hello World!!!"))
+    : CustomWindow(WindowHandleCreator(processHandle, L"MainWindow").WithTitle(L"Hello World!!!"))
 {
-    showMessageButton = ButtonWindow::CreateHandleBuilder(*this, SHOW_MESSAGE_ID).WithTitle(L"Show Message").WithRect(10, 10, 150, 30);
-    closeButton = ButtonWindow::CreateHandleBuilder(*this, CLOSE_ID).WithTitle(L"Close").WithRect(10, 50, 150, 30);
+    showMessageButton = ButtonWindow::HandleCreator(*this, SHOW_MESSAGE_ID).WithTitle(L"Show Message").WithRect(10, 10, 150, 30).Create();
+    closeButton = ButtonWindow::HandleCreator(*this, CLOSE_ID).WithTitle(L"Close").WithRect(10, 50, 150, 30).Create();
 }
 
 bool MainWindow::OnCommand(int notificationCode, int senderId, HWND controlHandle)

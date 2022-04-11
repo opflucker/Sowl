@@ -1,13 +1,11 @@
 #pragma once
-#include <Sowl/Windows/Customs/CustomWindow.h>
-#include <Sowl/Windows/WindowHandleBuilder.h>
-#include <Sowl/Windows/Controls/ButtonWindow.h>
+#include <Sowl/Sowl.h>
 
 class MainWindow : public sowl::CustomWindow
 {
 public:
-    MainWindow(HINSTANCE processHandle);
-    virtual bool OnCommand(int notificationCode, int senderId, HWND controlHandle);
+    explicit MainWindow(HINSTANCE processHandle);
+    bool OnCommand(int notificationCode, int senderId, HWND controlHandle) override;
 
 private:
     sowl::ButtonWindow showMessageButton;

@@ -3,19 +3,16 @@
 
 using namespace sowl;
 
-WindowHandleBuilder ButtonWindow::CreateHandleBuilder(const Window& parentWindow, WORD id)
+WindowHandleCreator ButtonWindow::HandleCreator(const Window& parentWindow, WORD id)
 {
-    return ControlWindow::CreateHandleBuilder(parentWindow, L"BUTTON", id)
-        .WithAddStyle(BS_DEFPUSHBUTTON);
+    return WindowHandleCreator(parentWindow.GetProcessHandle(), L"BUTTON")
+        .WithParent(parentWindow.GetHandle())
+        .WithMenu((HMENU)(uintptr_t)id)
+        .WithStyle(WS_TABSTOP | WS_VISIBLE | WS_CHILD | BS_DEFPUSHBUTTON);
 }
 
-ButtonWindow::ButtonWindow(const Window& parentWindow, WORD id)
-    : ControlWindow(parentWindow, id)
-{
-}
-
-ButtonWindow::ButtonWindow(WindowHandleBuilder builder)
-    : ControlWindow(builder)
+ButtonWindow::ButtonWindow(HWND hwnd)
+    : ControlWindow(hwnd)
 {
 }
 
@@ -30,8 +27,8 @@ ButtonWindow& ButtonWindow::operator=(ButtonWindow&& other) noexcept
     return *this;
 }
 
-ButtonWindow& ButtonWindow::operator=(WindowHandleBuilder builder) noexcept
+ButtonWindow& ButtonWindow::operator=(HWND hwnd) noexcept
 {
-    ControlWindow::operator=(builder);
+    SetHandle(hwnd);
     return *this;
 }

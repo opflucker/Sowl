@@ -26,17 +26,17 @@
     <ClCompile Include="Sowl\Graphics\Cursors\PredefinedCursorHandles.cpp" />
     <ClCompile Include="Sowl\Graphics\DeviceContext.cpp" />
     <ClCompile Include="Sowl\Graphics\PaintDeviceContext.cpp" />
-    <ClCompile Include="Sowl\Utilities.cpp" />
     <ClCompile Include="Sowl\Windows\Controls\ButtonWindow.cpp" />
     <ClCompile Include="Sowl\Windows\Controls\ControlWindow.cpp" />
-    <ClCompile Include="Sowl\Windows\Customs\CustomWindow.cpp" />
+    <ClCompile Include="Sowl\Windows\Customs\WindowMessageProcessor.cpp" />
     <ClCompile Include="Sowl\Windows\Dialogs\DialogWindow.cpp" />
     <ClCompile Include="Sowl\Windows\Dialogs\ModalDialogWindow.cpp" />
-    <ClCompile Include="Sowl\Windows\Dialogs\ModelessDialogWindow.cpp" />
+    <ClCompile Include="Sowl\Windows\Utilities.cpp" />
     <ClCompile Include="Sowl\Windows\MessageLoop.cpp" />
     <ClCompile Include="Sowl\Windows\Window.cpp" />
-    <ClCompile Include="Sowl\Windows\WindowClassBuilder.cpp" />
-    <ClCompile Include="Sowl\Windows\WindowHandleBuilder.cpp" />
+    <ClCompile Include="Sowl\Windows\WindowHandleCreator.cpp" />
+    <ClCompile Include="Sowl\Windows\Customs\CustomWindow.cpp" />
+    <ClCompile Include="Sowl\Windows\Customs\WindowClassRegisterer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Sowl\Graphics\Brushes\Brush.h" />
@@ -46,17 +46,18 @@
     <ClInclude Include="Sowl\Graphics\Cursors\PredefinedCursorHandles.h" />
     <ClInclude Include="Sowl\Graphics\DeviceContext.h" />
     <ClInclude Include="Sowl\Graphics\PaintDeviceContext.h" />
-    <ClInclude Include="Sowl\Utilities.h" />
+    <ClInclude Include="Sowl\Sowl.h" />
     <ClInclude Include="Sowl\Windows\Controls\ButtonWindow.h" />
     <ClInclude Include="Sowl\Windows\Controls\ControlWindow.h" />
-    <ClInclude Include="Sowl\Windows\Customs\CustomWindow.h" />
+    <ClInclude Include="Sowl\Windows\Customs\WindowMessageProcessor.h" />
     <ClInclude Include="Sowl\Windows\Dialogs\DialogWindow.h" />
     <ClInclude Include="Sowl\Windows\Dialogs\ModalDialogWindow.h" />
-    <ClInclude Include="Sowl\Windows\Dialogs\ModelessDialogWindow.h" />
+    <ClInclude Include="Sowl\Windows\Utilities.h" />
     <ClInclude Include="Sowl\Windows\MessageLoop.h" />
     <ClInclude Include="Sowl\Windows\Window.h" />
-    <ClInclude Include="Sowl\Windows\WindowClassBuilder.h" />
-    <ClInclude Include="Sowl\Windows\WindowHandleBuilder.h" />
+    <ClInclude Include="Sowl\Windows\WindowHandleCreator.h" />
+    <ClInclude Include="Sowl\Windows\Customs\CustomWindow.h" />
+    <ClInclude Include="Sowl\Windows\Customs\WindowClassRegisterer.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -69,26 +70,26 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>

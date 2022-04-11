@@ -26,7 +26,7 @@ void DeviceContext::FillRect(const RECT* rect, HBRUSH hbr) const
 
 void DeviceContext::FillRect(const RECT* rect, int iSystemColorIndex) const
 {
-	FillRect(rect, (HBRUSH)(iSystemColorIndex + 1));
+	FillRect(rect, (HBRUSH)(intptr_t)(iSystemColorIndex + 1));
 }
 
 void DeviceContext::Ellipse(const RECT& rect) const

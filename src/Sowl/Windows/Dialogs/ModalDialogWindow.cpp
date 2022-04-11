@@ -12,7 +12,7 @@ int ModalDialogWindow::CreateAndShow()
     return CreateAndShowModal();
 }
 
-bool ModalDialogWindow::End(int result)
+bool ModalDialogWindow::End(int result) const
 {
     return EndDialog(GetHandle(), result);
 }

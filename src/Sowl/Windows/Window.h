@@ -1,5 +1,5 @@
 #pragma once
-#include <windows.h>
+#include <Windows.h>
 
 namespace sowl
 {
@@ -7,15 +7,23 @@ namespace sowl
 	class Window
 	{
 	public:
-		Window(HWND hwnd);
-		Window(const Window& other) = delete;
-		Window(Window&& other) noexcept;
-		~Window();
+		// create
+		Window();
+		explicit Window(HWND hwnd);
+		HWND SetHandle(HWND hwnd);
 
+		// destroy
+		~Window();
+		void Destroy();
+
+		// avoid copy constructor and copy assigment
+		Window(const Window& other) = delete;
 		Window& operator=(const Window& other) = delete;
+
+		// move constructor and move assignment
+		Window(Window&& other) noexcept;
 		Window& operator=(Window&& other) noexcept;
 
-		void Destroy();
 		HWND GetHandle() const;
 		HINSTANCE GetProcessHandle() const;
 		HWND GetDialogItem(int id) const;
@@ -27,9 +35,6 @@ namespace sowl
 		bool InvalidateRect(bool erase);
 		bool InvalidateRect(const RECT& rect, bool erase);
 		RECT GetClientRect();
-
-	protected:
-		HWND SetHandle(HWND hwnd);
 
 	private:
 		HWND hwnd;

@@ -1,19 +1,22 @@
 #pragma once
 #include "ControlWindow.h"
+#include "../WindowHandleCreator.h"
 
 namespace sowl
 {
 	class ButtonWindow : public ControlWindow
 	{
 	public:
-		static WindowHandleBuilder CreateHandleBuilder(const Window& parentWindow, WORD id);
-
+		static WindowHandleCreator HandleCreator(const Window& parentWindow, WORD id);
 		ButtonWindow() = default;
-		ButtonWindow(const Window& parentWindow, WORD id);
-		ButtonWindow(WindowHandleBuilder builder);
-		ButtonWindow(ButtonWindow&& other) noexcept;
+		explicit ButtonWindow(HWND hwnd);
+		~ButtonWindow() = default;
 
-		ButtonWindow& operator=(WindowHandleBuilder builder) noexcept;
+		// move constructor and move assigment
+		ButtonWindow(ButtonWindow&& other) noexcept;
 		ButtonWindow& operator=(ButtonWindow&& other) noexcept;
+
+		// set-handle with assigment
+		ButtonWindow& operator=(HWND hwnd) noexcept;
 	};
 }

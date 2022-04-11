@@ -27,7 +27,7 @@ int MessageLoop::Run()
 /// @return If the call was successful, returns 1. If it fails, return -1. If loop must ends, returns 0.
 int MessageLoop::GetMessage(MSG& message)
 {
-    return ::GetMessage(&message, NULL, 0, 0);
+    return ::GetMessage(&message, nullptr, 0, 0);
 }
 
 /// @brief Default implementation for handling errors. Do nothing and returns 'false'.

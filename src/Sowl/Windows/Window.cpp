@@ -2,14 +2,19 @@
 
 using namespace sowl;
 
-Window::Window(HWND hwnd)
+Window::Window()
+    : hwnd(nullptr)
 {
-    this->hwnd = hwnd;
+}
+
+Window::Window(HWND hwnd)
+    : hwnd(hwnd)
+{
 }
 
 Window::Window(Window&& other) noexcept
+    : hwnd(other.SetHandle(nullptr))
 {
-    hwnd = other.SetHandle(NULL);
 }
 
 /// @brief Release the encapsulated HWND, if it is valid.
@@ -66,7 +71,7 @@ bool Window::IsEnabled()
 /// @param hcursor The cursor to be set. 
 void Window::SetClassCursor(HCURSOR hcursor)
 {
-    SetClassLong(hwnd, GCLP_HCURSOR, (LONG)hcursor);
+    SetClassLong(hwnd, GCLP_HCURSOR, (LONG)(intptr_t)hcursor);
 }
 
 /// @brief Encapsulates a call to ::SetWindowText.
@@ -81,7 +86,7 @@ void Window::SetText(LPCWSTR title)
 /// @return Indicates if the method call was successful.
 bool Window::InvalidateRect(bool erase)
 {
-    return ::InvalidateRect(hwnd, NULL, erase);
+    return ::InvalidateRect(hwnd, nullptr, erase);
 }
 
 /// @brief Encapsulates a call to ::InvalidateRect.
@@ -104,7 +109,7 @@ RECT Window::GetClientRect()
 
 Window& Window::operator=(Window&& other) noexcept
 {
-    hwnd = other.SetHandle(NULL);
+    hwnd = other.SetHandle(nullptr);
     return *this;
 }
 
@@ -114,7 +119,7 @@ void Window::Destroy()
     if (IsWindow(hwnd))
     {
         DestroyWindow(hwnd);
-        hwnd = NULL;
+        hwnd = nullptr;
     }
 }
 

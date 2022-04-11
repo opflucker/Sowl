@@ -1,57 +1,19 @@
 #include "CustomWindow.h"
-//#include "..\..\Utilities.h"
+#include "WindowClassRegisterer.h"
 #include <windowsx.h>
 
 using namespace sowl;
 
-LRESULT CALLBACK CustomWindow::WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
-{
-    //wchar_t text[200];
-    //wsprintf(text, L"WndProc: msg = %x (%s)\n", uMsg, Utilities::GetWindowMessageText(uMsg));
-    //OutputDebugStringW(text);
-
-    CustomWindow* pWindow;
-
-    if (uMsg == WM_CREATE)
-    {
-        CREATESTRUCT* pCreate = reinterpret_cast<CREATESTRUCT*>(lParam);
-        pWindow = reinterpret_cast<CustomWindow*>(pCreate->lpCreateParams);
-        SetWindowLongPtr(hwnd, GWLP_USERDATA, (LONG_PTR)pWindow);
-    }
-    else
-    {
-        LONG_PTR ptr = GetWindowLongPtr(hwnd, GWLP_USERDATA);
-        pWindow = reinterpret_cast<CustomWindow*>(ptr);
-    }
-
-    if (pWindow != NULL)
-        return pWindow->Process(uMsg, wParam, lParam);
-
-    return DefWindowProc(hwnd, uMsg, wParam, lParam);
-}
-
-WindowClassBuilder CustomWindow::CreateClassBuilder(HINSTANCE processHandle, LPCWSTR className)
-{
-    return WindowClassBuilder(processHandle, className, WindowProc);
-}
-
-WindowHandleBuilder CustomWindow::CreateHandleBuilder(HINSTANCE processHandle, LPCWSTR className)
-{
-    return CreateClassBuilder(processHandle, className).RegisterAndCreateHandleBuilder();
-}
-
-CustomWindow::CustomWindow(WindowHandleBuilder& builder)
-    : Window(NULL)
-{
-    // Can not be done when calling base class constructor because "this" is invalid there
-    SetHandle(builder.WithParam(this).Build());
-}
-
 CustomWindow::CustomWindow(HINSTANCE processHandle, LPCWSTR className)
-    : Window(NULL)
 {
-    // Can not be done when calling base class constructor because "this" is invalid there
-    SetHandle(CreateHandleBuilder(processHandle, className).WithParam(this).Build());
+    WindowClassRegisterer::EnsureRegistered(processHandle, className);
+    SetHandle(WindowHandleCreator(processHandle, className).WithParams(this).Create());
+}
+
+CustomWindow::CustomWindow(WindowHandleCreator& builder)
+{
+    WindowClassRegisterer::EnsureRegistered(builder.ProcessHandle(), builder.ClassName());
+    SetHandle(builder.WithParams(this).Create());
 }
 
 LRESULT CustomWindow::Process(UINT uMsg, WPARAM wParam, LPARAM lParam)
@@ -63,7 +25,7 @@ LRESULT CustomWindow::Process(UINT uMsg, WPARAM wParam, LPARAM lParam)
             return 0;
         break;
     case WM_DESTROY:
-        SetHandle(NULL);
+        SetHandle(nullptr);
         PostQuitMessage(0);
         return 0;
     case WM_PAINT:
@@ -76,6 +38,8 @@ LRESULT CustomWindow::Process(UINT uMsg, WPARAM wParam, LPARAM lParam)
     case WM_LBUTTONDOWN:
         if (OnLButtonDown((int)wParam, GET_X_LPARAM(lParam), GET_Y_LPARAM(lParam)))
             return 0;
+        break;
+    default:
         break;
     }
 

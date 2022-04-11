@@ -6,8 +6,9 @@ namespace sowl
 	class DialogWindow : public Window
 	{
 	public:
-		DialogWindow(int resourceId);
+		explicit DialogWindow(int resourceId);
 		DialogWindow(const Window& parentWindow, int resourceId);
+		virtual ~DialogWindow() = default;
 
 		void SetParent(const Window& parentWindow);
 		virtual bool Process(UINT uMsg, WPARAM wParam, LPARAM lParam);

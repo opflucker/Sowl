@@ -1,12 +1,6 @@
-#ifndef UNICODE
-#define UNICODE
-#endif 
-
-#include <windows.h>
-#include <Sowl/Windows/MessageLoop.h>
 #include "MainWindow.h"
 
-int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE, PWSTR pCmdLine, int nCmdShow)
+int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ PWSTR, _In_ int nCmdShow)
 {
     MainWindow window(hInstance);
     window.Show(nCmdShow);

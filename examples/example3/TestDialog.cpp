@@ -8,7 +8,7 @@ TestDialog::TestDialog(const Window& parentWindow)
 
 bool TestDialog::OnInitDialog(HWND hFocusWindow)
 {
-    okButton.SetHandle(*this, IDOK);
+    okButton = GetDialogItem(IDOK);
     return TRUE;
 }
 
