@@ -1,4 +1,5 @@
 #include "Window.h"
+#include <utility>
 
 using namespace sowl;
 
@@ -10,6 +11,12 @@ Window::Window()
 Window::Window(HWND hwnd)
     : hwnd(hwnd)
 {
+}
+
+Window::Window(Window&& other) noexcept
+    : hwnd(other.hwnd)
+{
+    other.hwnd = nullptr;
 }
 
 /// @brief Release the encapsulated HWND, if it is valid.
@@ -28,14 +35,27 @@ void Window::Destroy()
     }
 }
 
+Window& sowl::Window::operator=(Window&& other) noexcept
+{
+    std::swap(hwnd, other.hwnd);
+    return *this;
+}
+
 /// @brief Replace the encapsulated HWND by the one passed as parameter.
 /// @param hwnd New handle to encapsulate.
-/// @return The old encapsulated handle.
-HWND Window::SetHandle(HWND newHandle)
+void Window::BindToHandle(HWND newHandle)
 {
-    HWND oldHandle = hwnd;
+    if (hwnd != nullptr)
+        RaiseException(1, 0, 0, nullptr); // TODO: Improve this
+    if (newHandle == nullptr)
+        RaiseException(2, 0, 0, nullptr); // TODO: Improve this
+
     hwnd = newHandle;
-    return oldHandle;
+}
+
+void sowl::Window::UnbindHandle()
+{
+    hwnd = nullptr;
 }
 
 HWND Window::GetHandle() const

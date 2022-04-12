@@ -64,7 +64,7 @@ INT_PTR DialogWindow::DialogProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lPa
     if (uMsg == WM_INITDIALOG)
     {
         pDialogWindow = reinterpret_cast<DialogWindow*>(lParam);
-        pDialogWindow->SetHandle(hwnd);
+        pDialogWindow->BindToHandle(hwnd);
         SetWindowLongPtr(hwnd, GWLP_USERDATA, (LONG_PTR)pDialogWindow);
     }
     else

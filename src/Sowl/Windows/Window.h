@@ -11,17 +11,21 @@ namespace sowl
 		Window();
 		explicit Window(HWND hwnd);
 		Window(const Window& other) = delete; // avoid copy constructor
-		Window(Window&& other) = delete; // avoid move constructor
+		Window(Window&& other) noexcept; // move constructor
 
 		// destroy
 		~Window();
 		void Destroy();
 
-		// bind		
+		// bind
 		Window& operator=(const Window& other) = delete; // avoid copy assigment
-		Window& operator=(Window&& other) = delete; // avoid move assignment
-		HWND SetHandle(HWND newHandle);
+		Window& operator=(Window&& other) noexcept; // move assignment
 
+	protected:
+		void BindToHandle(HWND newHandle);
+		void UnbindHandle();
+
+	public:
 		// other methods
 		HWND GetHandle() const;
 		HINSTANCE GetProcessHandle() const;

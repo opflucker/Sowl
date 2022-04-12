@@ -1,5 +1,5 @@
 #include "ControlWindow.h"
-
+#include <utility>
 using namespace sowl;
 
 ControlWindow::ControlWindow() = default;
@@ -10,13 +10,13 @@ ControlWindow::ControlWindow(HWND hwnd)
 }
 
 ControlWindow::ControlWindow(ControlWindow&& other) noexcept
-    : Window(other.SetHandle(nullptr))
+    : Window(std::move(other))
 {
 }
 
 ControlWindow& ControlWindow::operator=(ControlWindow&& other) noexcept
 {
-    SetHandle(other.SetHandle(nullptr));
+    Window::operator=(std::move(other));
     return *this;
 }
 

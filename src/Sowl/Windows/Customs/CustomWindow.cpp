@@ -7,13 +7,13 @@ using namespace sowl;
 CustomWindow::CustomWindow(HINSTANCE processHandle, LPCWSTR className)
 {
     CustomWindowClassRegisterer::EnsureRegistered(processHandle, className);
-    SetHandle(WindowHandleCreator(processHandle, className).WithParams(this).Create());
+    WindowHandleCreator(processHandle, className).WithParams(this).Create();
 }
 
 CustomWindow::CustomWindow(WindowHandleCreator& builder)
 {
     CustomWindowClassRegisterer::EnsureRegistered(builder.ProcessHandle(), builder.ClassName());
-    SetHandle(builder.WithParams(this).Create());
+    builder.WithParams(this).Create();
 }
 
 LRESULT CustomWindow::Process(UINT uMsg, WPARAM wParam, LPARAM lParam)
@@ -28,7 +28,7 @@ LRESULT CustomWindow::Process(UINT uMsg, WPARAM wParam, LPARAM lParam)
         PostQuitMessage(0);
         return 0;
     case WM_NCDESTROY:
-        SetHandle(nullptr);
+        UnbindHandle();
         return 0;
     case WM_PAINT:
         OnPaint(PaintDeviceContext(GetHandle()));
@@ -75,7 +75,7 @@ LRESULT CALLBACK CustomWindow::WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, L
     {
         auto* pCreate = reinterpret_cast<CREATESTRUCT*>(lParam);
         pWindow = reinterpret_cast<CustomWindow*>(pCreate->lpCreateParams);
-        pWindow->SetHandle(hwnd);
+        pWindow->BindToHandle(hwnd);
         SetWindowLongPtr(hwnd, GWLP_USERDATA, (LONG_PTR)pWindow);
     }
     else
