@@ -35,7 +35,7 @@
     <ClCompile Include="Sowl\Windows\Window.cpp" />
     <ClCompile Include="Sowl\Windows\WindowHandleCreator.cpp" />
     <ClCompile Include="Sowl\Windows\Customs\CustomWindow.cpp" />
-    <ClCompile Include="Sowl\Windows\Customs\WindowClassRegisterer.cpp" />
+    <ClCompile Include="Sowl\Windows\Customs\CustomWindowClassRegisterer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Sowl\Graphics\Brushes\Brush.h" />
@@ -55,7 +55,7 @@
     <ClInclude Include="Sowl\Windows\Window.h" />
     <ClInclude Include="Sowl\Windows\WindowHandleCreator.h" />
     <ClInclude Include="Sowl\Windows\Customs\CustomWindow.h" />
-    <ClInclude Include="Sowl\Windows\Customs\WindowClassRegisterer.h" />
+    <ClInclude Include="Sowl\Windows\Customs\CustomWindowClassRegisterer.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

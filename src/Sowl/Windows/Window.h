@@ -11,7 +11,7 @@ namespace sowl
 		Window();
 		explicit Window(HWND hwnd);
 		Window(const Window& other) = delete; // avoid copy constructor
-		Window(Window&& other) noexcept; // move constructor
+		Window(Window&& other) = delete; // avoid move constructor
 
 		// destroy
 		~Window();
@@ -19,7 +19,7 @@ namespace sowl
 
 		// bind		
 		Window& operator=(const Window& other) = delete; // avoid copy assigment
-		Window& operator=(Window&& other) noexcept; // move assignment
+		Window& operator=(Window&& other) = delete; // avoid move assignment
 		HWND SetHandle(HWND newHandle);
 
 		// other methods

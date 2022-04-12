@@ -1,18 +1,18 @@
 #include "CustomWindow.h"
-#include "WindowClassRegisterer.h"
+#include "CustomWindowClassRegisterer.h"
 #include <windowsx.h>
 
 using namespace sowl;
 
 CustomWindow::CustomWindow(HINSTANCE processHandle, LPCWSTR className)
 {
-    WindowClassRegisterer::EnsureRegistered(processHandle, className);
+    CustomWindowClassRegisterer::EnsureRegistered(processHandle, className);
     SetHandle(WindowHandleCreator(processHandle, className).WithParams(this).Create());
 }
 
 CustomWindow::CustomWindow(WindowHandleCreator& builder)
 {
-    WindowClassRegisterer::EnsureRegistered(builder.ProcessHandle(), builder.ClassName());
+    CustomWindowClassRegisterer::EnsureRegistered(builder.ProcessHandle(), builder.ClassName());
     SetHandle(builder.WithParams(this).Create());
 }
 

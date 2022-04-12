@@ -12,12 +12,6 @@ Window::Window(HWND hwnd)
 {
 }
 
-/// @brief Move constructor.
-Window::Window(Window&& other) noexcept
-    : hwnd(other.SetHandle(nullptr))
-{
-}
-
 /// @brief Release the encapsulated HWND, if it is valid.
 Window::~Window()
 {
@@ -32,13 +26,6 @@ void Window::Destroy()
         DestroyWindow(hwnd);
         hwnd = nullptr;
     }
-}
-
-/// @brief Move assigment.
-Window& Window::operator=(Window&& other) noexcept
-{
-    hwnd = other.SetHandle(nullptr);
-    return *this;
 }
 
 /// @brief Replace the encapsulated HWND by the one passed as parameter.
