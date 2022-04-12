@@ -2,35 +2,6 @@
 
 using namespace sowl;
 
-DialogWindow::DialogWindow(int resourceId)
-    : Window(nullptr), templateName(MAKEINTRESOURCE(resourceId))
-{
-}
-
-DialogWindow::DialogWindow(const Window& parentWindow, int resourceId)
-    : Window(nullptr), processHandle(parentWindow.GetProcessHandle())
-    , parentHandle(parentWindow.GetHandle())
-    , templateName(MAKEINTRESOURCE(resourceId))
-{
-}
-
-int DialogWindow::CreateAndShowModal()
-{
-    if (GetHandle() == nullptr)
-    {
-        return (int)::DialogBoxParam(processHandle, templateName, parentHandle, DialogProc, (LPARAM)this);
-    }
-    return 0;
-}
-
-void DialogWindow::CreateModeless()
-{
-    if (GetHandle() == nullptr)
-    {
-        CreateDialogParam(processHandle, templateName, parentHandle, DialogProc, (LPARAM)this);
-    }
-}
-
 bool DialogWindow::Process(UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
     switch (uMsg)

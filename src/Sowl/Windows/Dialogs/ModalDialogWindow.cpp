@@ -3,13 +3,17 @@
 using namespace sowl;
 
 ModalDialogWindow::ModalDialogWindow(const Window& parentWindow, int resourceId)
-    : DialogWindow(parentWindow, resourceId)
+    : parentWindow(parentWindow), resourceId(resourceId)
 {
 }
 
 int ModalDialogWindow::CreateAndShow()
 {
-    return CreateAndShowModal();
+    if (GetHandle() == nullptr)
+    {
+        return (int)::DialogBoxParam(parentWindow.GetProcessHandle(), MAKEINTRESOURCE(resourceId), parentWindow.GetHandle(), DialogProc, (LPARAM)this);
+    }
+    return 0;
 }
 
 bool ModalDialogWindow::End(int result) const

@@ -6,8 +6,7 @@ namespace sowl
 	class DialogWindow : public Window
 	{
 	public:
-		explicit DialogWindow(int resourceId);
-		DialogWindow(const Window& parentWindow, int resourceId);
+		DialogWindow() = default;
 		virtual ~DialogWindow() = default;
 
 		virtual bool Process(UINT uMsg, WPARAM wParam, LPARAM lParam);
@@ -16,11 +15,9 @@ namespace sowl
 		virtual bool OnClose() = 0;
 
 	protected:
-		int CreateAndShowModal();
-		void CreateModeless();
+		static INT_PTR CALLBACK DialogProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 
 	private:
-		static INT_PTR CALLBACK DialogProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 		HINSTANCE processHandle = nullptr;
 		HWND parentHandle = nullptr;
 		LPCWSTR templateName;

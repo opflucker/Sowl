@@ -30,6 +30,7 @@
     <ClCompile Include="Sowl\Windows\Controls\ControlWindow.cpp" />
     <ClCompile Include="Sowl\Windows\Dialogs\DialogWindow.cpp" />
     <ClCompile Include="Sowl\Windows\Dialogs\ModalDialogWindow.cpp" />
+    <ClCompile Include="Sowl\Windows\Dialogs\ModelessDialogWindow.cpp" />
     <ClCompile Include="Sowl\Windows\Utilities.cpp" />
     <ClCompile Include="Sowl\Windows\MessageLoop.cpp" />
     <ClCompile Include="Sowl\Windows\Window.cpp" />
@@ -50,6 +51,7 @@
     <ClInclude Include="Sowl\Windows\Controls\ControlWindow.h" />
     <ClInclude Include="Sowl\Windows\Dialogs\DialogWindow.h" />
     <ClInclude Include="Sowl\Windows\Dialogs\ModalDialogWindow.h" />
+    <ClInclude Include="Sowl\Windows\Dialogs\ModelessDialogWindow.h" />
     <ClInclude Include="Sowl\Windows\Utilities.h" />
     <ClInclude Include="Sowl\Windows\MessageLoop.h" />
     <ClInclude Include="Sowl\Windows\Window.h" />

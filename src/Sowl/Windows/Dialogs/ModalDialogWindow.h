@@ -12,5 +12,9 @@ namespace sowl
 		int CreateAndShow();
 		bool End(int result) const;
 		bool OnClose() override;
+
+	private:
+		const Window& parentWindow;
+		const int resourceId;
 	};
 }

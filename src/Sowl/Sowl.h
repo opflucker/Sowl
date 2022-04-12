@@ -11,5 +11,6 @@
 #include "Windows/Customs/CustomWindow.h"
 #include "Windows/Controls/ButtonWindow.h"
 #include "Windows/Dialogs/ModalDialogWindow.h"
+#include "Windows/Dialogs/ModelessDialogWindow.h"
 #include "Graphics/Brushes/SolidBrush.h"
 #include "Graphics/Cursors/PredefinedCursorHandles.h"

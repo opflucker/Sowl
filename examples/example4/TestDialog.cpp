@@ -10,7 +10,7 @@ TestDialog::TestDialog()
 
 bool TestDialog::OnInitDialog(HWND hFocusWindow)
 {
-    okButton.SetHandle(*this, IDOK);
+    okButton = ButtonWindow(GetDialogItem(IDOK));
     return TRUE;
 }
 

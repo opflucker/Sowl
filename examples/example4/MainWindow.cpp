@@ -2,22 +2,19 @@
 #include "Resources.h"
 #include <Sowl/Windows/MessageLoop.cpp>
 
-enum ControlIds
-{
-    SHOW_MODAL_ID = 101
-};
+const int SHOW_MODAL_ID = 101;
 
 MainWindow::MainWindow(HINSTANCE processHandle)
-    : CustomWindow(CreateHandleBuilder(processHandle, L"MainWindow").WithTitle(L"Hello World!!!"))
+    : CustomWindow(WindowHandleCreator(processHandle, L"MainWindow").WithTitle(L"Hello World!!!"))
 {
-    modelessDialog.SetParent(*this);
-    ButtonWindow::CreateHandleBuilder(*this, SHOW_MODAL_ID).WithTitle(L"Show Modal").WithRect(10, 10, 100, 30).Build();
+    ButtonWindow::HandleCreator(*this, SHOW_MODAL_ID).WithTitle(L"Show Modal").WithRect(10, 10, 100, 30).Create();
 }
 
 void MainWindow::ProcessMessage(MSG& message)
 {
-    HWND dialogHandle = modelessDialog.GetHandle();
-    if (!IsWindow(dialogHandle) || !IsDialogMessage(dialogHandle, &message))
+    if (pModelessDialog == nullptr 
+        || !IsWindow(pModelessDialog->GetHandle()) 
+        || !IsDialogMessage(pModelessDialog->GetHandle(), &message))
     {
         MessageLoop::ProcessMessage(message);
     }
@@ -28,10 +25,8 @@ bool MainWindow::OnCommand(int notificationCode, int senderId, HWND controlHandl
     switch (senderId)
     {
     case SHOW_MODAL_ID:
-        if (modelessDialog.GetHandle() == NULL)
-        {
-            modelessDialog.CreateAndShow();
-        }
+        pModelessDialog = std::make_unique<TestDialog>();
+        pModelessDialog->CreateAndShow();
         return true;
     default:
         return false;

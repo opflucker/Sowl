@@ -6,10 +6,14 @@ namespace sowl
 	class ModelessDialogWindow : public DialogWindow
 	{
 	public:
-		ModelessDialogWindow(int resourceId);
+		explicit ModelessDialogWindow(int resourceId);
 		ModelessDialogWindow(const Window& parentWindow, int resourceId);
 
 		void CreateAndShow();
-		virtual bool OnClose() override;
+		bool OnClose() override;
+
+	private:
+		const Window* const pParentWindow;
+		const int resourceId;
 	};
 }
