@@ -19,7 +19,7 @@ CustomWindowClassRegisterer::CustomWindowClassRegisterer(HINSTANCE processHandle
     wc.lpszMenuName = nullptr;
     wc.style = 0;
     wc.hInstance = processHandle;
-    wc.lpfnWndProc = WindowProc;
+    wc.lpfnWndProc = CustomWindow::WindowProc;
 }
 
 CustomWindowClassRegisterer& CustomWindowClassRegisterer::WithBackgroundBrush(HBRUSH handle)
@@ -72,27 +72,4 @@ void CustomWindowClassRegisterer::EnsureRegistered(HINSTANCE processHandle, LPCW
 
     CustomWindowClassRegisterer builder(processHandle, className);
     RegisterClass(&(builder.wc));
-}
-
-LRESULT CALLBACK CustomWindowClassRegisterer::WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
-{
-    CustomWindow* pWindow;
-
-    if (uMsg == WM_CREATE)
-    {
-        auto* pCreate = reinterpret_cast<CREATESTRUCT*>(lParam);
-        pWindow = reinterpret_cast<CustomWindow*>(pCreate->lpCreateParams);
-        pWindow->SetHandle(hwnd);
-        SetWindowLongPtr(hwnd, GWLP_USERDATA, (LONG_PTR)pWindow);
-    }
-    else
-    {
-        LONG_PTR ptr = GetWindowLongPtr(hwnd, GWLP_USERDATA);
-        pWindow = reinterpret_cast<CustomWindow*>(ptr);
-    }
-
-    if (pWindow != nullptr)
-        return pWindow->Process(uMsg, wParam, lParam);
-
-    return DefWindowProc(hwnd, uMsg, wParam, lParam);
 }

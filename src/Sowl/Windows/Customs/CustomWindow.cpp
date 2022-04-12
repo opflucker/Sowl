@@ -66,3 +66,26 @@ bool CustomWindow::OnLButtonDown(int mouseKeys, int x, int y)
 {
     return false;
 }
+
+LRESULT CALLBACK CustomWindow::WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
+{
+    CustomWindow* pWindow;
+
+    if (uMsg == WM_CREATE)
+    {
+        auto* pCreate = reinterpret_cast<CREATESTRUCT*>(lParam);
+        pWindow = reinterpret_cast<CustomWindow*>(pCreate->lpCreateParams);
+        pWindow->SetHandle(hwnd);
+        SetWindowLongPtr(hwnd, GWLP_USERDATA, (LONG_PTR)pWindow);
+    }
+    else
+    {
+        LONG_PTR ptr = GetWindowLongPtr(hwnd, GWLP_USERDATA);
+        pWindow = reinterpret_cast<CustomWindow*>(ptr);
+    }
+
+    if (pWindow != nullptr)
+        return pWindow->Process(uMsg, wParam, lParam);
+
+    return DefWindowProc(hwnd, uMsg, wParam, lParam);
+}
