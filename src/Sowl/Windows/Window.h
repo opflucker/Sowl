@@ -45,6 +45,7 @@ namespace sowl
 		HWND hwnd;
 	};
 
+	/// @brief Bind this object with a handle.
 	template<class TWindow> void Window::BindToHandle(HWND handle)
 	{
 		if (hwnd != nullptr)
@@ -56,6 +57,7 @@ namespace sowl
 		SetWindowLongPtr(hwnd, GWLP_USERDATA, (LONG_PTR)static_cast<TWindow*>(this));
 	}
 
+	/// @brief Return a pointer to the object binded with a handle.
 	template<class TWindow> static TWindow* Window::BindedWindow(HWND handle)
 	{
 		LONG_PTR ptr = GetWindowLongPtr(handle, GWLP_USERDATA);

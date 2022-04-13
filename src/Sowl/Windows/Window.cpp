@@ -19,7 +19,7 @@ Window::Window(Window&& other) noexcept
     other.hwnd = nullptr;
 }
 
-/// @brief Release the encapsulated HWND, if it is valid.
+/// @brief Call Destroy().
 Window::~Window()
 {
     Destroy();
@@ -41,6 +41,7 @@ Window& sowl::Window::operator=(Window&& other) noexcept
     return *this;
 }
 
+/// @brief Unbind this object with it encapsulated handle.
 void sowl::Window::UnbindHandle()
 {
     SetWindowLongPtr(hwnd, GWLP_USERDATA, 0);

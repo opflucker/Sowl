@@ -5,7 +5,7 @@ using namespace sowl;
 /// @brief Initialize the builder with given parameters and defaults.
 /// @param processHandle Handle of the process where the window to be created must belongs to.
 /// @param className Name of a valid registered window class.
-/// @return A builder. If parameters are valid, a call to Build() must return a valid created window.
+/// @return A builder. If parameters are valid, an inmediate call to Build() must return a valid created window.
 WindowHandleCreator::WindowHandleCreator(HINSTANCE processHandle, LPCWSTR className)
 {
     cp.lpszClass = className;
