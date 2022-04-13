@@ -11,18 +11,19 @@ namespace sowl
 		Window();
 		explicit Window(HWND hwnd);
 		Window(const Window& other) = delete; // avoid copy constructor
-		Window(Window&& other) noexcept; // move constructor
+		Window(Window&& other) noexcept; // control move constructor
 
 		// destroy
 		~Window();
 		void Destroy();
 
-		// bind
-		Window& operator=(const Window& other) = delete; // avoid copy assigment
-		Window& operator=(Window&& other) noexcept; // move assignment
+		// assignment operator overloads
+		Window& operator=(const Window& other) = delete; // avoid copy assignment
+		Window& operator=(Window&& other) noexcept; // control move assignment
 
 	protected:
-		void BindToHandle(HWND newHandle);
+		// binding/unbinding Window object to HWND in WindowProcedure
+		void BindToHandle(HWND newHandle, LONG_PTR lpRealWindowType);
 		void UnbindHandle();
 
 	public:

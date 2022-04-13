@@ -1,5 +1,7 @@
 #include "Utilities.h"
+#include <Windows.h>
 #include <algorithm>
+#include <sstream>
 
 struct WindowMessageInfo 
 {
@@ -319,4 +321,11 @@ const wchar_t* Utilities::GetWindowMessageText(unsigned int messageCode)
         });
 
     return pInfoFound != lastInfo && pInfoFound->code == messageCode ? pInfoFound->text : L"Unknown";
+}
+
+void Utilities::OutputDebugWindowMessage(unsigned int msg, const wchar_t * const description)
+{
+    std::wstringstream buffer;
+    buffer << description << ": msg = " << msg << "(" << Utilities::GetWindowMessageText(msg) << ")" << std::endl;
+    OutputDebugStringW(buffer.str().c_str());
 }

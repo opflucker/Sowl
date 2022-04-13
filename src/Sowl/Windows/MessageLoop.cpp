@@ -29,11 +29,7 @@ int MessageLoop::Run()
 int MessageLoop::GetMessage(MSG& message)
 {
     int result = ::GetMessage(&message, nullptr, 0, 0);
-
-    wchar_t text[200];
-    wsprintf(text, L"WndProc: msg = %x (%s)\n", message.message, Utilities::GetWindowMessageText(message.message));
-    OutputDebugStringW(text);
-
+    Utilities::OutputDebugWindowMessage(message.message, L"MessageLoop::GetMessage");
     return result;
 }
 

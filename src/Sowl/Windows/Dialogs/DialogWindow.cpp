@@ -1,4 +1,5 @@
 #include "DialogWindow.h"
+#include "../Utilities.h"
 
 using namespace sowl;
 
@@ -30,13 +31,14 @@ bool DialogWindow::OnCommand(int notificationCode, int senderId, HWND controlHan
 
 INT_PTR DialogWindow::DialogProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
+    Utilities::OutputDebugWindowMessage(uMsg, L"DialogProc");
+
     DialogWindow* pDialogWindow;
 
     if (uMsg == WM_INITDIALOG)
     {
         pDialogWindow = reinterpret_cast<DialogWindow*>(lParam);
-        pDialogWindow->BindToHandle(hwnd);
-        SetWindowLongPtr(hwnd, GWLP_USERDATA, (LONG_PTR)pDialogWindow);
+        pDialogWindow->BindToHandle(hwnd, (LONG_PTR)pDialogWindow);
     }
     else
     {
@@ -45,7 +47,16 @@ INT_PTR DialogWindow::DialogProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lPa
     }
 
     if (pDialogWindow != nullptr)
-        return pDialogWindow->Process(uMsg, wParam, lParam);
+    {
+        LRESULT result = pDialogWindow->Process(uMsg, wParam, lParam);
+
+        if (uMsg == WM_NCDESTROY)
+        {
+            pDialogWindow->UnbindHandle();
+        }
+
+        return result;
+    }
 
     return FALSE;
 }

@@ -43,7 +43,7 @@ Window& sowl::Window::operator=(Window&& other) noexcept
 
 /// @brief Replace the encapsulated HWND by the one passed as parameter.
 /// @param hwnd New handle to encapsulate.
-void Window::BindToHandle(HWND newHandle)
+void Window::BindToHandle(HWND newHandle, LONG_PTR lpRealWindowType)
 {
     if (hwnd != nullptr)
         RaiseException(1, 0, 0, nullptr); // TODO: Improve this
@@ -51,10 +51,12 @@ void Window::BindToHandle(HWND newHandle)
         RaiseException(2, 0, 0, nullptr); // TODO: Improve this
 
     hwnd = newHandle;
+    SetWindowLongPtr(hwnd, GWLP_USERDATA, lpRealWindowType);
 }
 
 void sowl::Window::UnbindHandle()
 {
+    SetWindowLongPtr(hwnd, GWLP_USERDATA, 0);
     hwnd = nullptr;
 }
 

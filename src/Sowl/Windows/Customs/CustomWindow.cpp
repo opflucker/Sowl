@@ -1,6 +1,7 @@
 #include "CustomWindow.h"
 #include "CustomWindowClassRegisterer.h"
 #include <windowsx.h>
+#include "../Utilities.h"
 
 using namespace sowl;
 
@@ -26,9 +27,6 @@ LRESULT CustomWindow::Process(UINT uMsg, WPARAM wParam, LPARAM lParam)
         break;
     case WM_DESTROY:
         PostQuitMessage(0);
-        return 0;
-    case WM_NCDESTROY:
-        UnbindHandle();
         return 0;
     case WM_PAINT:
         OnPaint(PaintDeviceContext(GetHandle()));
@@ -69,14 +67,15 @@ bool CustomWindow::OnLButtonDown(int mouseKeys, int x, int y)
 
 LRESULT CALLBACK CustomWindow::WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
+    Utilities::OutputDebugWindowMessage(uMsg, L"CustomWindow::WindowProc");
+
     CustomWindow* pWindow;
 
     if (uMsg == WM_CREATE)
     {
         auto* pCreate = reinterpret_cast<CREATESTRUCT*>(lParam);
         pWindow = reinterpret_cast<CustomWindow*>(pCreate->lpCreateParams);
-        pWindow->BindToHandle(hwnd);
-        SetWindowLongPtr(hwnd, GWLP_USERDATA, (LONG_PTR)pWindow);
+        pWindow->BindToHandle(hwnd, (LONG_PTR)pWindow);
     }
     else
     {
@@ -85,7 +84,16 @@ LRESULT CALLBACK CustomWindow::WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, L
     }
 
     if (pWindow != nullptr)
-        return pWindow->Process(uMsg, wParam, lParam);
+    {
+        LRESULT result = pWindow->Process(uMsg, wParam, lParam);
+
+        if (uMsg == WM_NCDESTROY)
+        {
+            pWindow->UnbindHandle();
+        }
+
+        return result;
+    }
 
     return DefWindowProc(hwnd, uMsg, wParam, lParam);
 }
