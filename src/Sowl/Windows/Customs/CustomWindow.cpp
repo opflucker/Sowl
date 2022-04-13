@@ -89,12 +89,11 @@ LRESULT CALLBACK CustomWindow::WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, L
     {
         auto* pCreate = reinterpret_cast<CREATESTRUCT*>(lParam);
         pWindow = reinterpret_cast<CustomWindow*>(pCreate->lpCreateParams);
-        pWindow->BindToHandle(hwnd, (LONG_PTR)pWindow);
+        pWindow->BindToHandle<CustomWindow>(hwnd);
     }
     else
     {
-        LONG_PTR ptr = GetWindowLongPtr(hwnd, GWLP_USERDATA);
-        pWindow = reinterpret_cast<CustomWindow*>(ptr);
+        pWindow = BindedWindow<CustomWindow>(hwnd);
     }
 
     if (pWindow != nullptr)

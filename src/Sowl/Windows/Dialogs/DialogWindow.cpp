@@ -38,12 +38,11 @@ INT_PTR DialogWindow::DialogProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lPa
     if (uMsg == WM_INITDIALOG)
     {
         pDialogWindow = reinterpret_cast<DialogWindow*>(lParam);
-        pDialogWindow->BindToHandle(hwnd, (LONG_PTR)pDialogWindow);
+        pDialogWindow->BindToHandle<DialogWindow>(hwnd);
     }
     else
     {
-        LONG_PTR ptr = GetWindowLongPtr(hwnd, GWLP_USERDATA);
-        pDialogWindow = reinterpret_cast<DialogWindow*>(ptr);
+        pDialogWindow = BindedWindow<DialogWindow>(hwnd);
     }
 
     if (pDialogWindow != nullptr)

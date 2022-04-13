@@ -23,7 +23,8 @@ namespace sowl
 
 	protected:
 		// binding/unbinding Window object to HWND in WindowProcedure
-		void BindToHandle(HWND newHandle, LONG_PTR lpRealWindowType);
+		template<class TWindow> void BindToHandle(HWND handle);
+		template<class TWindow> static TWindow* BindedWindow(HWND handle);
 		void UnbindHandle();
 
 	public:
@@ -43,4 +44,21 @@ namespace sowl
 	private:
 		HWND hwnd;
 	};
+
+	template<class TWindow> void Window::BindToHandle(HWND handle)
+	{
+		if (hwnd != nullptr)
+			RaiseException(1, 0, 0, nullptr);
+		if (handle == nullptr)
+			RaiseException(2, 0, 0, nullptr);
+
+		hwnd = handle;
+		SetWindowLongPtr(hwnd, GWLP_USERDATA, (LONG_PTR)static_cast<TWindow*>(this));
+	}
+
+	template<class TWindow> static TWindow* Window::BindedWindow(HWND handle)
+	{
+		LONG_PTR ptr = GetWindowLongPtr(handle, GWLP_USERDATA);
+		return reinterpret_cast<TWindow*>(ptr);
+	}
 }
