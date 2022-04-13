@@ -3,7 +3,10 @@
 #include <algorithm>
 #include <sstream>
 
-struct WindowMessageInfo 
+using namespace sowl;
+
+/// @private
+struct WindowMessageInfo
 {
     unsigned int code;
     const wchar_t* text;

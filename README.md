@@ -32,17 +32,14 @@ Even now, with memory managed alternatives (.NET and MPF), working directly with
 
 # Hello World
 
-	#include <windows.h>
-	#include <Sowl/Windows/Customs/CustomWindow.h>
-	#include <Sowl/Windows/MessageLoop.h>
+#include <Sowl/Sowl.h>
 
-	int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE, PWSTR pCmdLine, int nCmdShow)
-	{
-		sowl::CustomWindow window(hInstance, L"CustomWindow");
-		window.SetText(L"Hello World!!!");
-		window.Show(nCmdShow);
-		return sowl::MessageLoop().Run();
-	}
+int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ PWSTR, _In_ int nCmdShow)
+{
+    sowl::CustomWindow window(hInstance, L"MyWindowClass");
+    window.Show(nCmdShow);
+    return sowl::MessageLoop().Run();
+}
 
 # Documentation
 

@@ -1,9 +1,11 @@
 #pragma once
 
-class Utilities
+namespace sowl
 {
-public:
-	static const wchar_t* GetWindowMessageText(unsigned int msg);
-	static void OutputDebugWindowMessage(unsigned int msg, const wchar_t* const description);
-};
-
+	class Utilities
+	{
+	public:
+		static const wchar_t* GetWindowMessageText(unsigned int msg);
+		static void OutputDebugWindowMessage(unsigned int msg, const wchar_t* const description);
+	};
+}
