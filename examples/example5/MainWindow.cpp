@@ -3,7 +3,7 @@
 using namespace sowl;
 
 MainWindow::MainWindow(HINSTANCE processHandle)
-    : CustomWindow(CustomWindowClassRegisterer(processHandle, L"MainWindow")
+    : CustomWindow(ClassRegisterer(processHandle, L"MainWindow")
         .WithBackgroundBrush(StockBrushesHandles::LightGray())
         .WithCursor(PredefinedCursorHandles::Arrow()))
 {

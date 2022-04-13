@@ -1,7 +1,7 @@
 #pragma once
 #include <functional>
 #include "../Window.h"
-#include "CustomWindowClassRegisterer.h"
+#include "WindowClassRegisterer.h"
 #include "../WindowHandleCreator.h"
 #include "../../Graphics/PaintDeviceContext.h"
 
@@ -23,6 +23,7 @@ namespace sowl
 		virtual bool OnCommand(int notificationCode, int senderId, HWND controlHandle);
 		virtual bool OnLButtonDown(int mouseKeys, int x, int y);
 
+		static CustomWindowClassRegisterer ClassRegisterer(HINSTANCE processHandle, LPCWSTR className);
 		static LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 	};
 }

@@ -1,5 +1,4 @@
-#include "CustomWindowClassRegisterer.h"
-#include "CustomWindow.h"
+#include "WindowClassRegisterer.h"
 
 using namespace sowl;
 
@@ -8,7 +7,7 @@ using namespace sowl;
 /// @param className A valid window class name.
 /// @param wndProc A pointer to the window procedure.
 /// @return A builder. If parameters are valid, a call to Register() must return a valid registered window class.
-CustomWindowClassRegisterer::CustomWindowClassRegisterer(HINSTANCE processHandle, LPCWSTR className)
+CustomWindowClassRegisterer::CustomWindowClassRegisterer(HINSTANCE processHandle, LPCWSTR className, WNDPROC windowProcedure)
 {
     wc.cbClsExtra = 0;
     wc.cbWndExtra = 0;
@@ -19,7 +18,7 @@ CustomWindowClassRegisterer::CustomWindowClassRegisterer(HINSTANCE processHandle
     wc.lpszMenuName = nullptr;
     wc.style = 0;
     wc.hInstance = processHandle;
-    wc.lpfnWndProc = CustomWindow::WindowProc;
+    wc.lpfnWndProc = windowProcedure;
 }
 
 HINSTANCE sowl::CustomWindowClassRegisterer::ProcessHandle() const

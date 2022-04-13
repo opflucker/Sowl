@@ -7,7 +7,7 @@ namespace sowl
 	class CustomWindowClassRegisterer
 	{
 	public:
-		CustomWindowClassRegisterer(HINSTANCE processHandle, LPCWSTR className);
+		CustomWindowClassRegisterer(HINSTANCE processHandle, LPCWSTR className, WNDPROC windowProcedure);
 
 		HINSTANCE ProcessHandle() const;
 		LPCWSTR ClassName() const;

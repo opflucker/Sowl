@@ -1,17 +1,17 @@
 #include "CustomWindow.h"
-#include "CustomWindowClassRegisterer.h"
+#include "WindowClassRegisterer.h"
 #include <windowsx.h>
 #include "../Utilities.h"
 
 using namespace sowl;
 
 CustomWindow::CustomWindow(HINSTANCE processHandle, LPCWSTR className)
-    : CustomWindow(CustomWindowClassRegisterer(processHandle, className), WindowHandleCreator(processHandle, className))
+    : CustomWindow(ClassRegisterer(processHandle, className), WindowHandleCreator(processHandle, className))
 {
 }
 
 CustomWindow::CustomWindow(const WindowHandleCreator& handleCreator)
-    : CustomWindow(CustomWindowClassRegisterer(handleCreator.ProcessHandle(), handleCreator.ClassName()), handleCreator)
+    : CustomWindow(ClassRegisterer(handleCreator.ProcessHandle(), handleCreator.ClassName()), handleCreator)
 {
 }
 
@@ -72,6 +72,11 @@ bool CustomWindow::OnCommand(int notificationCode, int senderId, HWND controlHan
 bool CustomWindow::OnLButtonDown(int mouseKeys, int x, int y)
 {
     return false;
+}
+
+CustomWindowClassRegisterer sowl::CustomWindow::ClassRegisterer(HINSTANCE processHandle, LPCWSTR className)
+{
+    return CustomWindowClassRegisterer(processHandle, className, WindowProc);
 }
 
 LRESULT CALLBACK CustomWindow::WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
