@@ -1,16 +1,11 @@
 #include "MainWindow.h"
-#include <Sowl/Graphics/Brushes/StockBrushesHandles.h>
-#include <Sowl/Graphics/Brushes/SolidBrush.h>
-#include <Sowl/Graphics/Cursors/PredefinedCursorHandles.h>
 
 using namespace sowl;
 
 MainWindow::MainWindow(HINSTANCE processHandle)
-    : CustomWindow(CreateClassBuilder(processHandle, L"MainWindow")
+    : CustomWindow(CustomWindowClassRegisterer(processHandle, L"MainWindow")
         .WithBackgroundBrush(StockBrushesHandles::LightGray())
-        .WithCursor(PredefinedCursorHandles::Arrow())
-        .RegisterAndCreateHandleBuilder()
-        .WithTitle(L"Hello World!!!"))
+        .WithCursor(PredefinedCursorHandles::Arrow()))
 {
 }
 
@@ -23,9 +18,8 @@ void MainWindow::OnPaint(const PaintDeviceContext& dc)
     dc.DrawText(L"Click window area to draw circles", GetClientRect(), DT_TOP | DT_LEFT);
 
     const int circleRadio = 50;
-    for(unsigned int i = 0; i < points.size(); i++)
+    for (auto p : points)
     {
-        auto p = points[i];
         RECT r;
         r.left = p.x - circleRadio;
         r.right = p.x + circleRadio;

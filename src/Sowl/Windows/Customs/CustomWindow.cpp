@@ -6,15 +6,24 @@
 using namespace sowl;
 
 CustomWindow::CustomWindow(HINSTANCE processHandle, LPCWSTR className)
+    : CustomWindow(CustomWindowClassRegisterer(processHandle, className), WindowHandleCreator(processHandle, className))
 {
-    CustomWindowClassRegisterer::EnsureRegistered(processHandle, className);
-    WindowHandleCreator(processHandle, className).WithParams(this).Create();
 }
 
-CustomWindow::CustomWindow(WindowHandleCreator& builder)
+CustomWindow::CustomWindow(const WindowHandleCreator& handleCreator)
+    : CustomWindow(CustomWindowClassRegisterer(handleCreator.ProcessHandle(), handleCreator.ClassName()), handleCreator)
 {
-    CustomWindowClassRegisterer::EnsureRegistered(builder.ProcessHandle(), builder.ClassName());
-    builder.WithParams(this).Create();
+}
+
+sowl::CustomWindow::CustomWindow(const CustomWindowClassRegisterer& classRegisterer)
+    : CustomWindow(classRegisterer, WindowHandleCreator(classRegisterer.ProcessHandle(), classRegisterer.ClassName()))
+{
+}
+
+CustomWindow::CustomWindow(const CustomWindowClassRegisterer& classRegisterer, WindowHandleCreator handleCreator)
+{
+    classRegisterer.Register();
+    handleCreator.WithParams(this).Create();
 }
 
 LRESULT CustomWindow::Process(UINT uMsg, WPARAM wParam, LPARAM lParam)

@@ -1,6 +1,7 @@
 #pragma once
 #include <functional>
 #include "../Window.h"
+#include "CustomWindowClassRegisterer.h"
 #include "../WindowHandleCreator.h"
 #include "../../Graphics/PaintDeviceContext.h"
 
@@ -10,7 +11,10 @@ namespace sowl
 	{
 	public:
 		CustomWindow(HINSTANCE processHandle, LPCWSTR className);
-		explicit CustomWindow(WindowHandleCreator& hwnd);
+		explicit CustomWindow(const WindowHandleCreator& handleCreator);
+		explicit CustomWindow(const CustomWindowClassRegisterer& classRegisterer);
+		CustomWindow(const CustomWindowClassRegisterer& classRegisterer, WindowHandleCreator handleCreator);
+		virtual ~CustomWindow() = default;
 
 		virtual LRESULT Process(UINT uMsg, WPARAM wParam, LPARAM lParam);
 

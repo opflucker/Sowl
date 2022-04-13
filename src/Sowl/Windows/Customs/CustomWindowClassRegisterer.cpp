@@ -22,6 +22,16 @@ CustomWindowClassRegisterer::CustomWindowClassRegisterer(HINSTANCE processHandle
     wc.lpfnWndProc = CustomWindow::WindowProc;
 }
 
+HINSTANCE sowl::CustomWindowClassRegisterer::ProcessHandle() const
+{
+    return wc.hInstance;
+}
+
+LPCWSTR sowl::CustomWindowClassRegisterer::ClassName() const
+{
+    return wc.lpszClassName;
+}
+
 CustomWindowClassRegisterer& CustomWindowClassRegisterer::WithBackgroundBrush(HBRUSH handle)
 {
     wc.hbrBackground = handle;
@@ -62,14 +72,4 @@ WNDCLASS CustomWindowClassRegisterer::Register() const
 
     RegisterClass(&wc);
     return wc;
-}
-
-void CustomWindowClassRegisterer::EnsureRegistered(HINSTANCE processHandle, LPCWSTR className)
-{
-    WNDCLASS wcFound;
-    if (GetClassInfo(processHandle, className, &wcFound) == TRUE)
-        return;
-
-    CustomWindowClassRegisterer builder(processHandle, className);
-    RegisterClass(&(builder.wc));
 }

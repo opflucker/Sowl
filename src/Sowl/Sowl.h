@@ -14,3 +14,4 @@
 #include "Windows/Dialogs/ModelessDialogWindow.h"
 #include "Graphics/Brushes/SolidBrush.h"
 #include "Graphics/Cursors/PredefinedCursorHandles.h"
+#include "Graphics/Brushes/StockBrushesHandles.h"
