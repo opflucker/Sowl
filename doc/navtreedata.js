@@ -119,7 +119,6 @@ var NAVTREE =
             [ "Window", "classsowl_1_1Window.html#a1c019a5750ca6cb5583f9f2bc9fe33a4", null ],
             [ "Window", "classsowl_1_1Window.html#a493ef00d0bef6b2c3cd4f8acfde4e32d", null ],
             [ "~Window", "classsowl_1_1Window.html#a245d821e6016fa1f6970ccbbedd635f6", null ],
-            [ "BindToHandle", "classsowl_1_1Window.html#a82a87175db089f96fcd324d3df07fc44", null ],
             [ "Destroy", "classsowl_1_1Window.html#a21c6b5aca180cf3b7933ec97b291b21e", null ],
             [ "Enable", "classsowl_1_1Window.html#abccb169f1107e37278400ac1eda6341e", null ],
             [ "GetClientRect", "classsowl_1_1Window.html#ae8794d015eac38a5bc06c2a85573aae8", null ],

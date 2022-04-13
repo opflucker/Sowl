@@ -90,8 +90,8 @@ $(document).ready(function(){initNavTree('file__Window_8h_source.html',''); init
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">protected</span>:</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="comment">// binding/unbinding Window object to HWND in WindowProcedure</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">class</span> TWindow&gt; <span class="keywordtype">void</span> <a class="code" href="classsowl_1_1Window.html#a82a87175db089f96fcd324d3df07fc44">BindToHandle</a>(HWND handle);</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">class</span> TWindow&gt; <span class="keyword">static</span> TWindow* BindedWindow(HWND handle);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">class</span> TWindow&gt; <span class="keyword">static</span> TWindow* BindToHandle(HWND handle, LPVOID lParam);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">class</span> TWindow&gt; <span class="keyword">static</span> TWindow* BindedToHandle(HWND handle);</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classsowl_1_1Window.html#abfb11409856ee4a4139dbb9ece544d18">UnbindHandle</a>();</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">public</span>:</div>
@@ -112,25 +112,28 @@ $(document).ready(function(){initNavTree('file__Window_8h_source.html',''); init
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        HWND hwnd;</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    };</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="classsowl_1_1Window.html#a82a87175db089f96fcd324d3df07fc44">   49</a></span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> TWindow&gt; <span class="keywordtype">void</span> <a class="code" href="classsowl_1_1Window.html#a82a87175db089f96fcd324d3df07fc44">Window::BindToHandle</a>(HWND handle)</div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="classsowl_1_1Window.html#aff117a21f32069d359cc96ef277fc2c1">   49</a></span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> TWindow&gt; <span class="keyword">static</span> TWindow* Window::BindToHandle(HWND handle, LPVOID lParam)</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    {</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordflow">if</span> (hwnd != <span class="keyword">nullptr</span>)</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            RaiseException(1, 0, 0, <span class="keyword">nullptr</span>);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordflow">if</span> (handle == <span class="keyword">nullptr</span>)</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            RaiseException(2, 0, 0, <span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordflow">if</span> (handle == <span class="keyword">nullptr</span> || lParam == <span class="keyword">nullptr</span>)</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keyword">auto</span>* pWindow = <span class="keyword">reinterpret_cast&lt;</span>TWindow*<span class="keyword">&gt;</span>(lParam);</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        hwnd = handle;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        SetWindowLongPtr(hwnd, GWLP_USERDATA, (LONG_PTR)<span class="keyword">static_cast&lt;</span>TWindow*<span class="keyword">&gt;</span>(<span class="keyword">this</span>));</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    }</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="classsowl_1_1Window.html#a65e0d2404993fe031a39e11bb67cc490">   61</a></span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> TWindow&gt; <span class="keyword">static</span> TWindow* Window::BindedWindow(HWND handle)</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    {</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        LONG_PTR ptr = GetWindowLongPtr(handle, GWLP_USERDATA);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">reinterpret_cast&lt;</span>TWindow*<span class="keyword">&gt;</span>(ptr);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    }</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;}</div>
-<div class="ttc" id="aclasssowl_1_1Window_html_ad0b95aa36a5b1c0102dacd3b99b31b2b"><div class="ttname"><a href="classsowl_1_1Window.html#ad0b95aa36a5b1c0102dacd3b99b31b2b">sowl::Window::InvalidateRect</a></div><div class="ttdeci">bool InvalidateRect(bool erase)</div><div class="ttdoc">Encapsulates a call to ::InvalidateRect with lpRect to NULL. </div><div class="ttdef"><b>Definition:</b> Window.cpp:102</div></div>
-<div class="ttc" id="aclasssowl_1_1Window_html_a763ee478742ee88e4fa7cac76512ed90"><div class="ttname"><a href="classsowl_1_1Window.html#a763ee478742ee88e4fa7cac76512ed90">sowl::Window::SetText</a></div><div class="ttdeci">void SetText(LPCWSTR title)</div><div class="ttdoc">Encapsulates a call to ::SetWindowText. </div><div class="ttdef"><b>Definition:</b> Window.cpp:94</div></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keywordflow">if</span> (pWindow-&gt;hwnd != <span class="keyword">nullptr</span>) <span class="comment">// already binded</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            RaiseException(1, 0, 0, <span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        pWindow-&gt;hwnd = handle;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        SetWindowLongPtr(handle, GWLP_USERDATA, (LONG_PTR)pWindow);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordflow">return</span> pWindow;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    }</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="classsowl_1_1Window.html#aa894da9e7f9d30058cbf67df9bc7d451">   66</a></span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> TWindow&gt; <span class="keyword">static</span> TWindow* Window::BindedToHandle(HWND handle)</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    {</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        LONG_PTR ptr = GetWindowLongPtr(handle, GWLP_USERDATA);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">reinterpret_cast&lt;</span>TWindow*<span class="keyword">&gt;</span>(ptr);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    }</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;}</div>
 <div class="ttc" id="aclasssowl_1_1Window_html_a64ba17dcfe83f0df98314257c9c70922"><div class="ttname"><a href="classsowl_1_1Window.html#a64ba17dcfe83f0df98314257c9c70922">sowl::Window::IsEnabled</a></div><div class="ttdeci">bool IsEnabled()</div><div class="ttdoc">Encapsulates a call to ::IsWindowEnabled. </div><div class="ttdef"><b>Definition:</b> Window.cpp:80</div></div>
 <div class="ttc" id="aclasssowl_1_1Window_html_abccb169f1107e37278400ac1eda6341e"><div class="ttname"><a href="classsowl_1_1Window.html#abccb169f1107e37278400ac1eda6341e">sowl::Window::Enable</a></div><div class="ttdeci">void Enable(bool enable)</div><div class="ttdoc">Encapsulates a call to ::EnableWindow. </div><div class="ttdef"><b>Definition:</b> Window.cpp:73</div></div>
 <div class="ttc" id="aclasssowl_1_1Window_html_ac7b8e86fd3c9265c6620a1afb6e6e7ca"><div class="ttname"><a href="classsowl_1_1Window.html#ac7b8e86fd3c9265c6620a1afb6e6e7ca">sowl::Window::Show</a></div><div class="ttdeci">bool Show(int nCmdShow) const</div><div class="ttdoc">Encapsulates a call to ::ShowWindow. </div><div class="ttdef"><b>Definition:</b> Window.cpp:128</div></div>
@@ -138,10 +141,11 @@ $(document).ready(function(){initNavTree('file__Window_8h_source.html',''); init
 <div class="ttc" id="aclasssowl_1_1Window_html_aff923deee2f6e7d36f6df7cfefecd600"><div class="ttname"><a href="classsowl_1_1Window.html#aff923deee2f6e7d36f6df7cfefecd600">sowl::Window::GetProcessHandle</a></div><div class="ttdeci">HINSTANCE GetProcessHandle() const</div><div class="ttdoc">Get the process handle (HINSTANCE) where the encapsulated handle window belongs to...</div><div class="ttdef"><b>Definition:</b> Window.cpp:58</div></div>
 <div class="ttc" id="aclasssowl_1_1Window_html_ae8794d015eac38a5bc06c2a85573aae8"><div class="ttname"><a href="classsowl_1_1Window.html#ae8794d015eac38a5bc06c2a85573aae8">sowl::Window::GetClientRect</a></div><div class="ttdeci">RECT GetClientRect()</div><div class="ttdoc">Encapsulates a call to ::GetClientRect. </div><div class="ttdef"><b>Definition:</b> Window.cpp:118</div></div>
 <div class="ttc" id="aclasssowl_1_1Window_html_abfb11409856ee4a4139dbb9ece544d18"><div class="ttname"><a href="classsowl_1_1Window.html#abfb11409856ee4a4139dbb9ece544d18">sowl::Window::UnbindHandle</a></div><div class="ttdeci">void UnbindHandle()</div><div class="ttdoc">Unbind this object with it encapsulated handle. </div><div class="ttdef"><b>Definition:</b> Window.cpp:45</div></div>
-<div class="ttc" id="aclasssowl_1_1Window_html_a82a87175db089f96fcd324d3df07fc44"><div class="ttname"><a href="classsowl_1_1Window.html#a82a87175db089f96fcd324d3df07fc44">sowl::Window::BindToHandle</a></div><div class="ttdeci">void BindToHandle(HWND handle)</div><div class="ttdoc">Bind this object with a handle. </div><div class="ttdef"><b>Definition:</b> Window.h:49</div></div>
 <div class="ttc" id="aclasssowl_1_1Window_html_a21c6b5aca180cf3b7933ec97b291b21e"><div class="ttname"><a href="classsowl_1_1Window.html#a21c6b5aca180cf3b7933ec97b291b21e">sowl::Window::Destroy</a></div><div class="ttdeci">void Destroy()</div><div class="ttdoc">Release the encapsulated HWND if it is valid. </div><div class="ttdef"><b>Definition:</b> Window.cpp:29</div></div>
+<div class="ttc" id="aclasssowl_1_1Window_html_a763ee478742ee88e4fa7cac76512ed90"><div class="ttname"><a href="classsowl_1_1Window.html#a763ee478742ee88e4fa7cac76512ed90">sowl::Window::SetText</a></div><div class="ttdeci">void SetText(LPCWSTR title)</div><div class="ttdoc">Encapsulates a call to ::SetWindowText. </div><div class="ttdef"><b>Definition:</b> Window.cpp:94</div></div>
 <div class="ttc" id="aclasssowl_1_1Window_html_ab064df492800bc95a434d375700f5d40"><div class="ttname"><a href="classsowl_1_1Window.html#ab064df492800bc95a434d375700f5d40">sowl::Window::SetClassCursor</a></div><div class="ttdeci">void SetClassCursor(HCURSOR hcursor)</div><div class="ttdoc">Encapsulates a call to ::SetClassLong with index GCL_HCURSOR. </div><div class="ttdef"><b>Definition:</b> Window.cpp:87</div></div>
 <div class="ttc" id="aclasssowl_1_1Window_html_a245d821e6016fa1f6970ccbbedd635f6"><div class="ttname"><a href="classsowl_1_1Window.html#a245d821e6016fa1f6970ccbbedd635f6">sowl::Window::~Window</a></div><div class="ttdeci">~Window()</div><div class="ttdoc">Call Destroy(). </div><div class="ttdef"><b>Definition:</b> Window.cpp:23</div></div>
+<div class="ttc" id="aclasssowl_1_1Window_html_ad0b95aa36a5b1c0102dacd3b99b31b2b"><div class="ttname"><a href="classsowl_1_1Window.html#ad0b95aa36a5b1c0102dacd3b99b31b2b">sowl::Window::InvalidateRect</a></div><div class="ttdeci">bool InvalidateRect(bool erase)</div><div class="ttdoc">Encapsulates a call to ::InvalidateRect with lpRect to NULL. </div><div class="ttdef"><b>Definition:</b> Window.cpp:102</div></div>
 <div class="ttc" id="aclasssowl_1_1Window_html"><div class="ttname"><a href="classsowl_1_1Window.html">sowl::Window</a></div><div class="ttdoc">Encapsulates a window handle (HWND). </div><div class="ttdef"><b>Definition:</b> Window.h:7</div></div>
 </div><!-- end fragment -->
 </div><!-- contents -->
@@ -150,7 +154,7 @@ $(document).ready(function(){initNavTree('file__Window_8h_source.html',''); init
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d41d8cd98f00b204e9800998ecf8427e.html">Sowl</a></li><li class="navelem"><a class="el" href="dir_a67a73c2d68c1a16cb1ec52de74dbd35.html">Windows</a></li><li class="navelem"><b>Window.h</b></li>
-    <li class="footer">Generated on Thu Apr 14 2022 01:03:39 for Sowl &nbsp; by
+    <li class="footer">Generated on Thu Apr 14 2022 01:58:16 for Sowl &nbsp; by
     <a href="https://www.copperspice.com/documentation-doxypress.html">
     <img class="footer" src="doxypress.png" alt="DoxyPress"/></a> 1.4.2 </li>
   </ul>
