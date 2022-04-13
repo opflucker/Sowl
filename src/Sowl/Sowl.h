@@ -11,7 +11,7 @@
 #include "Windows/Window.h"
 #include "Windows/WindowHandleCreator.h"
 
-#include "Windows/Controls/ControlCreator.h"
+#include "Windows/Controls/ControlWindowCreator.h"
 #include "Windows/Controls/ControlWindow.h"
 #include "Windows/Controls/ButtonWindow.h"
 

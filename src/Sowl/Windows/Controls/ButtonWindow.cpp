@@ -3,9 +3,9 @@
 
 using namespace sowl;
 
-ControlCreator<ButtonWindow> ButtonWindow::Creator(const Window& parentWindow, WORD id)
+ControlWindowCreator<ButtonWindow> ButtonWindow::Creator(const Window& parentWindow, WORD id)
 {
-    return ControlCreator<ButtonWindow>(parentWindow, L"BUTTON", id, WS_TABSTOP | WS_VISIBLE | WS_CHILD | BS_DEFPUSHBUTTON);
+    return ControlWindowCreator<ButtonWindow>(parentWindow, L"BUTTON", id, WS_TABSTOP | WS_VISIBLE | WS_CHILD | BS_DEFPUSHBUTTON);
 }
 
 ButtonWindow::ButtonWindow(HWND hwnd)
