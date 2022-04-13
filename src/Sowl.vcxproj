@@ -39,6 +39,7 @@
     <ClCompile Include="Sowl\Windows\Customs\WindowClassRegisterer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Sowl\Windows\Controls\ControlCreator.h" />
     <ClInclude Include="Sowl\Graphics\Brushes\Brush.h" />
     <ClInclude Include="Sowl\Graphics\Brushes\SolidBrush.h" />
     <ClInclude Include="Sowl\Graphics\Brushes\StockBrushesHandles.h" />

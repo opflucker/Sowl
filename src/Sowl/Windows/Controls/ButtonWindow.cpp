@@ -3,12 +3,9 @@
 
 using namespace sowl;
 
-WindowHandleCreator ButtonWindow::HandleCreator(const Window& parentWindow, WORD id)
+ControlCreator<ButtonWindow> ButtonWindow::Creator(const Window& parentWindow, WORD id)
 {
-    return WindowHandleCreator(parentWindow.GetProcessHandle(), L"BUTTON")
-        .WithParent(parentWindow.GetHandle())
-        .WithMenu((HMENU)(uintptr_t)id)
-        .WithStyle(WS_TABSTOP | WS_VISIBLE | WS_CHILD | BS_DEFPUSHBUTTON);
+    return ControlCreator<ButtonWindow>(parentWindow, L"BUTTON", id, WS_TABSTOP | WS_VISIBLE | WS_CHILD | BS_DEFPUSHBUTTON);
 }
 
 ButtonWindow::ButtonWindow(HWND hwnd)

@@ -7,7 +7,7 @@ const int SHOW_MODAL_ID = 101;
 MainWindow::MainWindow(HINSTANCE processHandle)
     : CustomWindow(WindowHandleCreator(processHandle, L"MainWindow").WithTitle(L"Hello World!!!"))
 {
-    ButtonWindow::HandleCreator(*this, SHOW_MODAL_ID).WithTitle(L"Show Modal").WithRect(10, 10, 100, 30).Create();
+    ButtonWindow::Creator(*this, SHOW_MODAL_ID).WithTitle(L"Show Modal").WithRect(10, 10, 100, 30).CreateHandle();
 }
 
 void MainWindow::ProcessMessage(MSG& message)

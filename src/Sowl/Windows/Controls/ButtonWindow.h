@@ -1,13 +1,14 @@
 #pragma once
 #include "ControlWindow.h"
-#include "../WindowHandleCreator.h"
+#include "ControlCreator.h"
 
 namespace sowl
 {
 	class ButtonWindow : public ControlWindow
 	{
 	public:
-		static WindowHandleCreator HandleCreator(const Window& parentWindow, WORD id);
+		static ControlCreator<ButtonWindow> Creator(const Window& parentWindow, WORD id);
+
 		ButtonWindow() = default;
 		explicit ButtonWindow(HWND hwnd);
 		~ButtonWindow() = default;

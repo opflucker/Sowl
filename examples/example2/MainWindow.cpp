@@ -8,8 +8,8 @@ const int CLOSE_ID = 101;
 MainWindow::MainWindow(HINSTANCE processHandle)
     : CustomWindow(WindowHandleCreator(processHandle, L"MainWindow").WithTitle(L"Hello World!!!"))
 {
-    showMessageButton = ButtonWindow(ButtonWindow::HandleCreator(*this, SHOW_MESSAGE_ID).WithTitle(L"Show Message").WithRect(10, 10, 150, 30).Create());
-    closeButton = ButtonWindow(ButtonWindow::HandleCreator(*this, CLOSE_ID).WithTitle(L"Close").WithRect(10, 50, 150, 30).Create());
+    showMessageButton = ButtonWindow::Creator(*this, SHOW_MESSAGE_ID).WithTitle(L"Show Message").WithRect(10, 10, 150, 30).Create();
+    closeButton = ButtonWindow::Creator(*this, CLOSE_ID).WithTitle(L"Close").WithRect(10, 50, 150, 30).Create();
 }
 
 bool MainWindow::OnCommand(int notificationCode, int senderId, HWND controlHandle)

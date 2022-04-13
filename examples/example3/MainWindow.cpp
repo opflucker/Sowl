@@ -10,8 +10,8 @@ const int SHOW_MODAL_2_ID = 102;
 MainWindow::MainWindow(HINSTANCE processHandle)
     : CustomWindow(WindowHandleCreator(processHandle, L"MainWindow").WithTitle(L"Hello World!!!"))
 {
-    ButtonWindow::HandleCreator(*this, SHOW_MODAL_1_ID).WithTitle(L"Show Modal 1").WithRect(10, 10, 100, 30).Create();
-    ButtonWindow::HandleCreator(*this, SHOW_MODAL_2_ID).WithTitle(L"Show Modal 2").WithRect(10, 50, 100, 30).Create();
+    ButtonWindow::Creator(*this, SHOW_MODAL_1_ID).WithTitle(L"Show Modal 1").WithRect(10, 10, 100, 30).CreateHandle();
+    ButtonWindow::Creator(*this, SHOW_MODAL_2_ID).WithTitle(L"Show Modal 2").WithRect(10, 50, 100, 30).CreateHandle();
 }
 
 bool MainWindow::OnCommand(int notificationCode, int senderId, HWND controlHandle)
