@@ -23,8 +23,8 @@ namespace sowl
 
 	protected:
 		// binding/unbinding Window object to HWND in WindowProcedure
-		template<class TWindow> void BindToHandle(HWND handle);
-		template<class TWindow> static TWindow* BindedWindow(HWND handle);
+		template<class TWindow> static TWindow* BindToHandle(HWND handle, LPVOID lParam);
+		template<class TWindow> static TWindow* BindedToHandle(HWND handle);
 		void UnbindHandle();
 
 	public:
@@ -46,19 +46,24 @@ namespace sowl
 	};
 
 	/// @brief Bind this object with a handle.
-	template<class TWindow> void Window::BindToHandle(HWND handle)
+	template<class TWindow> static TWindow* Window::BindToHandle(HWND handle, LPVOID lParam)
 	{
-		if (hwnd != nullptr)
-			RaiseException(1, 0, 0, nullptr);
-		if (handle == nullptr)
-			RaiseException(2, 0, 0, nullptr);
+		if (handle == nullptr || lParam == nullptr)
+			return nullptr;
 
-		hwnd = handle;
-		SetWindowLongPtr(hwnd, GWLP_USERDATA, (LONG_PTR)static_cast<TWindow*>(this));
+		auto* pWindow = reinterpret_cast<TWindow*>(lParam);
+
+		if (pWindow->hwnd != nullptr) // already binded
+			RaiseException(1, 0, 0, nullptr);
+
+		pWindow->hwnd = handle;
+		SetWindowLongPtr(handle, GWLP_USERDATA, (LONG_PTR)pWindow);
+
+		return pWindow;
 	}
 
 	/// @brief Return a pointer to the object binded with a handle.
-	template<class TWindow> static TWindow* Window::BindedWindow(HWND handle)
+	template<class TWindow> static TWindow* Window::BindedToHandle(HWND handle)
 	{
 		LONG_PTR ptr = GetWindowLongPtr(handle, GWLP_USERDATA);
 		return reinterpret_cast<TWindow*>(ptr);

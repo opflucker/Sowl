@@ -37,25 +37,22 @@ INT_PTR DialogWindow::DialogProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lPa
 
     if (uMsg == WM_INITDIALOG)
     {
-        pDialogWindow = reinterpret_cast<DialogWindow*>(lParam);
-        pDialogWindow->BindToHandle<DialogWindow>(hwnd);
+        pDialogWindow = BindToHandle<DialogWindow>(hwnd, (LPVOID)lParam);
     }
     else
     {
-        pDialogWindow = BindedWindow<DialogWindow>(hwnd);
+        pDialogWindow = BindedToHandle<DialogWindow>(hwnd);
     }
 
-    if (pDialogWindow != nullptr)
+    if (pDialogWindow == nullptr)
+        return FALSE;
+
+    LRESULT result = pDialogWindow->Process(uMsg, wParam, lParam);
+
+    if (uMsg == WM_NCDESTROY)
     {
-        LRESULT result = pDialogWindow->Process(uMsg, wParam, lParam);
-
-        if (uMsg == WM_NCDESTROY)
-        {
-            pDialogWindow->UnbindHandle();
-        }
-
-        return result;
+        pDialogWindow->UnbindHandle();
     }
 
-    return FALSE;
+    return result;
 }

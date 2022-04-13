@@ -12,13 +12,10 @@ int MessageLoop::Run()
     int getResult;
     while ((getResult = GetMessage(msg)) != 0)
     {
-        if (getResult == -1)
-        {
-            if (HandleErrorAndExit())
-                break;
-        }
-        else
+        if (getResult != -1)
             ProcessMessage(msg);
+        else if (HandleErrorAndExit())
+            break;
     }
     return (int)msg.wParam; // exit code on WM_QUIT
 }

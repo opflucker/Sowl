@@ -329,6 +329,6 @@ const wchar_t* Utilities::GetWindowMessageText(unsigned int messageCode)
 void Utilities::OutputDebugWindowMessage(unsigned int msg, const wchar_t * const description)
 {
     std::wstringstream buffer;
-    buffer << description << ": msg = " << msg << "(" << Utilities::GetWindowMessageText(msg) << ")" << std::endl;
+    buffer << description << ": msg " << msg << " (" << Utilities::GetWindowMessageText(msg) << ")" << std::endl;
     OutputDebugStringW(buffer.str().c_str());
 }

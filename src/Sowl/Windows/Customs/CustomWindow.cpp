@@ -88,25 +88,22 @@ LRESULT CALLBACK CustomWindow::WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, L
     if (uMsg == WM_CREATE)
     {
         auto* pCreate = reinterpret_cast<CREATESTRUCT*>(lParam);
-        pWindow = reinterpret_cast<CustomWindow*>(pCreate->lpCreateParams);
-        pWindow->BindToHandle<CustomWindow>(hwnd);
+        pWindow = BindToHandle<CustomWindow>(hwnd, pCreate->lpCreateParams);
     }
     else
     {
-        pWindow = BindedWindow<CustomWindow>(hwnd);
+        pWindow = BindedToHandle<CustomWindow>(hwnd);
     }
 
-    if (pWindow != nullptr)
+    if (pWindow == nullptr)
+        return DefWindowProc(hwnd, uMsg, wParam, lParam);
+
+    LRESULT result = pWindow->Process(uMsg, wParam, lParam);
+
+    if (uMsg == WM_NCDESTROY)
     {
-        LRESULT result = pWindow->Process(uMsg, wParam, lParam);
-
-        if (uMsg == WM_NCDESTROY)
-        {
-            pWindow->UnbindHandle();
-        }
-
-        return result;
+        pWindow->UnbindHandle();
     }
 
-    return DefWindowProc(hwnd, uMsg, wParam, lParam);
+    return result;
 }
