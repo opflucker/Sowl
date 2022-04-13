@@ -32,6 +32,7 @@ Even now, with memory managed alternatives (.NET and MPF), working directly with
 
 # Hello World
 
+```CPP
 #include <Sowl/Sowl.h>
 
 int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ PWSTR, _In_ int nCmdShow)
@@ -40,6 +41,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ PWSTR, _I
     window.Show(nCmdShow);
     return sowl::MessageLoop().Run();
 }
+```
 
 # Documentation
 
