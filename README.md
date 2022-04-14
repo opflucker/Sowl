@@ -17,14 +17,13 @@ Design objetives:
 
 Years ago, when development Microsoft Windows native graphical applications was more common, programmers have to work directly with 
 the Windows C APIs. Those APIs are themselves written mostly in C, so C/C++ language was commonly used. But given the C nature of those APIs,
-and their internal designs, programmers were strongly limited when coding object oriented programs. The alternative was to use a more 
+and their internal design, programmers were strongly limited when coding object oriented programs. The alternative was to use a more 
 object-oriented library that acts as a layer over Windows APIs. Popular libraries were (and still are) MFC, OWL, wxWidgets and Qt. 
 
-These libraries suffer from some problems that makes harder resolve bugs when working with them:
-- They introduce a dark box layer over the original APIs. This quickly becomes painful when program grows.
-- They introduce new concepts that are internally mapped to original ones.
-- They abuse of macros.
-- Even promoted as "lightweights", these libraries are heavy and complex.
+These libraries suffer somecommons problems when working with them:
+- They introduce a dark and complex layer over the original APIs. This quickly becomes painful when program grows.
+- They introduce new concepts that are internally mapped to original ones. This becomes painful when a programmer wants to use Windows APIs directly.
+- They abuse of macros. Anyone that has dealed with a bug in macro-generated code knows how paintful it is.
 
 Multiplatform alternatives, like wxWidgets and Qt, add more complexity and additional problems, like the problematic runtime linking mechanism of Qt.
 
