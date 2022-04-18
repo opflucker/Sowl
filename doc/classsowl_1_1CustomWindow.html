@@ -91,12 +91,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a6a1f95f1f5a87cb2d8fa430a51e8fdb3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6a1f95f1f5a87cb2d8fa430a51e8fdb3"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>CustomWindow</b> (const <a class="el" href="classsowl_1_1WindowHandleCreator.html">WindowHandleCreator</a> &amp;handleCreator)</td></tr>
 <tr class="separator:a6a1f95f1f5a87cb2d8fa430a51e8fdb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4c5a17466232df8b882272b96260dcda"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4c5a17466232df8b882272b96260dcda"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>CustomWindow</b> (const <a class="el" href="classsowl_1_1CustomWindowClassRegisterer.html">CustomWindowClassRegisterer</a> &amp;classRegisterer)</td></tr>
-<tr class="separator:a4c5a17466232df8b882272b96260dcda"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5c202d8e3c3d9179c133c009d8f905fd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5c202d8e3c3d9179c133c009d8f905fd"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>CustomWindow</b> (const <a class="el" href="classsowl_1_1CustomWindowClassRegisterer.html">CustomWindowClassRegisterer</a> &amp;classRegisterer, <a class="el" href="classsowl_1_1WindowHandleCreator.html">WindowHandleCreator</a> handleCreator)</td></tr>
-<tr class="separator:a5c202d8e3c3d9179c133c009d8f905fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7cb43ffa393ad603856866bd8c2da13f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7cb43ffa393ad603856866bd8c2da13f"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>CustomWindow</b> (const <a class="el" href="classsowl_1_1WindowClassRegisterer.html">WindowClassRegisterer</a> &amp;classRegisterer)</td></tr>
+<tr class="separator:a7cb43ffa393ad603856866bd8c2da13f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5a0c344ff800ecfe20d073534f5e5f7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa5a0c344ff800ecfe20d073534f5e5f7"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>CustomWindow</b> (const <a class="el" href="classsowl_1_1WindowClassRegisterer.html">WindowClassRegisterer</a> &amp;classRegisterer, <a class="el" href="classsowl_1_1WindowHandleCreator.html">WindowHandleCreator</a> handleCreator)</td></tr>
+<tr class="separator:aa5a0c344ff800ecfe20d073534f5e5f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a97cc241f5c21786b40592483decd0edb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a97cc241f5c21786b40592483decd0edb"></a>
 virtual LRESULT&#160;</td><td class="memItemRight" valign="bottom"><b>Process</b> (UINT uMsg, WPARAM wParam, LPARAM lParam)</td></tr>
 <tr class="separator:a97cc241f5c21786b40592483decd0edb"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -172,9 +172,9 @@ HWND&#160;</td><td class="memItemRight" valign="bottom"><b>GetHandle</b> () cons
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:aa5d27284579370884b57db5ea4a7bb8f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa5d27284579370884b57db5ea4a7bb8f"></a>
-static <a class="el" href="classsowl_1_1CustomWindowClassRegisterer.html">CustomWindowClassRegisterer</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ClassRegisterer</b> (HINSTANCE processHandle, LPCWSTR className)</td></tr>
-<tr class="separator:aa5d27284579370884b57db5ea4a7bb8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c8ccb5ab3573d3822521e1798b0eaa4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9c8ccb5ab3573d3822521e1798b0eaa4"></a>
+static <a class="el" href="classsowl_1_1WindowClassRegisterer.html">WindowClassRegisterer</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ClassRegisterer</b> (HINSTANCE processHandle, LPCWSTR className)</td></tr>
+<tr class="separator:a9c8ccb5ab3573d3822521e1798b0eaa4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a249a7afa12635c50c049ff176fb511b0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a249a7afa12635c50c049ff176fb511b0"></a>
 static LRESULT CALLBACK&#160;</td><td class="memItemRight" valign="bottom"><b>WindowProc</b> (HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)</td></tr>
 <tr class="separator:a249a7afa12635c50c049ff176fb511b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -216,7 +216,7 @@ template&lt;class TWindow &gt; </td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>sowl</b></li><li class="navelem"><a class="el" href="classsowl_1_1CustomWindow.html">CustomWindow</a></li>
-    <li class="footer">Generated on Thu Apr 14 2022 01:58:16 for Sowl &nbsp; by
+    <li class="footer">Generated on Mon Apr 18 2022 14:52:48 for Sowl &nbsp; by
     <a href="https://www.copperspice.com/documentation-doxypress.html">
     <img class="footer" src="doxypress.png" alt="DoxyPress"/></a> 1.4.2 </li>
   </ul>
