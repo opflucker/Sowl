@@ -1,5 +1,6 @@
 #pragma once
 #include <Windows.h>
+#include <type_traits>
 
 namespace sowl
 {
@@ -48,6 +49,8 @@ namespace sowl
 	/// @brief Bind this object with a handle.
 	template<class TWindow> static TWindow* Window::BindToHandle(HWND handle, LPVOID lParam)
 	{
+		static_assert(std::is_base_of<Window, TWindow>::value, "Type parameter of this method must derive from Window class");
+
 		if (handle == nullptr || lParam == nullptr)
 			return nullptr;
 
@@ -65,6 +68,8 @@ namespace sowl
 	/// @brief Return a pointer to the object binded with a handle.
 	template<class TWindow> static TWindow* Window::BindedToHandle(HWND handle)
 	{
+		static_assert(std::is_base_of<Window, TWindow>::value, "Type parameter of this method must derive from Window class");
+
 		LONG_PTR ptr = GetWindowLongPtr(handle, GWLP_USERDATA);
 		return reinterpret_cast<TWindow*>(ptr);
 	}
