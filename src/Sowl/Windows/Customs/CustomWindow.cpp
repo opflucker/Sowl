@@ -15,12 +15,12 @@ CustomWindow::CustomWindow(const WindowHandleCreator& handleCreator)
 {
 }
 
-sowl::CustomWindow::CustomWindow(const CustomWindowClassRegisterer& classRegisterer)
+sowl::CustomWindow::CustomWindow(const WindowClassRegisterer& classRegisterer)
     : CustomWindow(classRegisterer, WindowHandleCreator(classRegisterer.ProcessHandle(), classRegisterer.ClassName()))
 {
 }
 
-CustomWindow::CustomWindow(const CustomWindowClassRegisterer& classRegisterer, WindowHandleCreator handleCreator)
+CustomWindow::CustomWindow(const WindowClassRegisterer& classRegisterer, WindowHandleCreator handleCreator)
 {
     classRegisterer.Register();
     handleCreator.WithParams(this).Create();
@@ -74,9 +74,9 @@ bool CustomWindow::OnLButtonDown(int mouseKeys, int x, int y)
     return false;
 }
 
-CustomWindowClassRegisterer sowl::CustomWindow::ClassRegisterer(HINSTANCE processHandle, LPCWSTR className)
+WindowClassRegisterer sowl::CustomWindow::ClassRegisterer(HINSTANCE processHandle, LPCWSTR className)
 {
-    return CustomWindowClassRegisterer(processHandle, className, WindowProc);
+    return WindowClassRegisterer(processHandle, className, WindowProc);
 }
 
 LRESULT CALLBACK CustomWindow::WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)

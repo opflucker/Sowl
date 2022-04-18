@@ -4,19 +4,19 @@
 namespace sowl
 {
 	/// @brief Builds a call to ::RegisterClass.
-	class CustomWindowClassRegisterer
+	class WindowClassRegisterer
 	{
 	public:
-		CustomWindowClassRegisterer(HINSTANCE processHandle, LPCWSTR className, WNDPROC windowProcedure);
+		WindowClassRegisterer(HINSTANCE processHandle, LPCWSTR className, WNDPROC windowProcedure);
 
 		HINSTANCE ProcessHandle() const;
 		LPCWSTR ClassName() const;
 
-		CustomWindowClassRegisterer& WithBackgroundBrush(HBRUSH handle);
-		CustomWindowClassRegisterer& WithCursor(HCURSOR handle);
-		CustomWindowClassRegisterer& WithIcon(HICON handle);
-		CustomWindowClassRegisterer& WithMenu(LPCWSTR name);
-		CustomWindowClassRegisterer& WithStyle(UINT style);
+		WindowClassRegisterer& WithBackgroundBrush(HBRUSH handle);
+		WindowClassRegisterer& WithCursor(HCURSOR handle);
+		WindowClassRegisterer& WithIcon(HICON handle);
+		WindowClassRegisterer& WithMenu(LPCWSTR name);
+		WindowClassRegisterer& WithStyle(UINT style);
 		WNDCLASS Register() const;
 
 	private:

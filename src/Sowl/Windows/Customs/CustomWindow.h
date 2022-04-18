@@ -12,8 +12,8 @@ namespace sowl
 	public:
 		CustomWindow(HINSTANCE processHandle, LPCWSTR className);
 		explicit CustomWindow(const WindowHandleCreator& handleCreator);
-		explicit CustomWindow(const CustomWindowClassRegisterer& classRegisterer);
-		CustomWindow(const CustomWindowClassRegisterer& classRegisterer, WindowHandleCreator handleCreator);
+		explicit CustomWindow(const WindowClassRegisterer& classRegisterer);
+		CustomWindow(const WindowClassRegisterer& classRegisterer, WindowHandleCreator handleCreator);
 		virtual ~CustomWindow() = default;
 
 		virtual LRESULT Process(UINT uMsg, WPARAM wParam, LPARAM lParam);
@@ -23,7 +23,7 @@ namespace sowl
 		virtual bool OnCommand(int notificationCode, int senderId, HWND controlHandle);
 		virtual bool OnLButtonDown(int mouseKeys, int x, int y);
 
-		static CustomWindowClassRegisterer ClassRegisterer(HINSTANCE processHandle, LPCWSTR className);
+		static WindowClassRegisterer ClassRegisterer(HINSTANCE processHandle, LPCWSTR className);
 		static LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 	};
 }

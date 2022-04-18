@@ -7,7 +7,7 @@ using namespace sowl;
 /// @param className A valid window class name.
 /// @param wndProc A pointer to the window procedure.
 /// @return A builder. If parameters are valid, a call to Register() must return a valid registered window class.
-CustomWindowClassRegisterer::CustomWindowClassRegisterer(HINSTANCE processHandle, LPCWSTR className, WNDPROC windowProcedure)
+WindowClassRegisterer::WindowClassRegisterer(HINSTANCE processHandle, LPCWSTR className, WNDPROC windowProcedure)
 {
     wc.cbClsExtra = 0;
     wc.cbWndExtra = 0;
@@ -21,41 +21,41 @@ CustomWindowClassRegisterer::CustomWindowClassRegisterer(HINSTANCE processHandle
     wc.lpfnWndProc = windowProcedure;
 }
 
-HINSTANCE sowl::CustomWindowClassRegisterer::ProcessHandle() const
+HINSTANCE sowl::WindowClassRegisterer::ProcessHandle() const
 {
     return wc.hInstance;
 }
 
-LPCWSTR sowl::CustomWindowClassRegisterer::ClassName() const
+LPCWSTR sowl::WindowClassRegisterer::ClassName() const
 {
     return wc.lpszClassName;
 }
 
-CustomWindowClassRegisterer& CustomWindowClassRegisterer::WithBackgroundBrush(HBRUSH handle)
+WindowClassRegisterer& WindowClassRegisterer::WithBackgroundBrush(HBRUSH handle)
 {
     wc.hbrBackground = handle;
     return *this;
 }
 
-CustomWindowClassRegisterer& CustomWindowClassRegisterer::WithCursor(HCURSOR handle)
+WindowClassRegisterer& WindowClassRegisterer::WithCursor(HCURSOR handle)
 {
     wc.hCursor = handle;
     return *this;
 }
 
-CustomWindowClassRegisterer& CustomWindowClassRegisterer::WithIcon(HICON handle)
+WindowClassRegisterer& WindowClassRegisterer::WithIcon(HICON handle)
 {
     wc.hCursor = handle;
     return *this;
 }
 
-CustomWindowClassRegisterer& CustomWindowClassRegisterer::WithMenu(LPCWSTR name)
+WindowClassRegisterer& WindowClassRegisterer::WithMenu(LPCWSTR name)
 {
     wc.lpszMenuName = name;
     return *this;
 }
 
-CustomWindowClassRegisterer& CustomWindowClassRegisterer::WithStyle(UINT style)
+WindowClassRegisterer& WindowClassRegisterer::WithStyle(UINT style)
 {
     wc.style = style;
     return *this;
@@ -63,7 +63,7 @@ CustomWindowClassRegisterer& CustomWindowClassRegisterer::WithStyle(UINT style)
 
 /// @brief If the class was not registered, register it. Otherwise, retrieve the registered class information.
 /// @return Structure with information about the registered class.
-WNDCLASS CustomWindowClassRegisterer::Register() const
+WNDCLASS WindowClassRegisterer::Register() const
 {
     WNDCLASS wcFound;
     if (GetClassInfo(wc.hInstance, wc.lpszClassName, &wcFound) == TRUE)
