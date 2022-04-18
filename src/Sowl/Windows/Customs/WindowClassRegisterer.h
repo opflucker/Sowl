@@ -17,7 +17,7 @@ namespace sowl
 		WindowClassRegisterer& WithIcon(HICON handle);
 		WindowClassRegisterer& WithMenu(LPCWSTR name);
 		WindowClassRegisterer& WithStyle(UINT style);
-		WNDCLASS Register() const;
+		void Register() const;
 
 	private:
 		WNDCLASS wc;

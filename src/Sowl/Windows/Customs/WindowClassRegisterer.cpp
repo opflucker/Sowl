@@ -63,12 +63,11 @@ WindowClassRegisterer& WindowClassRegisterer::WithStyle(UINT style)
 
 /// @brief If the class was not registered, register it. Otherwise, retrieve the registered class information.
 /// @return Structure with information about the registered class.
-WNDCLASS WindowClassRegisterer::Register() const
+void WindowClassRegisterer::Register() const
 {
     WNDCLASS wcFound;
     if (GetClassInfo(wc.hInstance, wc.lpszClassName, &wcFound) == TRUE)
-        return wcFound;
+        return;
 
     RegisterClass(&wc);
-    return wc;
 }
