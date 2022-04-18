@@ -128,7 +128,7 @@ var NAVTREE =
             [ "WindowClassRegisterer", "classsowl_1_1WindowClassRegisterer.html#aace10b78152f86f72a87525853d1336d", null ],
             [ "ClassName", "classsowl_1_1WindowClassRegisterer.html#ab6f724bfa327fe5828fa2d0bbaf0b980", null ],
             [ "ProcessHandle", "classsowl_1_1WindowClassRegisterer.html#a2cf329e216a9228978df67199d9f0d01", null ],
-            [ "Register", "classsowl_1_1WindowClassRegisterer.html#a4f6ca222f3d41afcb86aa8d5949827c6", null ],
+            [ "Register", "classsowl_1_1WindowClassRegisterer.html#afb3098707b4d19323a8f7a7475957ef8", null ],
             [ "WithBackgroundBrush", "classsowl_1_1WindowClassRegisterer.html#a0579414f76b8a0b6be241aa474838917", null ],
             [ "WithCursor", "classsowl_1_1WindowClassRegisterer.html#afab49db836d3deaf537cfcaece2f838c", null ],
             [ "WithIcon", "classsowl_1_1WindowClassRegisterer.html#a2855a15c1ebc669ed227e95821d25feb", null ],
