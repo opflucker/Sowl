@@ -37,14 +37,22 @@ void Window::Destroy()
 
 Window& sowl::Window::operator=(Window&& other) noexcept
 {
-    std::swap(hwnd, other.hwnd);
+    BindHandle(other.hwnd);
+    other.UnbindHandle();
     return *this;
+}
+
+void sowl::Window::BindHandle(HWND handle)
+{
+    if (hwnd != nullptr) // already binded
+        RaiseException(1, 0, 0, nullptr); // this is a bug in program code
+
+    hwnd = handle;
 }
 
 /// @brief Unbind this object with it encapsulated handle.
 void sowl::Window::UnbindHandle()
 {
-    SetWindowLongPtr(hwnd, GWLP_USERDATA, 0);
     hwnd = nullptr;
 }
 

@@ -79,31 +79,15 @@ WindowClassRegisterer sowl::CustomWindow::ClassRegisterer(HINSTANCE processHandl
     return WindowClassRegisterer(processHandle, className, WindowProc);
 }
 
+auto extractor = [](LPARAM param) {
+    auto* pCreate = reinterpret_cast<CREATESTRUCT*>(param);
+    auto* pWindow = pCreate == nullptr ? nullptr : reinterpret_cast<CustomWindow*>(pCreate->lpCreateParams);
+    return pWindow;
+};
+
 LRESULT CALLBACK CustomWindow::WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
     Utilities::OutputDebugWindowMessage(uMsg, L"CustomWindow::WindowProc");
 
-    CustomWindow* pWindow;
-
-    if (uMsg == WM_CREATE)
-    {
-        auto* pCreate = reinterpret_cast<CREATESTRUCT*>(lParam);
-        pWindow = BindToHandle<CustomWindow>(hwnd, pCreate->lpCreateParams);
-    }
-    else
-    {
-        pWindow = BindedToHandle<CustomWindow>(hwnd);
-    }
-
-    if (pWindow == nullptr)
-        return DefWindowProc(hwnd, uMsg, wParam, lParam);
-
-    LRESULT result = pWindow->Process(uMsg, wParam, lParam);
-
-    if (uMsg == WM_NCDESTROY)
-    {
-        pWindow->UnbindHandle();
-    }
-
-    return result;
+    return WindowProcedure(hwnd, uMsg, wParam, lParam, WM_CREATE, extractor);
 }

@@ -3,7 +3,7 @@
 
 using namespace sowl;
 
-bool DialogWindow::Process(UINT uMsg, WPARAM wParam, LPARAM lParam)
+LRESULT DialogWindow::Process(UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
     switch (uMsg)
     {
@@ -29,30 +29,11 @@ bool DialogWindow::OnCommand(int notificationCode, int senderId, HWND controlHan
     return false;
 }
 
+auto extractor = [](LPARAM param) { return reinterpret_cast<DialogWindow*>(param); };
+
 INT_PTR DialogWindow::DialogProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
     Utilities::OutputDebugWindowMessage(uMsg, L"DialogProc");
 
-    DialogWindow* pDialogWindow;
-
-    if (uMsg == WM_INITDIALOG)
-    {
-        pDialogWindow = BindToHandle<DialogWindow>(hwnd, (LPVOID)lParam);
-    }
-    else
-    {
-        pDialogWindow = BindedToHandle<DialogWindow>(hwnd);
-    }
-
-    if (pDialogWindow == nullptr)
-        return FALSE;
-
-    LRESULT result = pDialogWindow->Process(uMsg, wParam, lParam);
-
-    if (uMsg == WM_NCDESTROY)
-    {
-        pDialogWindow->UnbindHandle();
-    }
-
-    return result;
+    return WindowProcedure(hwnd, uMsg, wParam, lParam, WM_INITDIALOG, extractor);
 }

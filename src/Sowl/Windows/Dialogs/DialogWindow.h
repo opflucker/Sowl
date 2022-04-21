@@ -1,15 +1,14 @@
 #pragma once
-#include "../Window.h"
+#include "../WindowBindableByWndProc.h"
 
 namespace sowl
 {
-	class DialogWindow : public Window
+	class DialogWindow : public WindowBindableByWndProc
 	{
 	public:
 		DialogWindow() = default;
-		virtual ~DialogWindow() = default;
 
-		virtual bool Process(UINT uMsg, WPARAM wParam, LPARAM lParam);
+		LRESULT Process(UINT uMsg, WPARAM wParam, LPARAM lParam) override;
 		virtual bool OnInitDialog(HWND hFocusWindow);
 		virtual bool OnCommand(int notificationCode, int senderId, HWND controlHandle);
 		virtual bool OnClose() = 0;
