@@ -40,12 +40,11 @@ var NAVTREE =
             [ "CustomWindow", "classsowl_1_1CustomWindow.html#a6a1f95f1f5a87cb2d8fa430a51e8fdb3", null ],
             [ "CustomWindow", "classsowl_1_1CustomWindow.html#a7cb43ffa393ad603856866bd8c2da13f", null ],
             [ "CustomWindow", "classsowl_1_1CustomWindow.html#aa5a0c344ff800ecfe20d073534f5e5f7", null ],
-            [ "~CustomWindow", "classsowl_1_1CustomWindow.html#a89faebe8039bd9e9cd103bee536dd6aa", null ],
             [ "OnCommand", "classsowl_1_1CustomWindow.html#a7ca4e9a672cd7f9e6361aebfc066f420", null ],
             [ "OnLButtonDown", "classsowl_1_1CustomWindow.html#ad566a0f707dd5049a27ee3a02b89ac6b", null ],
             [ "OnPaint", "classsowl_1_1CustomWindow.html#a4367c662bd5c7c0f8c327a164398b49b", null ],
             [ "OnShow", "classsowl_1_1CustomWindow.html#a20bc7b5ad42fd998d1972e199dc80cb3", null ],
-            [ "Process", "classsowl_1_1CustomWindow.html#a97cc241f5c21786b40592483decd0edb", null ]
+            [ "Process", "classsowl_1_1CustomWindow.html#adcb19f0b646b7950861da7195b65751d", null ]
           ] ],
           [ "DeviceContext", "classsowl_1_1DeviceContext.html", [
             [ "DeviceContext", "classsowl_1_1DeviceContext.html#a1d4b86cfbe9b3d60d43267bfce10f08d", null ],
@@ -60,12 +59,10 @@ var NAVTREE =
             [ "SetHandle", "classsowl_1_1DeviceContext.html#a58205a82def849e21453e0fec8e89ce0", null ]
           ] ],
           [ "DialogWindow", "classsowl_1_1DialogWindow.html", [
-            [ "DialogWindow", "classsowl_1_1DialogWindow.html#a9f321a19fdaf5967aa4fc6873d4608e9", null ],
-            [ "~DialogWindow", "classsowl_1_1DialogWindow.html#a92a4bc73f3773caafabd95f6829f4cde", null ],
             [ "OnClose", "classsowl_1_1DialogWindow.html#ad873c26ada72aa9d111fd06eb1ea0815", null ],
             [ "OnCommand", "classsowl_1_1DialogWindow.html#a863980eec6a7f511021de0e55469e51c", null ],
             [ "OnInitDialog", "classsowl_1_1DialogWindow.html#ad7c5db0f9f19f5b9b1761b938721f785", null ],
-            [ "Process", "classsowl_1_1DialogWindow.html#a020dc8c6fb382cf6a8ec1bd136494bf4", null ]
+            [ "Process", "classsowl_1_1DialogWindow.html#acebb6a8a229a8511005aa41f5f4543b2", null ]
           ] ],
           [ "MessageLoop", "classsowl_1_1MessageLoop.html", [
             [ "GetMessage", "classsowl_1_1MessageLoop.html#a81a832e046a8162713b04df9933bcd4f", null ],
@@ -75,7 +72,6 @@ var NAVTREE =
           ] ],
           [ "ModalDialogWindow", "classsowl_1_1ModalDialogWindow.html", [
             [ "ModalDialogWindow", "classsowl_1_1ModalDialogWindow.html#a0599f2e785852b3748536359fccd54c4", null ],
-            [ "~ModalDialogWindow", "classsowl_1_1ModalDialogWindow.html#a475f797bf61b827fbdd678fbd889d5d3", null ],
             [ "CreateAndShow", "classsowl_1_1ModalDialogWindow.html#afc6da5a0a087147ed784e9bd722ca66f", null ],
             [ "End", "classsowl_1_1ModalDialogWindow.html#a82942b490b842c741aaf621e0bc615d0", null ],
             [ "OnClose", "classsowl_1_1ModalDialogWindow.html#a92638a1508618b4eafe245ad4a8c3e97", null ]
@@ -108,6 +104,7 @@ var NAVTREE =
             [ "Window", "classsowl_1_1Window.html#a1c019a5750ca6cb5583f9f2bc9fe33a4", null ],
             [ "Window", "classsowl_1_1Window.html#a493ef00d0bef6b2c3cd4f8acfde4e32d", null ],
             [ "~Window", "classsowl_1_1Window.html#a245d821e6016fa1f6970ccbbedd635f6", null ],
+            [ "BindHandle", "classsowl_1_1Window.html#a4b70e075fc94ff3a5d1283735262ab00", null ],
             [ "Destroy", "classsowl_1_1Window.html#a21c6b5aca180cf3b7933ec97b291b21e", null ],
             [ "Enable", "classsowl_1_1Window.html#abccb169f1107e37278400ac1eda6341e", null ],
             [ "GetClientRect", "classsowl_1_1Window.html#ae8794d015eac38a5bc06c2a85573aae8", null ],
@@ -147,6 +144,10 @@ var NAVTREE =
             [ "WithRect", "classsowl_1_1WindowHandleCreator.html#a50e8b9cd1824ec27d27f205f99383eef", null ],
             [ "WithStyle", "classsowl_1_1WindowHandleCreator.html#aaab4319436346518841b294d8975ab5f", null ],
             [ "WithTitle", "classsowl_1_1WindowHandleCreator.html#a3832b9316748a5357e2d359bb0687f28", null ]
+          ] ],
+          [ "WindowWithMessages", "classsowl_1_1WindowWithMessages.html", [
+            [ "~WindowWithMessages", "classsowl_1_1WindowWithMessages.html#a849c7275093d324d13936d56924a9332", null ],
+            [ "Process", "classsowl_1_1WindowWithMessages.html#af6ac331823e3c8379a7053dbf9a00671", null ]
           ] ]
         ] ]
       ] ],
@@ -167,10 +168,12 @@ var NAVTREE =
           [ "sowl::ControlWindow", "classsowl_1_1ControlWindow.html", [
             [ "sowl::ButtonWindow", "classsowl_1_1ButtonWindow.html", null ]
           ] ],
-          [ "sowl::CustomWindow", "classsowl_1_1CustomWindow.html", null ],
-          [ "sowl::DialogWindow", "classsowl_1_1DialogWindow.html", [
-            [ "sowl::ModalDialogWindow", "classsowl_1_1ModalDialogWindow.html", null ],
-            [ "sowl::ModelessDialogWindow", "classsowl_1_1ModelessDialogWindow.html", null ]
+          [ "sowl::WindowWithMessages", "classsowl_1_1WindowWithMessages.html", [
+            [ "sowl::CustomWindow", "classsowl_1_1CustomWindow.html", null ],
+            [ "sowl::DialogWindow", "classsowl_1_1DialogWindow.html", [
+              [ "sowl::ModalDialogWindow", "classsowl_1_1ModalDialogWindow.html", null ],
+              [ "sowl::ModelessDialogWindow", "classsowl_1_1ModelessDialogWindow.html", null ]
+            ] ]
           ] ]
         ] ],
         [ "sowl::WindowClassRegisterer", "classsowl_1_1WindowClassRegisterer.html", null ],

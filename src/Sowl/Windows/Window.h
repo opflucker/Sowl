@@ -23,7 +23,6 @@ namespace sowl
 		Window& operator=(Window&& other) noexcept; // control move assignment
 
 	protected:
-		// binding/unbinding Window object to HWND, in a WindowProcedure, after Window object is created
 		void BindHandle(HWND handle);
 		void UnbindHandle();
 

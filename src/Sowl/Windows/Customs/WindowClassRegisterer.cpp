@@ -5,7 +5,7 @@ using namespace sowl;
 /// @brief Initialize the builder with given parameters and defaults.
 /// @param processHandle Handle of the process where the window class to be registered must belongs to.
 /// @param className A valid window class name.
-/// @param wndProc A pointer to the window procedure.
+/// @param windowProcedure A pointer to the window procedure.
 /// @return A builder. If parameters are valid, a call to Register() must return a valid registered window class.
 WindowClassRegisterer::WindowClassRegisterer(HINSTANCE processHandle, LPCWSTR className, WNDPROC windowProcedure)
 {

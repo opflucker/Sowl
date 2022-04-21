@@ -67,7 +67,6 @@ $(document).ready(function(){initNavTree('classsowl_1_1Window.html',''); initRes
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
-<a href="#pro-static-methods">Static Protected Member Functions</a> &#124;
 <a href="classsowl_1_1Window-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">sowl::Window Class Reference</div>  </div>
@@ -86,11 +85,12 @@ Inheritance diagram for sowl::Window:</div>
   <img src="classsowl_1_1Window.png" usemap="#sowl::Window_map" alt=""/>
   <map id="sowl::Window_map" name="sowl::Window_map">
 <area href="classsowl_1_1ControlWindow.html" alt="sowl::ControlWindow" shape="rect" coords="0,56,177,80"/>
-<area href="classsowl_1_1CustomWindow.html" alt="sowl::CustomWindow" shape="rect" coords="187,56,364,80"/>
-<area href="classsowl_1_1DialogWindow.html" alt="sowl::DialogWindow" shape="rect" coords="374,56,551,80"/>
+<area href="classsowl_1_1WindowWithMessages.html" alt="sowl::WindowWithMessages" shape="rect" coords="280,56,457,80"/>
 <area href="classsowl_1_1ButtonWindow.html" alt="sowl::ButtonWindow" shape="rect" coords="0,112,177,136"/>
-<area href="classsowl_1_1ModalDialogWindow.html" alt="sowl::ModalDialogWindow" shape="rect" coords="280,112,457,136"/>
-<area href="classsowl_1_1ModelessDialogWindow.html" alt="sowl::ModelessDialogWindow" shape="rect" coords="467,112,644,136"/>
+<area href="classsowl_1_1CustomWindow.html" alt="sowl::CustomWindow" shape="rect" coords="187,112,364,136"/>
+<area href="classsowl_1_1DialogWindow.html" alt="sowl::DialogWindow" shape="rect" coords="374,112,551,136"/>
+<area href="classsowl_1_1ModalDialogWindow.html" alt="sowl::ModalDialogWindow" shape="rect" coords="280,168,457,192"/>
+<area href="classsowl_1_1ModelessDialogWindow.html" alt="sowl::ModelessDialogWindow" shape="rect" coords="467,168,644,192"/>
   </map>
  </div></div>
 <table class="memberdecls">
@@ -155,114 +155,18 @@ HWND&#160;</td><td class="memItemRight" valign="bottom"><b>GetHandle</b> () cons
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
+<tr class="memitem:a4b70e075fc94ff3a5d1283735262ab00"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4b70e075fc94ff3a5d1283735262ab00"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsowl_1_1Window.html#a4b70e075fc94ff3a5d1283735262ab00">BindHandle</a> (HWND handle)</td></tr>
+<tr class="memdesc:a4b70e075fc94ff3a5d1283735262ab00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a window-handle to an expected unsetted <a class="el" href="classsowl_1_1Window.html" title="Encapsulates a window handle (HWND). ">Window</a> object. This method is expected to be called inside a window-message-processing function where binding between a window-object and a window-handle could be controlled. <br /></td></tr>
+<tr class="separator:a4b70e075fc94ff3a5d1283735262ab00"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abfb11409856ee4a4139dbb9ece544d18"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abfb11409856ee4a4139dbb9ece544d18"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsowl_1_1Window.html#abfb11409856ee4a4139dbb9ece544d18">UnbindHandle</a> ()</td></tr>
-<tr class="memdesc:abfb11409856ee4a4139dbb9ece544d18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unbind this object with it encapsulated handle. <br /></td></tr>
+<tr class="memdesc:abfb11409856ee4a4139dbb9ece544d18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unset the window-handle. This method is expected to be called inside a window-message-processing function where binding between a window-object and a window-handle could be controlled. <br /></td></tr>
 <tr class="separator:abfb11409856ee4a4139dbb9ece544d18"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-methods"></a>
-Static Protected Member Functions</h2></td></tr>
-<tr class="memitem:aa64881bcd07900092c9bae74b8cab644"><td class="memTemplParams" colspan="2"><a class="anchor" id="aa64881bcd07900092c9bae74b8cab644"></a>
-template&lt;class TWindow &gt; </td></tr>
-<tr class="memitem:aa64881bcd07900092c9bae74b8cab644"><td class="memTemplItemLeft" align="right" valign="top">static TWindow *&#160;</td><td class="memTemplItemRight" valign="bottom"><b>BindToHandle</b> (HWND handle, LPVOID pAdditionalCreationData)</td></tr>
-<tr class="separator:aa64881bcd07900092c9bae74b8cab644"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa894da9e7f9d30058cbf67df9bc7d451"><td class="memTemplParams" colspan="2"><a class="anchor" id="aa894da9e7f9d30058cbf67df9bc7d451"></a>
-template&lt;class TWindow &gt; </td></tr>
-<tr class="memitem:aa894da9e7f9d30058cbf67df9bc7d451"><td class="memTemplItemLeft" align="right" valign="top">static TWindow *&#160;</td><td class="memTemplItemRight" valign="bottom"><b>BindedToHandle</b> (HWND handle)</td></tr>
-<tr class="separator:aa894da9e7f9d30058cbf67df9bc7d451"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa64881bcd07900092c9bae74b8cab644"><td class="memTemplParams" colspan="2">template&lt;class TWindow &gt; </td></tr>
-<tr class="memitem:aa64881bcd07900092c9bae74b8cab644"><td class="memTemplItemLeft" align="right" valign="top">static TWindow *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsowl_1_1Window.html#aa64881bcd07900092c9bae74b8cab644">BindToHandle</a> (HWND handle, LPVOID pAdditionalCreationData)</td></tr>
-<tr class="memdesc:aa64881bcd07900092c9bae74b8cab644"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bind a TWindow object with a window-handle. This method must be called inside a WNDPROC function when processing a creation message. This message must hold (as additonal data) a pointer to a Window-derived object, so this function can bind both, it is, Window-handle and Window-derived object pointing each other.  <a href="#aa64881bcd07900092c9bae74b8cab644">More...</a><br /></td></tr>
-<tr class="separator:aa64881bcd07900092c9bae74b8cab644"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa894da9e7f9d30058cbf67df9bc7d451"><td class="memTemplParams" colspan="2">template&lt;class TWindow &gt; </td></tr>
-<tr class="memitem:aa894da9e7f9d30058cbf67df9bc7d451"><td class="memTemplItemLeft" align="right" valign="top">static TWindow *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsowl_1_1Window.html#aa894da9e7f9d30058cbf67df9bc7d451">BindedToHandle</a> (HWND handle)</td></tr>
-<tr class="memdesc:aa894da9e7f9d30058cbf67df9bc7d451"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a pointer to the object binded with a handle. This method must be called inside a WNDPROC function when processing a message other than the creation one.  <a href="#aa894da9e7f9d30058cbf67df9bc7d451">More...</a><br /></td></tr>
-<tr class="separator:aa894da9e7f9d30058cbf67df9bc7d451"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Encapsulates a window handle (HWND). </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="aa894da9e7f9d30058cbf67df9bc7d451"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class TWindow &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static TWindow* sowl::Window::BindedToHandle </td>
-          <td>(</td>
-          <td class="paramtype">HWND&#160;</td>
-          <td class="paramname"><em>handle</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Return a pointer to the object binded with a handle. This method must be called inside a WNDPROC function when processing a message other than the creation one. </p>
-<dl class="section return"><dt>Returns</dt><dd>If the window-handle was previously binded (with a call to Window::BindToHandle) then it returns the binded Window-derived object pointer, otherwise, returns nullptr. </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="aa64881bcd07900092c9bae74b8cab644"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class TWindow &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static TWindow* sowl::Window::BindToHandle </td>
-          <td>(</td>
-          <td class="paramtype">HWND&#160;</td>
-          <td class="paramname"><em>handle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">LPVOID&#160;</td>
-          <td class="paramname"><em>pAdditionalCreationData</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Bind a TWindow object with a window-handle. This method must be called inside a WNDPROC function when processing a creation message. This message must hold (as additonal data) a pointer to a Window-derived object, so this function can bind both, it is, Window-handle and Window-derived object pointing each other. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">TWindow</td><td>A type derived from <a class="el" href="classsowl_1_1Window.html" title="Encapsulates a window handle (HWND). ">Window</a>. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">handle</td><td>The window-handle against a Window-derived object must be binded. </td></tr>
-    <tr><td class="paramname">pAdditionalCreationData</td><td>The additional data received when processing a creation message. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>If parameters are valid and the Window-derived object is not already binded then it returns the binded Window-derived object pointer. If parameters are invalid, it returns nullptr. If Window-derived object is already binded, it raises an exception. </dd></dl>
-
-</div>
-</div>
 <a class="anchor" id="abccb169f1107e37278400ac1eda6341e"></a>
 <div class="memitem">
 <div class="memproto">
@@ -511,7 +415,7 @@ template&lt;class TWindow &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>sowl</b></li><li class="navelem"><a class="el" href="classsowl_1_1Window.html">Window</a></li>
-    <li class="footer">Generated on Mon Apr 18 2022 23:41:32 for Sowl &nbsp; by
+    <li class="footer">Generated on Thu Apr 21 2022 22:19:21 for Sowl &nbsp; by
     <a href="https://www.copperspice.com/documentation-doxypress.html">
     <img class="footer" src="doxypress.png" alt="DoxyPress"/></a> 1.4.2 </li>
   </ul>

@@ -42,6 +42,9 @@ Window& sowl::Window::operator=(Window&& other) noexcept
     return *this;
 }
 
+/// @brief Set a window-handle to an expected unsetted Window object.
+/// This method is expected to be called inside a window-message-processing function
+/// where binding between a window-object and a window-handle could be controlled.
 void sowl::Window::BindHandle(HWND handle)
 {
     if (hwnd != nullptr) // already binded
@@ -50,7 +53,9 @@ void sowl::Window::BindHandle(HWND handle)
     hwnd = handle;
 }
 
-/// @brief Unbind this object with it encapsulated handle.
+/// @brief Unset the window-handle.
+/// This method is expected to be called inside a window-message-processing function
+/// where binding between a window-object and a window-handle could be controlled.
 void sowl::Window::UnbindHandle()
 {
     hwnd = nullptr;
