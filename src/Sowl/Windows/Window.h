@@ -4,7 +4,7 @@
 
 namespace sowl
 {
-	/// @brief Encapsulates a window handle (HWND).
+	/// @brief Encapsulates a <a href="https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-createwindowa#returns">window handle</a>.
 	class Window
 	{
 	public:
@@ -23,8 +23,8 @@ namespace sowl
 		Window& operator=(Window&& other) noexcept; // control move assignment
 
 	protected:
-		void BindHandle(HWND handle);
-		void UnbindHandle();
+		void SetHandle(HWND handle);
+		void UnsetHandle();
 
 	public:
 		// other methods

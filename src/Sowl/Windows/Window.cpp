@@ -37,15 +37,16 @@ void Window::Destroy()
 
 Window& sowl::Window::operator=(Window&& other) noexcept
 {
-    BindHandle(other.hwnd);
-    other.UnbindHandle();
+    SetHandle(other.hwnd);
+    other.UnsetHandle();
     return *this;
 }
 
 /// @brief Set a window-handle to an expected unsetted Window object.
+/// If the Window object was already set, an exception is raised.
 /// This method is expected to be called inside a window-message-processing function
-/// where binding between a window-object and a window-handle could be controlled.
-void sowl::Window::BindHandle(HWND handle)
+/// which controls binding between a window-object and a window-handle.
+void sowl::Window::SetHandle(HWND handle)
 {
     if (hwnd != nullptr) // already binded
         RaiseException(1, 0, 0, nullptr); // this is a bug in program code
@@ -55,8 +56,8 @@ void sowl::Window::BindHandle(HWND handle)
 
 /// @brief Unset the window-handle.
 /// This method is expected to be called inside a window-message-processing function
-/// where binding between a window-object and a window-handle could be controlled.
-void sowl::Window::UnbindHandle()
+/// which controls binding between a window-object and a window-handle.
+void sowl::Window::UnsetHandle()
 {
     hwnd = nullptr;
 }

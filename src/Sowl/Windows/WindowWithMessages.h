@@ -5,6 +5,7 @@
 
 namespace sowl
 {
+    /// @brief A Window with its own <a href="https://docs.microsoft.com/en-us/windows/win32/winmsg/window-procedures">window procedure</a>.
     class WindowWithMessages : public Window
     {
     public:

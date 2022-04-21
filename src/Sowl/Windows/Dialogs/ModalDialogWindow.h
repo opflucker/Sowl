@@ -3,6 +3,7 @@
 
 namespace sowl
 {
+	/// @brief Encapsulates a modal dialog window handle.
 	class ModalDialogWindow : public DialogWindow
 	{
 	public:

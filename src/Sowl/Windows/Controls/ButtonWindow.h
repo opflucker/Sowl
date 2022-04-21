@@ -4,6 +4,7 @@
 
 namespace sowl
 {
+	/// @brief Encapsulates a <a href="https://docs.microsoft.com/en-us/windows/win32/controls/buttons">button window</a> handle.
 	class ButtonWindow : public ControlWindow
 	{
 	public:

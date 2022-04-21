@@ -8,6 +8,7 @@
 
 namespace sowl
 {
+	/// @brief A Window with its own <a href="https://docs.microsoft.com/en-us/windows/win32/winmsg/window-procedures">window procedure</a> and <a href="https://docs.microsoft.com/en-us/windows/win32/winmsg/about-window-classes">window class</a>.
 	class CustomWindow : public WindowWithMessages
 	{
 	public:

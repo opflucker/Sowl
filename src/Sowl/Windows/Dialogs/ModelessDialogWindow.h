@@ -3,6 +3,7 @@
 
 namespace sowl
 {
+	/// @brief Encapsulates a modeless dialog window handle.
 	class ModelessDialogWindow : public DialogWindow
 	{
 	public:

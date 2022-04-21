@@ -73,17 +73,22 @@ $(document).ready(function(){initNavTree('classsowl_1_1WindowWithMessages.html',
   <div class="clear-floats"></div>
 </div><!--header-->
 <div class="contents">
+
+<p>A <a class="el" href="classsowl_1_1Window.html" title="Encapsulates a window handle. ">Window</a> with its own <a href="https://docs.microsoft.com/en-us/windows/win32/winmsg/window-procedures">window procedure</a>.  
+ <a href="classsowl_1_1WindowWithMessages.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="file__WindowWithMessages_8h_source.html">WindowWithMessages.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for sowl::WindowWithMessages:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="classsowl_1_1WindowWithMessages.png" usemap="#sowl::WindowWithMessages_map" alt=""/>
   <map id="sowl::WindowWithMessages_map" name="sowl::WindowWithMessages_map">
-<area href="classsowl_1_1Window.html" title="Encapsulates a window handle (HWND). " alt="sowl::Window" shape="rect" coords="93,0,270,24"/>
-<area href="classsowl_1_1CustomWindow.html" alt="sowl::CustomWindow" shape="rect" coords="0,112,177,136"/>
-<area href="classsowl_1_1DialogWindow.html" alt="sowl::DialogWindow" shape="rect" coords="187,112,364,136"/>
-<area href="classsowl_1_1ModalDialogWindow.html" alt="sowl::ModalDialogWindow" shape="rect" coords="93,168,270,192"/>
-<area href="classsowl_1_1ModelessDialogWindow.html" alt="sowl::ModelessDialogWindow" shape="rect" coords="280,168,457,192"/>
+<area href="classsowl_1_1Window.html" title="Encapsulates a window handle. " alt="sowl::Window" shape="rect" coords="93,0,270,24"/>
+<area href="classsowl_1_1CustomWindow.html" title="A Window with its own window procedure and window class. " alt="sowl::CustomWindow" shape="rect" coords="0,112,177,136"/>
+<area href="classsowl_1_1DialogWindow.html" title="Encapsulates a dialogbox window handle. " alt="sowl::DialogWindow" shape="rect" coords="187,112,364,136"/>
+<area href="classsowl_1_1ModalDialogWindow.html" title="Encapsulates a modal dialog window handle. " alt="sowl::ModalDialogWindow" shape="rect" coords="93,168,270,192"/>
+<area href="classsowl_1_1ModelessDialogWindow.html" title="Encapsulates a modeless dialog window handle. " alt="sowl::ModelessDialogWindow" shape="rect" coords="280,168,457,192"/>
   </map>
  </div></div>
 <table class="memberdecls">
@@ -152,22 +157,98 @@ HWND&#160;</td><td class="memItemRight" valign="bottom"><b>GetHandle</b> () cons
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a0fe8d206938eaec2e37a2ef378cff636"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0fe8d206938eaec2e37a2ef378cff636"></a>
-static LRESULT&#160;</td><td class="memItemRight" valign="bottom"><b>BindAndProcess</b> (HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam, UINT bindingMessage, const std::function&lt; WindowWithMessages *(LPARAM)&gt; &amp;extractWindowPointer)</td></tr>
+<tr class="memitem:a0fe8d206938eaec2e37a2ef378cff636"><td class="memItemLeft" align="right" valign="top">static LRESULT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsowl_1_1WindowWithMessages.html#a0fe8d206938eaec2e37a2ef378cff636">BindAndProcess</a> (HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam, UINT bindingMessage, const std::function&lt; WindowWithMessages *(LPARAM)&gt; &amp;extractWindowPointer)</td></tr>
+<tr class="memdesc:a0fe8d206938eaec2e37a2ef378cff636"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles the binding between a Window-object and a window-handle.  <a href="#a0fe8d206938eaec2e37a2ef378cff636">More...</a><br /></td></tr>
 <tr class="separator:a0fe8d206938eaec2e37a2ef378cff636"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_methods_classsowl_1_1Window"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classsowl_1_1Window')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="classsowl_1_1Window.html">sowl::Window</a></td></tr>
-<tr class="memitem:a4b70e075fc94ff3a5d1283735262ab00 inherit pro_methods_classsowl_1_1Window"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4b70e075fc94ff3a5d1283735262ab00"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsowl_1_1Window.html#a4b70e075fc94ff3a5d1283735262ab00">BindHandle</a> (HWND handle)</td></tr>
-<tr class="memdesc:a4b70e075fc94ff3a5d1283735262ab00 inherit pro_methods_classsowl_1_1Window"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a window-handle to an expected unsetted <a class="el" href="classsowl_1_1Window.html" title="Encapsulates a window handle (HWND). ">Window</a> object. This method is expected to be called inside a window-message-processing function where binding between a window-object and a window-handle could be controlled. <br /></td></tr>
-<tr class="separator:a4b70e075fc94ff3a5d1283735262ab00 inherit pro_methods_classsowl_1_1Window"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abfb11409856ee4a4139dbb9ece544d18 inherit pro_methods_classsowl_1_1Window"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abfb11409856ee4a4139dbb9ece544d18"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsowl_1_1Window.html#abfb11409856ee4a4139dbb9ece544d18">UnbindHandle</a> ()</td></tr>
-<tr class="memdesc:abfb11409856ee4a4139dbb9ece544d18 inherit pro_methods_classsowl_1_1Window"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unset the window-handle. This method is expected to be called inside a window-message-processing function where binding between a window-object and a window-handle could be controlled. <br /></td></tr>
-<tr class="separator:abfb11409856ee4a4139dbb9ece544d18 inherit pro_methods_classsowl_1_1Window"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e8a30461ead7287b3d58b0afbcc8271 inherit pro_methods_classsowl_1_1Window"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5e8a30461ead7287b3d58b0afbcc8271"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsowl_1_1Window.html#a5e8a30461ead7287b3d58b0afbcc8271">SetHandle</a> (HWND handle)</td></tr>
+<tr class="memdesc:a5e8a30461ead7287b3d58b0afbcc8271 inherit pro_methods_classsowl_1_1Window"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a window-handle to an expected unsetted <a class="el" href="classsowl_1_1Window.html" title="Encapsulates a window handle. ">Window</a> object. If the <a class="el" href="classsowl_1_1Window.html" title="Encapsulates a window handle. ">Window</a> object was already set, an exception is raised. This method is expected to be called inside a window-message-processing function which controls binding between a window-object and a window-handle. <br /></td></tr>
+<tr class="separator:a5e8a30461ead7287b3d58b0afbcc8271 inherit pro_methods_classsowl_1_1Window"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abab1f5f1953f04e8595b546064d8421f inherit pro_methods_classsowl_1_1Window"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abab1f5f1953f04e8595b546064d8421f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsowl_1_1Window.html#abab1f5f1953f04e8595b546064d8421f">UnsetHandle</a> ()</td></tr>
+<tr class="memdesc:abab1f5f1953f04e8595b546064d8421f inherit pro_methods_classsowl_1_1Window"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unset the window-handle. This method is expected to be called inside a window-message-processing function which controls binding between a window-object and a window-handle. <br /></td></tr>
+<tr class="separator:abab1f5f1953f04e8595b546064d8421f inherit pro_methods_classsowl_1_1Window"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A <a class="el" href="classsowl_1_1Window.html" title="Encapsulates a window handle. ">Window</a> with its own <a href="https://docs.microsoft.com/en-us/windows/win32/winmsg/window-procedures">window procedure</a>. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a0fe8d206938eaec2e37a2ef378cff636"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">LRESULT WindowWithMessages::BindAndProcess </td>
+          <td>(</td>
+          <td class="paramtype">HWND&#160;</td>
+          <td class="paramname"><em>hwnd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT&#160;</td>
+          <td class="paramname"><em>uMsg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">WPARAM&#160;</td>
+          <td class="paramname"><em>wParam</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">LPARAM&#160;</td>
+          <td class="paramname"><em>lParam</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT&#160;</td>
+          <td class="paramname"><em>bindingMessage</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::function&lt; WindowWithMessages *(LPARAM)&gt; &amp;&#160;</td>
+          <td class="paramname"><em>extractWindowPointer</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Handles the binding between a Window-object and a window-handle. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">hwnd</td><td></td></tr>
+    <tr><td class="paramname">uMsg</td><td></td></tr>
+    <tr><td class="paramname">wParam</td><td></td></tr>
+    <tr><td class="paramname">lParam</td><td></td></tr>
+    <tr><td class="paramname">bindingMessage</td><td>The message where binding has to be set. Binding is always unset on WM_NCDESTROY. </td></tr>
+    <tr><td class="paramname">extractWindowPointer</td><td>A function that knows how extract a pointer to a Window-object passed as creation-parameter when the window was created. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><br/>
+ </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>Sowl/Windows/<a class="el" href="file__WindowWithMessages_8h_source.html">WindowWithMessages.h</a></li>
 <li>Sowl/Windows/WindowWithMessages.cpp</li>
@@ -178,7 +259,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>sowl</b></li><li class="navelem"><a class="el" href="classsowl_1_1WindowWithMessages.html">WindowWithMessages</a></li>
-    <li class="footer">Generated on Thu Apr 21 2022 23:45:54 for Sowl &nbsp; by
+    <li class="footer">Generated on Fri Apr 22 2022 00:19:47 for Sowl &nbsp; by
     <a href="https://www.copperspice.com/documentation-doxypress.html">
     <img class="footer" src="doxypress.png" alt="DoxyPress"/></a> 1.4.2 </li>
   </ul>

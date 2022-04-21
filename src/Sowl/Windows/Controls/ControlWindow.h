@@ -3,6 +3,7 @@
 
 namespace sowl
 {
+	/// @brief Encapsulates a <a href="https://docs.microsoft.com/en-us/windows/win32/controls/window-controls">control window</a> handle.
 	class ControlWindow : public Window
 	{
 	public:

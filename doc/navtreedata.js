@@ -104,7 +104,6 @@ var NAVTREE =
             [ "Window", "classsowl_1_1Window.html#a1c019a5750ca6cb5583f9f2bc9fe33a4", null ],
             [ "Window", "classsowl_1_1Window.html#a493ef00d0bef6b2c3cd4f8acfde4e32d", null ],
             [ "~Window", "classsowl_1_1Window.html#a245d821e6016fa1f6970ccbbedd635f6", null ],
-            [ "BindHandle", "classsowl_1_1Window.html#a4b70e075fc94ff3a5d1283735262ab00", null ],
             [ "Destroy", "classsowl_1_1Window.html#a21c6b5aca180cf3b7933ec97b291b21e", null ],
             [ "Enable", "classsowl_1_1Window.html#abccb169f1107e37278400ac1eda6341e", null ],
             [ "GetClientRect", "classsowl_1_1Window.html#ae8794d015eac38a5bc06c2a85573aae8", null ],
@@ -117,9 +116,10 @@ var NAVTREE =
             [ "operator=", "classsowl_1_1Window.html#a7cac3da0dc383a439c18017b0c6c052d", null ],
             [ "operator=", "classsowl_1_1Window.html#a583b8088aa7ec72b2e5922f405cb449d", null ],
             [ "SetClassCursor", "classsowl_1_1Window.html#ab064df492800bc95a434d375700f5d40", null ],
+            [ "SetHandle", "classsowl_1_1Window.html#a5e8a30461ead7287b3d58b0afbcc8271", null ],
             [ "SetText", "classsowl_1_1Window.html#a763ee478742ee88e4fa7cac76512ed90", null ],
             [ "Show", "classsowl_1_1Window.html#ac7b8e86fd3c9265c6620a1afb6e6e7ca", null ],
-            [ "UnbindHandle", "classsowl_1_1Window.html#abfb11409856ee4a4139dbb9ece544d18", null ]
+            [ "UnsetHandle", "classsowl_1_1Window.html#abab1f5f1953f04e8595b546064d8421f", null ]
           ] ],
           [ "WindowClassRegisterer", "classsowl_1_1WindowClassRegisterer.html", [
             [ "WindowClassRegisterer", "classsowl_1_1WindowClassRegisterer.html#aace10b78152f86f72a87525853d1336d", null ],

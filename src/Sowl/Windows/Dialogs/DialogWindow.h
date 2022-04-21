@@ -3,6 +3,7 @@
 
 namespace sowl
 {
+	/// @brief Encapsulates a dialogbox window handle. 
 	class DialogWindow : public WindowWithMessages
 	{
 	public:

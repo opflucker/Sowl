@@ -72,15 +72,20 @@ $(document).ready(function(){initNavTree('classsowl_1_1ModalDialogWindow.html','
   <div class="clear-floats"></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Encapsulates a modal dialog window handle.  
+ <a href="classsowl_1_1ModalDialogWindow.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="file__ModalDialogWindow_8h_source.html">ModalDialogWindow.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for sowl::ModalDialogWindow:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="classsowl_1_1ModalDialogWindow.png" usemap="#sowl::ModalDialogWindow_map" alt=""/>
   <map id="sowl::ModalDialogWindow_map" name="sowl::ModalDialogWindow_map">
-<area href="classsowl_1_1DialogWindow.html" alt="sowl::DialogWindow" shape="rect" coords="0,112,168,136"/>
-<area href="classsowl_1_1WindowWithMessages.html" alt="sowl::WindowWithMessages" shape="rect" coords="0,56,168,80"/>
-<area href="classsowl_1_1Window.html" title="Encapsulates a window handle (HWND). " alt="sowl::Window" shape="rect" coords="0,0,168,24"/>
+<area href="classsowl_1_1DialogWindow.html" title="Encapsulates a dialogbox window handle. " alt="sowl::DialogWindow" shape="rect" coords="0,112,168,136"/>
+<area href="classsowl_1_1WindowWithMessages.html" title="A Window with its own window procedure. " alt="sowl::WindowWithMessages" shape="rect" coords="0,56,168,80"/>
+<area href="classsowl_1_1Window.html" title="Encapsulates a window handle. " alt="sowl::Window" shape="rect" coords="0,0,168,24"/>
   </map>
  </div></div>
 <table class="memberdecls">
@@ -169,24 +174,26 @@ HWND&#160;</td><td class="memItemRight" valign="bottom"><b>GetHandle</b> () cons
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pub_static_methods_classsowl_1_1WindowWithMessages"><td colspan="2" onclick="javascript:toggleInherit('pub_static_methods_classsowl_1_1WindowWithMessages')"><img src="closed.png" alt="-"/>&#160;Static Public Member Functions inherited from <a class="el" href="classsowl_1_1WindowWithMessages.html">sowl::WindowWithMessages</a></td></tr>
-<tr class="memitem:a0fe8d206938eaec2e37a2ef378cff636 inherit pub_static_methods_classsowl_1_1WindowWithMessages"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0fe8d206938eaec2e37a2ef378cff636"></a>
-static LRESULT&#160;</td><td class="memItemRight" valign="bottom"><b>BindAndProcess</b> (HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam, UINT bindingMessage, const std::function&lt; WindowWithMessages *(LPARAM)&gt; &amp;extractWindowPointer)</td></tr>
+<tr class="memitem:a0fe8d206938eaec2e37a2ef378cff636 inherit pub_static_methods_classsowl_1_1WindowWithMessages"><td class="memItemLeft" align="right" valign="top">static LRESULT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsowl_1_1WindowWithMessages.html#a0fe8d206938eaec2e37a2ef378cff636">BindAndProcess</a> (HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam, UINT bindingMessage, const std::function&lt; WindowWithMessages *(LPARAM)&gt; &amp;extractWindowPointer)</td></tr>
+<tr class="memdesc:a0fe8d206938eaec2e37a2ef378cff636 inherit pub_static_methods_classsowl_1_1WindowWithMessages"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles the binding between a Window-object and a window-handle.  <a href="classsowl_1_1WindowWithMessages.html#a0fe8d206938eaec2e37a2ef378cff636">More...</a><br /></td></tr>
 <tr class="separator:a0fe8d206938eaec2e37a2ef378cff636 inherit pub_static_methods_classsowl_1_1WindowWithMessages"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_methods_classsowl_1_1Window"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classsowl_1_1Window')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="classsowl_1_1Window.html">sowl::Window</a></td></tr>
-<tr class="memitem:a4b70e075fc94ff3a5d1283735262ab00 inherit pro_methods_classsowl_1_1Window"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4b70e075fc94ff3a5d1283735262ab00"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsowl_1_1Window.html#a4b70e075fc94ff3a5d1283735262ab00">BindHandle</a> (HWND handle)</td></tr>
-<tr class="memdesc:a4b70e075fc94ff3a5d1283735262ab00 inherit pro_methods_classsowl_1_1Window"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a window-handle to an expected unsetted <a class="el" href="classsowl_1_1Window.html" title="Encapsulates a window handle (HWND). ">Window</a> object. This method is expected to be called inside a window-message-processing function where binding between a window-object and a window-handle could be controlled. <br /></td></tr>
-<tr class="separator:a4b70e075fc94ff3a5d1283735262ab00 inherit pro_methods_classsowl_1_1Window"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abfb11409856ee4a4139dbb9ece544d18 inherit pro_methods_classsowl_1_1Window"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abfb11409856ee4a4139dbb9ece544d18"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsowl_1_1Window.html#abfb11409856ee4a4139dbb9ece544d18">UnbindHandle</a> ()</td></tr>
-<tr class="memdesc:abfb11409856ee4a4139dbb9ece544d18 inherit pro_methods_classsowl_1_1Window"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unset the window-handle. This method is expected to be called inside a window-message-processing function where binding between a window-object and a window-handle could be controlled. <br /></td></tr>
-<tr class="separator:abfb11409856ee4a4139dbb9ece544d18 inherit pro_methods_classsowl_1_1Window"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e8a30461ead7287b3d58b0afbcc8271 inherit pro_methods_classsowl_1_1Window"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5e8a30461ead7287b3d58b0afbcc8271"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsowl_1_1Window.html#a5e8a30461ead7287b3d58b0afbcc8271">SetHandle</a> (HWND handle)</td></tr>
+<tr class="memdesc:a5e8a30461ead7287b3d58b0afbcc8271 inherit pro_methods_classsowl_1_1Window"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a window-handle to an expected unsetted <a class="el" href="classsowl_1_1Window.html" title="Encapsulates a window handle. ">Window</a> object. If the <a class="el" href="classsowl_1_1Window.html" title="Encapsulates a window handle. ">Window</a> object was already set, an exception is raised. This method is expected to be called inside a window-message-processing function which controls binding between a window-object and a window-handle. <br /></td></tr>
+<tr class="separator:a5e8a30461ead7287b3d58b0afbcc8271 inherit pro_methods_classsowl_1_1Window"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abab1f5f1953f04e8595b546064d8421f inherit pro_methods_classsowl_1_1Window"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abab1f5f1953f04e8595b546064d8421f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsowl_1_1Window.html#abab1f5f1953f04e8595b546064d8421f">UnsetHandle</a> ()</td></tr>
+<tr class="memdesc:abab1f5f1953f04e8595b546064d8421f inherit pro_methods_classsowl_1_1Window"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unset the window-handle. This method is expected to be called inside a window-message-processing function which controls binding between a window-object and a window-handle. <br /></td></tr>
+<tr class="separator:abab1f5f1953f04e8595b546064d8421f inherit pro_methods_classsowl_1_1Window"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_static_methods_classsowl_1_1DialogWindow"><td colspan="2" onclick="javascript:toggleInherit('pro_static_methods_classsowl_1_1DialogWindow')"><img src="closed.png" alt="-"/>&#160;Static Protected Member Functions inherited from <a class="el" href="classsowl_1_1DialogWindow.html">sowl::DialogWindow</a></td></tr>
 <tr class="memitem:a50ad168f0f0488b636d161678d534d69 inherit pro_static_methods_classsowl_1_1DialogWindow"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a50ad168f0f0488b636d161678d534d69"></a>
 static LRESULT CALLBACK&#160;</td><td class="memItemRight" valign="bottom"><b>BindAndProcess</b> (HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)</td></tr>
 <tr class="separator:a50ad168f0f0488b636d161678d534d69 inherit pro_static_methods_classsowl_1_1DialogWindow"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following files:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Encapsulates a modal dialog window handle. </p>
+</div><hr/>The documentation for this class was generated from the following files:<ul>
 <li>Sowl/Windows/Dialogs/<a class="el" href="file__ModalDialogWindow_8h_source.html">ModalDialogWindow.h</a></li>
 <li>Sowl/Windows/Dialogs/ModalDialogWindow.cpp</li>
 </ul>
@@ -196,7 +203,7 @@ static LRESULT CALLBACK&#160;</td><td class="memItemRight" valign="bottom"><b>Bi
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>sowl</b></li><li class="navelem"><a class="el" href="classsowl_1_1ModalDialogWindow.html">ModalDialogWindow</a></li>
-    <li class="footer">Generated on Thu Apr 21 2022 23:45:54 for Sowl &nbsp; by
+    <li class="footer">Generated on Fri Apr 22 2022 00:19:47 for Sowl &nbsp; by
     <a href="https://www.copperspice.com/documentation-doxypress.html">
     <img class="footer" src="doxypress.png" alt="DoxyPress"/></a> 1.4.2 </li>
   </ul>
