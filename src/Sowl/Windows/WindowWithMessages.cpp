@@ -1,12 +1,12 @@
-#include "WindowBindableByWndProc.h"
+#include "WindowWithMessages.h"
 
 using namespace sowl;
 
-LRESULT WindowBindableByWndProc::WindowProcedure(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam,
+LRESULT WindowWithMessages::BindAndProcess(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam,
     UINT messageWhereBind,
-    const std::function<WindowBindableByWndProc* (LPARAM)>& extractWindowPointer)
+    const std::function<WindowWithMessages* (LPARAM)>& extractWindowPointer)
 {
-    WindowBindableByWndProc* pWindow;
+    WindowWithMessages* pWindow;
 
     if (uMsg == messageWhereBind)
     {
@@ -20,7 +20,7 @@ LRESULT WindowBindableByWndProc::WindowProcedure(HWND hwnd, UINT uMsg, WPARAM wP
     else
     {
         LONG_PTR ptr = GetWindowLongPtr(hwnd, GWLP_USERDATA);
-        pWindow = reinterpret_cast<WindowBindableByWndProc*>(ptr);
+        pWindow = reinterpret_cast<WindowWithMessages*>(ptr);
     }
 
     if (pWindow == nullptr)

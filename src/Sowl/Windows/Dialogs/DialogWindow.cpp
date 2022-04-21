@@ -31,9 +31,9 @@ bool DialogWindow::OnCommand(int notificationCode, int senderId, HWND controlHan
 
 auto extractor = [](LPARAM param) { return reinterpret_cast<DialogWindow*>(param); };
 
-INT_PTR DialogWindow::DialogProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
+LRESULT CALLBACK DialogWindow::BindAndProcess(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
     Utilities::OutputDebugWindowMessage(uMsg, L"DialogProc");
 
-    return WindowProcedure(hwnd, uMsg, wParam, lParam, WM_INITDIALOG, extractor);
+    return WindowWithMessages::BindAndProcess(hwnd, uMsg, wParam, lParam, WM_INITDIALOG, extractor);
 }

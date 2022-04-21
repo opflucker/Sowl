@@ -11,7 +11,7 @@ int ModalDialogWindow::CreateAndShow()
 {
     if (GetHandle() == nullptr)
     {
-        return (int)::DialogBoxParam(parentWindow.GetProcessHandle(), MAKEINTRESOURCE(resourceId), parentWindow.GetHandle(), DialogProc, (LPARAM)this);
+        return (int)::DialogBoxParam(parentWindow.GetProcessHandle(), MAKEINTRESOURCE(resourceId), parentWindow.GetHandle(), BindAndProcess, (LPARAM)this);
     }
     return 0;
 }

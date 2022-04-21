@@ -7,7 +7,6 @@ namespace sowl
 	{
 	public:
 		ModalDialogWindow(const Window& parentWindow, int resourceId);
-		~ModalDialogWindow() override = default;
 
 		int CreateAndShow();
 		bool End(int result) const;

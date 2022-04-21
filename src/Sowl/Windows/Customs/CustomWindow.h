@@ -1,14 +1,14 @@
 #pragma once
-#include <functional>
-#include "../Window.h"
+
 #include "WindowClassRegisterer.h"
+#include "../WindowWithMessages.h"
 #include "../WindowHandleCreator.h"
 #include "../../Graphics/PaintDeviceContext.h"
-#include "../WindowBindableByWndProc.h"
+#include <functional>
 
 namespace sowl
 {
-	class CustomWindow : public WindowBindableByWndProc
+	class CustomWindow : public WindowWithMessages
 	{
 	public:
 		CustomWindow(HINSTANCE processHandle, LPCWSTR className);
@@ -24,6 +24,6 @@ namespace sowl
 		virtual bool OnLButtonDown(int mouseKeys, int x, int y);
 
 		static WindowClassRegisterer ClassRegisterer(HINSTANCE processHandle, LPCWSTR className);
-		static LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
+		static LRESULT CALLBACK BindAndProcess(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 	};
 }

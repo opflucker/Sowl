@@ -76,7 +76,7 @@ bool CustomWindow::OnLButtonDown(int mouseKeys, int x, int y)
 
 WindowClassRegisterer sowl::CustomWindow::ClassRegisterer(HINSTANCE processHandle, LPCWSTR className)
 {
-    return WindowClassRegisterer(processHandle, className, WindowProc);
+    return WindowClassRegisterer(processHandle, className, BindAndProcess);
 }
 
 auto extractor = [](LPARAM param) {
@@ -85,9 +85,9 @@ auto extractor = [](LPARAM param) {
     return pWindow;
 };
 
-LRESULT CALLBACK CustomWindow::WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
+LRESULT CALLBACK CustomWindow::BindAndProcess(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
     Utilities::OutputDebugWindowMessage(uMsg, L"CustomWindow::WindowProc");
 
-    return WindowProcedure(hwnd, uMsg, wParam, lParam, WM_CREATE, extractor);
+    return WindowWithMessages::BindAndProcess(hwnd, uMsg, wParam, lParam, WM_CREATE, extractor);
 }

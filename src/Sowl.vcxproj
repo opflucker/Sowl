@@ -34,7 +34,7 @@
     <ClCompile Include="Sowl\Windows\Utilities.cpp" />
     <ClCompile Include="Sowl\Windows\MessageLoop.cpp" />
     <ClCompile Include="Sowl\Windows\Window.cpp" />
-    <ClCompile Include="Sowl\Windows\WindowBindableByWndProc.cpp" />
+    <ClCompile Include="Sowl\Windows\WindowWithMessages.cpp" />
     <ClCompile Include="Sowl\Windows\WindowHandleCreator.cpp" />
     <ClCompile Include="Sowl\Windows\Customs\CustomWindow.cpp" />
     <ClCompile Include="Sowl\Windows\Customs\WindowClassRegisterer.cpp" />
@@ -60,7 +60,7 @@
     <ClInclude Include="Sowl\Windows\WindowHandleCreator.h" />
     <ClInclude Include="Sowl\Windows\Customs\CustomWindow.h" />
     <ClInclude Include="Sowl\Windows\Customs\WindowClassRegisterer.h" />
-    <ClInclude Include="Sowl\Windows\WindowBindableByWndProc.h" />
+    <ClInclude Include="Sowl\Windows\WindowWithMessages.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

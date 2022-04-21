@@ -20,7 +20,7 @@ void ModelessDialogWindow::CreateAndShow()
     {
         HINSTANCE processHandle = pParentWindow == nullptr ? nullptr : pParentWindow->GetProcessHandle();
         HWND parentWindowHandle = pParentWindow == nullptr ? nullptr : pParentWindow->GetHandle();
-        CreateDialogParam(processHandle, MAKEINTRESOURCE(resourceId), parentWindowHandle, DialogProc, (LPARAM)this);
+        CreateDialogParam(processHandle, MAKEINTRESOURCE(resourceId), parentWindowHandle, BindAndProcess, (LPARAM)this);
     }
     Show(SW_SHOW);
 }
