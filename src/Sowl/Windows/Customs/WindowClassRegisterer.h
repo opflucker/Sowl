@@ -3,7 +3,7 @@
 
 namespace sowl
 {
-	/// @brief Builds a call to ::RegisterClass.
+	/// @brief Builds a call to <a href"https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-registerclassw">RegisterClass</a>.
 	class WindowClassRegisterer
 	{
 	public:

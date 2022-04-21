@@ -3,12 +3,12 @@
 using namespace sowl;
 
 LRESULT WindowWithMessages::BindAndProcess(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam,
-    UINT messageWhereBind,
+    UINT bindingMessage,
     const std::function<WindowWithMessages* (LPARAM)>& extractWindowPointer)
 {
     WindowWithMessages* pWindow;
 
-    if (uMsg == messageWhereBind)
+    if (uMsg == bindingMessage)
     {
         pWindow = extractWindowPointer(lParam);
         if (pWindow != nullptr)

@@ -73,7 +73,7 @@ HINSTANCE Window::GetProcessHandle() const
     return (HINSTANCE)GetWindowLongPtr(hwnd, GWLP_HINSTANCE);
 }
 
-/// @brief Encapsulates a call to ::GetDlgItem.
+/// @brief Encapsulates a call to <a href="https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-getdlgitem">GetDlgItem</a>.
 /// @param id Control id.
 /// @return Control handle.
 HWND Window::GetDialogItem(int id) const
@@ -81,35 +81,35 @@ HWND Window::GetDialogItem(int id) const
     return GetDlgItem(hwnd, id);
 }
 
-/// @brief Encapsulates a call to ::EnableWindow.
+/// @brief Encapsulates a call to <a href="https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-enablewindow">EnableWindow</a>.
 /// @param Indicates whether to enable or disable the window.
 void Window::Enable(bool enable)
 {
     EnableWindow(hwnd, enable);
 }
 
-/// @brief Encapsulates a call to ::IsWindowEnabled.
+/// @brief Encapsulates a call to <a href="https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-iswindowenabled">IsWindowEnabled</a>.
 /// @return Indicates if the window is enabled.
 bool Window::IsEnabled()
 {
     return IsWindowEnabled(hwnd);
 }
 
-/// @brief Encapsulates a call to ::SetClassLong with index GCL_HCURSOR.
+/// @brief Encapsulates a call to <a href="https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-setclasslonga">SetClassLong</a> with index GCL_HCURSOR.
 /// @param hcursor The cursor to be set. 
 void Window::SetClassCursor(HCURSOR hcursor)
 {
     SetClassLong(hwnd, GCLP_HCURSOR, (LONG)(intptr_t)hcursor);
 }
 
-/// @brief Encapsulates a call to ::SetWindowText.
+/// @brief Encapsulates a call to <a href="https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-setwindowtextw">SetWindowText</a>.
 /// @param title The window title to be set.
 void Window::SetText(LPCWSTR title)
 {
     ::SetWindowText(hwnd, title);
 }
 
-/// @brief Encapsulates a call to ::InvalidateRect with lpRect to NULL.
+/// @brief Encapsulates a call to <a href="https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-invalidaterect">InvalidateRect</a> with lpRect to NULL.
 /// @param erase Indicates the invalidated area should be erased (using the window class brush) before be repainted.
 /// @return Indicates if the method call was successful.
 bool Window::InvalidateRect(bool erase)
@@ -117,7 +117,7 @@ bool Window::InvalidateRect(bool erase)
     return ::InvalidateRect(hwnd, nullptr, erase);
 }
 
-/// @brief Encapsulates a call to ::InvalidateRect.
+/// @brief Encapsulates a call to <a href="https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-invalidaterect">InvalidateRect</a>.
 /// @param rect Area to be invalidated.
 /// @param erase Indicates the invalidated area should be erased (using the window class brush) before be repainted.
 /// @return Indicates if the method call was successful.
@@ -126,7 +126,7 @@ bool Window::InvalidateRect(const RECT& rect, bool erase)
     return ::InvalidateRect(hwnd, &rect, erase);
 }
 
-/// @brief Encapsulates a call to ::GetClientRect.
+/// @brief Encapsulates a call to <a href="https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-getclientrect">GetClientRect</a>.
 /// @return The client rect area.
 RECT Window::GetClientRect()
 {
@@ -135,7 +135,7 @@ RECT Window::GetClientRect()
     return rect;
 }
 
-/// @brief Encapsulates a call to ::ShowWindow.
+/// @brief Encapsulates a call to <a href="https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-showwindow">ShowWindow</a>.
 /// @param nCmdShow Indicates how the window is to be shown.
 /// @return Indicates if the window was previously visible.
 bool Window::Show(int nCmdShow) const
